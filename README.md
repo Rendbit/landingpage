@@ -1,54 +1,87 @@
-# React + TypeScript + Vite
+# Rendbit
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Rendbit** is a blockchain-powered financial platform built on the Stellar blockchain, designed to revolutionize African cross-border payments and digital asset creation. It empowers individuals and businesses with decentralized tools for finance, tokenization, and launchpad services.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌍 Executive Summary
 
-## Expanding the ESLint configuration
+Rendbit addresses the gaps in Africa's financial infrastructure by focusing on two major verticals:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Cross-Border Payment Infrastructure**  
+2. **Token Creation & Management Platform**  
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Built on Stellar, Rendbit provides a seamless experience for remittances, fiat-XLM swaps, and tokenized asset management—all with low fees and fast settlement times.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 1. Cross-Border Payment System (Powered by Stellar)
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### 🎯 Purpose
+To enable fast, secure, and affordable cross-border payments across African countries using Stellar’s blockchain infrastructure.
+
+### 🔑 Key Features
+
+- **Anchor Integration**  
+  XLM is sent to an anchor in the origin country (e.g., Ghana) and converted to local fiat (e.g., GHS) before reaching the recipient.
+
+- **Multi-Currency Support**  
+  Supports NGN, GHS, KES, ZAR with more countries to follow.
+
+- **Fiat-XLM Swaps**  
+  - Convert local currency to XLM  
+  - Swap between African currencies via XLM  
+  - Low fees (~0.00001 XLM), 3–5s finality
+
+- **Financial Utilities**  
+  - **Deposit & Withdraw** via bank/mobile money  
+  - **Save & Stake** to earn interest  
+  - **Lend & Borrow** via Soroban smart contracts
+
+---
+
+## 💎 2. Token Creation Platform (Built on Stellar)
+
+### 🎯 Purpose
+To enable anyone to create, issue, and manage custom tokens easily, powering ecosystems like community coins, loyalty programs, and stablecoins.
+
+### 🔑 Key Features
+
+- **Custom Token Creation**  
+  Define name, symbol, supply, decimals, and permissions.
+
+- **Integrated Token Trading**  
+  All tokens are instantly tradable on Stellar’s DEX.
+
+- **Token Management Tools**  
+  Admin features for minting, burning, freezing, and trustline management.
+
+- **Presale & Liquidity Bootstrapping**  
+  Launch tokens with presales and liquidity pools.
+
+---
+
+## 📈 Market Opportunity
+
+- $48B remitted to Sub-Saharan Africa in 2023 via high-cost services  
+- Rising demand for borderless, permissionless financial tools  
+- Growth in tokenization, community finance, and creator economies  
+
+---
+
+## ⭐ Why Stellar?
+
+- Near-instant settlement (3–5 seconds)  
+- Micro-fees (~$0.00001 per transaction)  
+- Smart contracts via **Soroban**  
+- Existing regulated anchors & on/off ramps  
+
+---
+
+## 🔚 Conclusion
+
+**Rendbit** is committed to powering Africa’s decentralized financial future. Through Stellar’s infrastructure, Rendbit offers efficient cross-border transactions, flexible token tools, and an innovative launchpad—driving access, innovation, and economic growth across the continent.
+
+---
+
+> 🚧 *This project is under active development.*
