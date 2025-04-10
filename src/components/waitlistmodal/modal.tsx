@@ -29,14 +29,13 @@ const RendBitWaitlistForm: React.FC = () => {
     setError(null);
     try {
       const res = await fetch(
-        "https://rendbit-waitlist-server.onrender.com/waitlist-api/user/join",
+        `${import.meta.env.VITE_API_URL}/waitlist-api/user/join`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
-            "x-api-key":
-              "FDAye5u6y52jk6ryh3n:OIYUITRUIQTjdgcn2bvGFASdjtkyuj,tdnfkhu8&^*%&E%IDTycghjmbnerh",
+            "x-api-key": import.meta.env.VITE_API_KEY || "",
           },
           body: JSON.stringify(formData),
         }
