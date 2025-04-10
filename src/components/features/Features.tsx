@@ -3,6 +3,7 @@ import deposit_svg from "../../assets/svg/deposit.svg";
 import swap_svg from "../../assets/svg/swap.svg";
 import withdraw_svg from "../../assets/svg/withdraw.svg";
 import ai_svg from "../../assets/svg/ai.svg";
+import feature_bg_video from "../../assets/feature.mp4";
 
 const features = [
   {
@@ -49,49 +50,61 @@ const features = [
 
 const Features: React.FC = () => {
   return (
-    <section
-      className="text-white py-20 px-6 md:px-12 lg:px-24"
-    >
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          From cash to crypto – and back again.
-        </h2>
+    <div className="h-[100vh]">
+    <div className="absolute w-full h-full -z-10">
+      <video
+        autoPlay
+        loop
+        muted
+        className="w-full h-full object-cover"
+      >
+        <source src={feature_bg_video} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div className="absolute inset-0 bg-black opacity-90"></div>
+    </div>
+      <section className="text-white py-20 px-6 md:px-12 lg:px-24">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+            From cash to crypto – and back again.
+          </h2>
 
-        <div className="grid gap-20">
-          {features.map((feature, index) => {
-            const isImageLeft = feature.imagePosition === "right";
+          <div className="grid gap-20">
+            {features.map((feature, index) => {
+              const isImageLeft = feature.imagePosition === "right";
 
-            return (
-              <div
-                key={index}
-                className={`relative px-6 flex flex-col-reverse sm:flex-row ${
-                  isImageLeft ? "" : "sm:flex-row-reverse"
-                }  gap-8 rounded-2xl  bg-[#000D2C4D] border border-[#323b3f]`}
-              >
+              return (
                 <div
-                  className={`w-full sm:w-1/2 z-10 mt-7 pb-5 sm:text-left ${feature.contentStyle}`}
+                  key={index}
+                  className={`relative px-6 flex flex-col-reverse sm:flex-row ${
+                    isImageLeft ? "" : "sm:flex-row-reverse"
+                  }  gap-8 rounded-2xl  bg-[#000D2C4D] border border-[#323b3f]`}
                 >
-                  <h3 className={`${feature.titleStyle}`}>{feature.title}</h3>
-                  <p className="text-gray-300 mt-6 text-base">
-                    {feature.description}
-                  </p>
-                </div>
+                  <div
+                    className={`w-full sm:w-1/2 z-10 mt-7 pb-5 sm:text-left ${feature.contentStyle}`}
+                  >
+                    <h3 className={`${feature.titleStyle}`}>{feature.title}</h3>
+                    <p className="text-gray-300 mt-6 text-base">
+                      {feature.description}
+                    </p>
+                  </div>
 
-                <div
-                  className={`w-full  sm:w-1/2 relative z-0 flex ${feature.imageStyle}`}
-                >
-                  <img
-                    src={feature.image}
-                    alt={feature.title}
-                    className={`w-full object-contain`}
-                  />
+                  <div
+                    className={`w-full  sm:w-1/2 relative z-0 flex ${feature.imageStyle}`}
+                  >
+                    <img
+                      src={feature.image}
+                      alt={feature.title}
+                      className={`w-full object-contain`}
+                    />
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 
