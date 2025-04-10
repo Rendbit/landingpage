@@ -50,7 +50,7 @@ const features = [
 
 const Features: React.FC = () => {
   return (
-    <div className="h-[100vh]">
+    <div id="features">
     <div className="absolute w-full h-full -z-10">
       <video
         autoPlay
