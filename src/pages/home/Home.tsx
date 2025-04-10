@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Features from "../../components/features/Features";
 import WhyChooseUs from "../../components/whychooseus/WhyChooseUs";
+import RendBitWaitlistForm from "../../components/waitlistmodal/modal";
 
 const Home: React.FC = () => {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div>
       <div className="text-white">
@@ -16,7 +20,7 @@ const Home: React.FC = () => {
                 Be part of the early Users of Rendbit, receive relevant
                 information on time. Join now
               </p>
-              <button className="cursor-pointer px-[20px] py-[10px] border rounded-[10px] bg-gradient-to-r from-black to-gray-800">
+              <button onClick={() => setIsModalOpen(true)} className="cursor-pointer px-[20px] py-[10px] border rounded-[10px] bg-gradient-to-r from-black to-gray-800">
                 Join Wait-list
               </button>
             </div>
@@ -80,7 +84,7 @@ const Home: React.FC = () => {
               <img src="./image/00031.svg" alt="" />
             </div>
             <div className="flex items-center justify-between mt-10 flex-col">
-              <p>Token Traading</p>
+              <p>Token Trading</p>
               <img src="./image/00041.svg" alt="" />
             </div>
             <div className="flex items-center justify-between mt-10 flex-col">
@@ -93,12 +97,21 @@ const Home: React.FC = () => {
       <div
         style={{
           background:
-            "radial-gradient(104.9% 118.4% at -4.27% 84.96%, rgba(121, 131, 240, 0.7) 0%, rgba(79, 85, 156, 0.7) 32.51%, rgba(0, 0, 0, 0.7) 100%)",
+            "radial-gradient(104.9% 118.4% at -4.27% 84.96%, rgba(121, 131, 240, 0.7) 0%, rgba(79, 85, 156, 0.7) 32.51%, rgba(0, 13, 44, 1) 100%)",
         }}
       >
         <WhyChooseUs />
         <Features />
       </div>
+      {
+        isModalOpen && (
+          <RendBitWaitlistForm
+            // isOpen={isModalOpen}
+            // onClose={() => setIsModalOpen(false)}
+            setIsModalOpen={setIsModalOpen}
+          />
+        )
+      }
     </div>
   );
 };

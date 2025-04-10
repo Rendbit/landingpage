@@ -54,7 +54,7 @@ const Features: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          From cash to crypto – and back again.
+          From cash to crypto - and back again.
         </h2>
 
         <div className="grid gap-20">
