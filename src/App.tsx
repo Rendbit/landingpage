@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
+import React from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import Home from "./pages/home/Home";
 
-function App() {
-
+const App: React.FC = () => {
   return (
     <div>
       <HashRouter>
@@ -20,6 +19,6 @@ function App() {
       </HashRouter>
     </div>
   );
-}
+};
 
 export default App;
