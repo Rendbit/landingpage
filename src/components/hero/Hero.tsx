@@ -426,6 +426,16 @@ const Hero: React.FC = () => {
           <p className="text-[#ffffff] mt-2 uppercase tracking-[8.319px] self-end font-[500]">
             Supported by:
           </p>
+          {!next ?
+            <div className="flex items-center gap-10 mt-[2rem]">
+            <img
+              src={stellarFoundation}
+              className="w-[100px]"
+              alt="Stellar Foundation"
+            />
+            <img src={stellar} className="w-[100px]" alt="Stellar" />
+          </div>
+          :
           <div className="flex items-center gap-10 mt-[2rem]">
             <img
               src={stellarFoundation}
@@ -434,6 +444,7 @@ const Hero: React.FC = () => {
             />
             <img src={stellar} className="w-[70px] md:w-[100%]" alt="Stellar" />
           </div>
+          }
         </div>
       </div>
 
