@@ -423,17 +423,36 @@ const Hero: React.FC = () => {
           }
         `}</style>
         <div className="w-full md:mr-[20rem] md:mt-0 mt-10 ">
-          <p className="text-[#ffffff] mt-2 uppercase tracking-[8.319px] self-end font-[500]">
+          <p
+            className={`text-[#ffffff] ${
+              !next && "mt-5"
+            } uppercase tracking-[8.319px] self-end font-[500]`}
+          >
             Supported by:
           </p>
-          <div className="flex items-center gap-10 mt-[2rem]">
-            <img
-              src={stellarFoundation}
-              className="w-[70px] md:w-[100%]"
-              alt="Stellar Foundation"
-            />
-            <img src={stellar} className="w-[70px] md:w-[100%]" alt="Stellar" />
-          </div>
+          {!next ? (
+            <div className="flex items-center gap-10 mt-[2rem]">
+              <img
+                src={stellarFoundation}
+                className="w-[200px]"
+                alt="Stellar Foundation"
+              />
+              <img src={stellar} className="w-[200px]" alt="Stellar" />
+            </div>
+          ) : (
+            <div className="flex items-center gap-10 mt-[2rem]">
+              <img
+                src={stellarFoundation}
+                className="w-[70px] md:w-[100%]"
+                alt="Stellar Foundation"
+              />
+              <img
+                src={stellar}
+                className="w-[70px] md:w-[100%]"
+                alt="Stellar"
+              />
+            </div>
+          )}
         </div>
       </div>
 
