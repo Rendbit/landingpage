@@ -19,7 +19,7 @@ const Home: React.FC = () => {
           <WhyChooseUs />
         </div>
 
-        <div className="mx-6">
+        <div className="mx-6 pt-5" id="about">
           <div className="w-full max-w-[1300px] mx-auto flex flex-col md:flex-row items-center justify-between border border-gray-600 rounded-[20px] py-10 px-6 md:px-15 mt-[70px] gap-10">
             <div className="flex-1">
               <p className="text-[30px] md:text-[50px] leading-[35px] md:leading-[50px] mb-6 font-semibold">

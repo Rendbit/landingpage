@@ -1,25 +1,27 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const useModal = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  useEffect(() => {
-    if (!isModalOpen) {
-      setIsModalOpen(false);
-    } else {
-      setIsModalOpen(true);
-    }
-  }, [isModalOpen]);
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
 
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
 
-  return {
-    isModalOpen,
-    openModal,
-    closeModal,
-    setIsModalOpen,
-  };
+    const toggleModal = () => {
+        setIsModalOpen((prev) => !prev);
+    };
+
+    return {
+        isModalOpen,
+        openModal,
+        closeModal,
+        toggleModal,
+        setIsModalOpen,
+    };
 };
 
 export default useModal;
