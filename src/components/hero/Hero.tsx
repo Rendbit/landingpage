@@ -63,7 +63,6 @@ const Hero: React.FC = () => {
           Number(currencyAmount || value),
           selectedCurrency.symbol
         );
-        console.log(rate);
         setXlmRate(rate.currencyToXlm);
         setRateExchangerate(rate.xlmToCurrency);
       } catch (error) {
@@ -110,17 +109,19 @@ const Hero: React.FC = () => {
       setSwapping(true);
 
       setTimeout(() => {
-        setXlmRate("");
-        setSlippage(2.5);
-        setSwap(false);
-        setNext(false);
-        setSwapping(false);
-        toast.success(
-          `${selectedCurrency.displaySymbol} ${formatNumberWithCommas(
-            currencyAmount
-          )} swapped to XLM successfully.`
-        );
-        setCurrencyAmount("");
+        if (swap) {
+          setXlmRate("");
+          setSlippage(2.5);
+          setSwap(false);
+          setNext(false);
+          setSwapping(false);
+          toast.success(
+            `${selectedCurrency.displaySymbol} ${formatNumberWithCommas(
+              currencyAmount
+            )} swapped to XLM successfully.`
+          );
+          setCurrencyAmount("");
+        }
       }, 3000);
     }
   };
@@ -381,7 +382,8 @@ const Hero: React.FC = () => {
             <div className="py-4 px-[40px] rounded-[8px] lg:w-[500px] w-full bg-black mt-[1rem] border border-[#B2B2B27A] animate-fade-in">
               <p className="text-[14px] text-[#ffffff] border-b border-[#CFCFCF] pb-2">
                 {selectedCurrency.displaySymbol}{" "}
-                {formatNumberWithCommas(currencyAmount)} = XLM {formatNumberWithCommas(xlmRate)}
+                {formatNumberWithCommas(currencyAmount)} = XLM{" "}
+                {formatNumberWithCommas(xlmRate)}
               </p>
               <div className="flex flex-col gap-[8px] mt-5">
                 <div className="flex items-center justify-between text-[14px] text-[#ffffff]">
