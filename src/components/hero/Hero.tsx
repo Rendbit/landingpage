@@ -107,7 +107,7 @@ const Hero: React.FC = () => {
     if (currencyAmount && xlmRate) {
       setSwap(true);
       setSwapping(true);
-
+      console.log(swap);
       setTimeout(() => {
         setXlmRate("");
         setSlippage(2.5);
