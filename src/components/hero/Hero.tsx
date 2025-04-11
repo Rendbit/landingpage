@@ -1,29 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import bg_video from "../../assets/video.mp4";
 import nigeria from "../../assets/svg/Nigeria.svg";
 import xlm from "../../assets/svg/Stellar_(XLM).svg";
 import stellar from "../../assets/svg/stellar.svg";
 import stellarFoundation from "../../assets/svg/stellar-foundation.svg";
 import { IoChevronDown } from "react-icons/io5";
-import useModal from "../../hooks/useModal";
 import RendBitWaitlistForm from "../waitlistmodal/modal";
 
 const Hero: React.FC = () => {
-  const { openModal, isModalOpen } = useModal();
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const toggleModal = () => {
+    setIsModalOpen((prev) => !prev);
+  };
   return (
     <div id="home">
-      <video
-        autoPlay
-        loop
-        muted
-        className="absolute top-0 left-0 w-full h-full object-cover -z-10"
-      >
-        <source src={bg_video} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      <div className="absolute top-0 left-0 w-full h-full -z-10">
+        <video autoPlay loop muted className="w-full h-full object-cover">
+          <source src={bg_video} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="bg-black opacity-50 md:hidden w-full h-full absolute top-0 left-0"></div>
+      </div>
       <div className="flex justify-between">
-        <main className="md:px-[64px] mt-[50px] px-[16px] flex items-center lg:max-w-[1400px] w-[100%] mx-auto flex-col md:flex-row">
-          <div className="md:mt-[2rem]">
+        <main className="md:px-[64px]  mt-[50px] px-[16px] flex items-center lg:max-w-[1400px] w-[100%] mx-auto flex-col md:flex-row">
+          <div className="mt-[100px] md:mt-[2rem]">
             <p className="home-text-gradient lg:text-[62px] md:text-[52px] text-[45px] font-[600] md:w-[400px] md:leading-[68px] leading-[45px]">
               Earn, Save, Spend, Create Token
             </p>
@@ -37,13 +38,13 @@ const Hero: React.FC = () => {
               bridge. Join now
             </p>
             <button
-              onClick={() => openModal()}
+              onClick={() => toggleModal()}
               className="cursor-pointer mt-3 px-[20px] py-[10px] border rounded-[10px] bg-gradient-to-r from-black to-gray-800"
             >
               Join Wait-list
             </button>
           </div>
-          <div className="flex justify-center items-center rounded-[11px] mt-9 flex-col">
+          <div className="flex justify-center mt-[400px] md:mt-9 items-center rounded-[11px]  flex-col">
             <div className="flex justify-center items-center w-full">
               <div className="bg-[#000000] border border-[#B2B2B27A] py-6 sm:px-[40px] p-[15px] rounded-[8px]  lg:w-[500px] w-full">
                 <div className="mb-4">
@@ -130,7 +131,7 @@ const Hero: React.FC = () => {
         </main>
       </div>
       <div
-        className={`flex md:flex-row-reverse flex-col mt-[200px] md:mt-[0px] md:px-[64px] px-[16px] items-end justify-between lg:max-w-[1400px] md:w-[100%] mx-auto`}
+        className={`flex md:flex-row-reverse flex-col mt-[50px] md:mt-[0px] md:px-[64px] px-[16px] items-end justify-between lg:max-w-[1400px] md:w-[100%] mx-auto`}
       >
         <div className=" flex justify-center items-center w-full">
           <div className="py-4 px-[40px] rounded-[8px] lg:w-[500px] w-full bg-black mt-[1rem] border border-[#B2B2B27A]">
@@ -192,7 +193,12 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {isModalOpen && <RendBitWaitlistForm />}
+      {isModalOpen && (
+        <RendBitWaitlistForm
+          isModalOpen={isModalOpen}
+          toggleModal={toggleModal}
+        />
+      )}
 
       <style>{`
       @keyframes marquee {
