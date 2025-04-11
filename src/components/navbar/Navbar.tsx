@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import RendBitWaitlistForm from "../waitlistmodal/modal";
+import { analytics, logEvent } from "../../tools/firebase";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,8 +12,14 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <div className="text-white bg-[transparent] w-full max-w-[1300px] mx-auto flex items-center justify-between mt-[35px] px-4 relative z-30">
-      <a href="/" className="flex items-end gap-2 text-xl font-bold">
+    <div className="text-white bg-[transparent] w-full max-w-[1300px] mx-auto flex items-center justify-between mt-[35px] px-4 relative z-30" >
+      <a
+        href="#home"
+        onClick={() => {
+          logEvent(analytics, "rendbit_logo");
+        }}
+        className="flex items-end gap-2 text-xl font-bold"
+      >
         <img src="./image/logo.svg" alt="logo" />
         RendBit
       </a>
@@ -37,6 +44,7 @@ const Navbar: React.FC = () => {
           <button
             onClick={() => {
               toggleModal();
+              logEvent(analytics, "rendbit_waitlist_join_desktop_navbar");
             }}
             className="relative cursor-pointer text-white font-bold bg-[#0A1F35] py-3 px-6 rounded-[13px] transition-all duration-300"
           >
@@ -75,13 +83,31 @@ const Navbar: React.FC = () => {
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <a href="#home" onClick={() => setIsOpen(false)}>
+        <a
+          href="#home"
+          onClick={() => {
+            setIsOpen(false);
+            logEvent(analytics, "rendbit_home");
+          }}
+        >
           Home
         </a>
-        <a href="#about" onClick={() => setIsOpen(false)}>
+        <a
+          href="#about"
+          onClick={() => {
+            setIsOpen(false);
+            logEvent(analytics, "rendbit_about");
+          }}
+        >
           About
         </a>
-        <a href="#features" onClick={() => setIsOpen(false)}>
+        <a
+          href="#features"
+          onClick={() => {
+            setIsOpen(false);
+            logEvent(analytics, "rendbit_features");
+          }}
+        >
           Features
         </a>
         <button
@@ -89,6 +115,7 @@ const Navbar: React.FC = () => {
           onClick={() => {
             setIsOpen(false);
             toggleModal();
+            logEvent(analytics, "rendbit_waitlist_join_mobile_navbar");
           }}
         >
           Get Started
