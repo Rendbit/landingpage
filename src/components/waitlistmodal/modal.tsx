@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import useModal from "../../hooks/useModal";
 import { toast } from "react-toastify";
+import { CgClose } from "react-icons/cg";
 
 interface FormData {
   firstName: string;
@@ -8,7 +8,15 @@ interface FormData {
   email: string;
 }
 
-const RendBitWaitlistForm: React.FC = () => {
+interface RendBitWaitlistFormProps {
+  isModalOpen: boolean;
+  toggleModal: () => void;
+}
+
+const RendBitWaitlistForm: React.FC<RendBitWaitlistFormProps> = ({
+  isModalOpen,
+  toggleModal,
+}) => {
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
@@ -16,7 +24,6 @@ const RendBitWaitlistForm: React.FC = () => {
   });
   const [processing, setProcessing] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const { closeModal } = useModal();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
@@ -60,7 +67,7 @@ const RendBitWaitlistForm: React.FC = () => {
       toast.success("Successfully joined the waitlist!");
       setFormData({ firstName: "", lastName: "", email: "" });
 
-      closeModal();
+      toggleModal();
     } catch (error) {
       console.error("Error submitting form:", error);
     } finally {
@@ -70,31 +77,33 @@ const RendBitWaitlistForm: React.FC = () => {
 
   return (
     <>
-      <div className="fixed inset-0 flex items-center justify-center bg-[#00000090] z-50">
+      <div
+        className={`${
+          isModalOpen ? "flex" : "hidden"
+        } flex fixed inset-0 items-center justify-center bg-[#00000090] z-50 overflow-hidden`}
+      >
+        <div
+          className="fixed inset-0 bg-black opacity-50"
+          aria-hidden="true"
+        ></div>
+        <div className="relative z-10"></div>
         <div className="rounded-3xl w-full max-w-lg border border-gray-700 bg-[#000D2C] p-8 relative">
           <div className="flex items-center mb-12">
             <div className="flex items-center">
               <div className="text-blue-400 mr-2">
-                <svg
-                  width="48"
-                  height="48"
-                  viewBox="0 0 48 48"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M12 36L4 18L24 4L44 18L36 36H12Z" fill="#4299E1" />
-                  <circle cx="36" cy="12" r="4" fill="#63B3ED" />
-                </svg>
+                <img src="./image/logo.svg" alt="RendBit" />
               </div>
               <h1 className="text-white text-3xl font-bold">RendBit</h1>
             </div>
             <button
-              className="ml-auto cursor-pointer text-gray-400 hover:text-white"
-              onClick={closeModal}
+              className="ml-auto  rounded-full bg-white cursor-pointer text-gray-900 p-1 text-[18px]"
+              onClick={() => {
+                toggleModal();
+              }}
               aria-label="Close modal"
               type="button"
             >
-              X
+              <CgClose />
             </button>
           </div>
 
@@ -145,12 +154,18 @@ const RendBitWaitlistForm: React.FC = () => {
               />
             </div>
 
-            <button
-              type="submit"
-              className="w-full cursor-pointer bg-[#0A1F35] text-white py-4 rounded-lg hover:bg-gray-800 font-bold tracking-wide uppercase"
-            >
-              {processing ? "Joining..." : "JOIN WAIT-LIST"}
-            </button>
+            <div className="relative rounded-[13px] p-0.5 bg-gradient-to-r from-cyan-300 to-[#0A1F35] shadow-lg">
+              <div className="absolute cursor-pointer inset-0 rounded-[13px] bg-cyan-300 blur-md opacity-40 -z-10"></div>
+              <button
+                type="submit"
+                className="relative cursor-pointer w-full text-white font-bold bg-[#0A1F35] py-3 px-6 rounded-[13px] transition-all duration-300"
+              >
+                <span className="relative z-10">
+                  {processing ? "Joining..." : "JOIN WAIT-LIST"}
+                </span>
+                <div className="absolute inset-0 rounded-[13px] bg-[#0A1F35] opacity-30 blur-sm -z-10"></div>
+              </button>
+            </div>
           </form>
         </div>
       </div>
