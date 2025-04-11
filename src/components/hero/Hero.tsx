@@ -107,7 +107,7 @@ const Hero: React.FC = () => {
     if (currencyAmount && xlmRate) {
       setSwap(true);
       setSwapping(true);
-
+      console.log(swap);
       setTimeout(() => {
         setXlmRate("");
         setSlippage(2.5);
@@ -158,7 +158,7 @@ const Hero: React.FC = () => {
               Join Wait-list
             </button>
           </div>
-          <div className="flex justify-center mt-[400px] sm:mt-[100px] md:mt-9 items-center rounded-[11px]  flex-col">
+          <div className="flex justify-center mt-[300px] sm:mt-[100px] md:mt-9 items-center rounded-[11px]  flex-col">
             <div className="flex justify-center items-center w-full">
               <div className="bg-[#000000] border border-[#B2B2B27A] py-6 sm:px-[40px] p-[15px] rounded-[8px]  lg:w-[500px] w-full">
                 <div className="mb-4">
