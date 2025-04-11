@@ -1,4 +1,4 @@
-import React, {  useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import bg_video from "../../assets/video.mp4";
 import nigeria from "../../assets/svg/Nigeria.svg";
 import xlm from "../../assets/svg/Stellar_(XLM).svg";
@@ -9,65 +9,123 @@ import { IoChevronDown } from "react-icons/io5";
 import RendBitWaitlistForm from "../waitlistmodal/modal";
 import { logEvent, analytics } from "../../tools/firebase";
 import { getXlmConversionRates } from "../../utils";
+import { toast } from "react-toastify";
 
 const currencies = [
   {
     symbol: "NGN",
+    displaySymbol: "NGN",
     name: "Naira",
     logo: nigeria,
   },
   {
-    symbol: "USDC",
+    symbol: "USD",
+    displaySymbol: "USDC",
     name: "Dollar",
     logo: usdc,
   },
 ];
 const Hero: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [next, setNext] = useState<boolean>(false);
+  const [swap, setSwap] = useState<boolean>(false);
+  const [swapping, setSwapping] = useState<boolean>(false);
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
-  const [nairaAmount, setNairaAmount] = useState<number | string>("");
+  const [currencyAmount, setCurrencyAmount] = useState<number | string>("");
+  const [rateExchangerate, setRateExchangerate] = useState<number | string>("");
   const [xlmRate, setXlmRate] = useState<number | string>("");
+  const [slippage, setSlippage] = useState<number>(2.5);
   const [selectedCurrency, setSelectedCurrency] = useState(currencies[0]);
   const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
+  const [processing, setProcessing] = useState<boolean>(false);
 
   const handleCurrencyChange = (currencySymbol: string) => {
     const currency = currencies.find((cur) => cur.symbol === currencySymbol);
     if (currency) {
       setSelectedCurrency(currency);
       setDropdownOpen(false);
+      fetchXlmRate();
     }
   };
 
-  const fetchXlmRate = async () => {
-    if (nairaAmount) {
+  useEffect(() => {
+    if (!currencyAmount || !xlmRate) {
+      setNext(false);
+      setSwap(false);
+    }
+  }, [currencyAmount, xlmRate]);
+
+  const fetchXlmRate = async (value?: number) => {
+    if (currencyAmount || value) {
+      setProcessing(true);
       try {
         const rate = await getXlmConversionRates(
-          Number(nairaAmount),
+          Number(currencyAmount || value),
           selectedCurrency.symbol
         );
-        console.log({ rate });
-        setXlmRate(rate);
+        setXlmRate(rate.currencyToXlm);
+        setRateExchangerate(rate.xlmToCurrency);
       } catch (error) {
         console.error("Error fetching XLM conversion rate:", error);
+      } finally {
+        setProcessing(false);
       }
+    } else {
+      setXlmRate("");
     }
   };
-
-//   useEffect(() => {
-//     fetchXlmRate();
-//   }, [nairaAmount]);
 
   const handleNairaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     if (!isNaN(Number(value))) {
-      setNairaAmount(value);
+      setCurrencyAmount(value);
     }
+    if (!value) {
+      setXlmRate("");
+    }
+  };
+
+  const handleMax = (value: number) => {
+    setCurrencyAmount(value);
   };
 
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);
   };
+
+  const handleNext = () => {
+    if (currencyAmount && xlmRate) {
+      setNext(true);
+    }
+  };
+
+  const formatNumberWithCommas = (number: number | string): string => {
+    return Number(number).toLocaleString();
+  };
+
+  const handleSwap = () => {
+    if (currencyAmount && xlmRate) {
+      setSwap(true);
+      setSwapping(true);
+
+      setTimeout(() => {
+        if (swap) {
+          setXlmRate("");
+          setSlippage(2.5);
+          setSwap(false);
+          setNext(false);
+          setSwapping(false);
+          toast.success(
+            `${selectedCurrency.displaySymbol} ${formatNumberWithCommas(
+              currencyAmount
+            )} swapped to XLM successfully.`
+          );
+          setCurrencyAmount("");
+        }
+      }, 3000);
+    }
+  };
+
   return (
     <div>
       <div className="absolute top-0 left-0 w-full h-full -z-10">
@@ -127,7 +185,7 @@ const Hero: React.FC = () => {
                           className="w-[20px]"
                         />
                         <p className="mr-2 ml-1 text-[14px]">
-                          {selectedCurrency.symbol}
+                          {selectedCurrency.displaySymbol}
                         </p>
                         <IoChevronDown className="text-white" />
                         {dropdownOpen && (
@@ -138,8 +196,10 @@ const Hero: React.FC = () => {
                                 className="flex items-center gap-2 p-2 cursor-pointer hover:bg-[#1a1a1a]"
                                 onClick={(e) => {
                                   e.stopPropagation();
-                                  handleCurrencyChange(currency.symbol);
-                                  setDropdownOpen(false);
+                                  if (!swapping) {
+                                    handleCurrencyChange(currency.symbol);
+                                    setDropdownOpen(false);
+                                  }
                                 }}
                               >
                                 <img
@@ -147,22 +207,26 @@ const Hero: React.FC = () => {
                                   alt={currency.name}
                                   className="w-[20px]"
                                 />
-                                <p className="text-[14px]">{currency.symbol}</p>
+                                <p className="text-[14px]">
+                                  {currency.displaySymbol}
+                                </p>
                               </div>
                             ))}
                           </div>
                         )}
                       </div>
-                      
+
                       <input
                         type="number"
                         id="input-amount"
                         className="outline-none lg:w-1/2 w-full bg-transparent text-[#ffffff]"
-                        placeholder="300000"
-                        value={nairaAmount}
+                        placeholder="Enter amount"
+                        value={currencyAmount}
+                        disabled={swapping}
                         onChange={(e) => {
                           handleNairaChange(e);
-                          if (typingTimeoutRef.current) clearTimeout(typingTimeoutRef.current);
+                          if (typingTimeoutRef.current)
+                            clearTimeout(typingTimeoutRef.current);
                           typingTimeoutRef.current = setTimeout(() => {
                             fetchXlmRate();
                           }, 500);
@@ -171,7 +235,13 @@ const Hero: React.FC = () => {
                     </div>
                     <p
                       className="text-whitemr-3 text-[12px] cursor-pointer"
-                      onClick={() => setNairaAmount(300000)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (!swapping) {
+                          fetchXlmRate(300000);
+                          handleMax(300000);
+                        }
+                      }}
                     >
                       Max
                     </p>
@@ -189,7 +259,7 @@ const Hero: React.FC = () => {
                       <div className="flex items-center bg-[#76748014] rounded-full p-2">
                         <img src={xlm} className="w-[20px] mx-2" alt="" />
                         <p className="mr-2 ml-1 text-[14px]">XLM</p>
-                        <IoChevronDown className="text-white" />
+                        {/* <IoChevronDown className="text-white" /> */}
                       </div>
                       <input
                         type="number"
@@ -197,9 +267,14 @@ const Hero: React.FC = () => {
                         disabled
                         className="outline-none w-1/2 bg-transparent text-[#ffffff]"
                         placeholder="0.00345"
-                        value={xlmRate}
+                        value={currencyAmount ? Number(xlmRate).toFixed(4) : ""}
                       />
                     </div>
+                    {processing && currencyAmount && (
+                      <p className="text-whitemr-3 text-[12px] cursor-pointer">
+                        Loading...
+                      </p>
+                    )}
                   </div>
                 </div>
                 <div>
@@ -213,17 +288,87 @@ const Hero: React.FC = () => {
                     id="small-range"
                     type="range"
                     step={0.01}
-                    disabled
+                    min={0.5}
+                    max={5}
+                    disabled={swapping}
+                    value={slippage}
+                    onChange={(e) => setSlippage(Number(e.target.value))}
                     className="w-full h-1 mb-2 bg-gray-200 rounded-lg appearance-none cursor-pointer range-sm dark:bg-gray-700"
                   />
                   <p className="text-[#ffffff] text-[14px] font-[300] text-center">
-                    2.5%
+                    {slippage}%
                   </p>
                 </div>
 
-                <button className="bg-gradient-to-r from-cyan-300 to-[#0A1F35] text-white p-3 rounded-lg w-full mt-[1rem]">
-                  Next
-                </button>
+                {next ? (
+                  <button
+                    className="bg-gradient-to-r from-cyan-300 to-[#0A1F35] text-white p-3 rounded-lg w-full mt-[1rem] cursor-pointer"
+                    disabled={!currencyAmount || !xlmRate || swapping}
+                    onClick={() => {
+                      handleSwap();
+                      setTimeout(() => {
+                        const starAnimation = document.createElement("div");
+                        starAnimation.className =
+                          "fixed top-0 left-0 w-full h-full z-50 pointer-events-none star-animation";
+                        document.body.appendChild(starAnimation);
+
+                        for (let i = 0; i < 50; i++) {
+                          const star = document.createElement("div");
+                          star.className = "star";
+                          star.style.left = `${Math.random() * 100}%`;
+                          star.style.top = `${Math.random() * 100}%`;
+                          starAnimation.appendChild(star);
+                        }
+
+                        setTimeout(() => {
+                          document.body.removeChild(starAnimation);
+                        }, 5000);
+                      }, 3000);
+                    }}
+                  >
+                    {swapping ? "Processing..." : "Swap"}
+                  </button>
+                ) : (
+                  <button
+                    className="bg-gradient-to-r from-cyan-300 to-[#0A1F35] text-white p-3 rounded-lg w-full mt-[1rem] cursor-pointer"
+                    disabled={!currencyAmount && !xlmRate}
+                    onClick={handleNext}
+                  >
+                    Next
+                  </button>
+                )}
+
+                <style>{`
+                  .star-animation {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+                    pointer-events: none;
+                  }
+
+                  .star {
+                    position: absolute;
+                    width: 10px;
+                    height: 10px;
+                    background: radial-gradient(circle, rgba(0,255,255,1) 0%, rgba(0,255,255,0) 70%);
+                    border-radius: 50%;
+                    animation: star-move 5s ease-out forwards;
+                  }
+
+                  @keyframes star-move {
+                    0% {
+                      opacity: 1;
+                      transform: scale(1) translateY(0);
+                    }
+                    100% {
+                      opacity: 0;
+                      transform: scale(1.5) translateY(-50px);
+                    }
+                  }
+                `}</style>
               </div>
             </div>
           </div>
@@ -232,37 +377,55 @@ const Hero: React.FC = () => {
       <div
         className={`flex md:flex-row-reverse flex-col mt-[50px] md:mt-[0px] md:px-[64px] px-[16px] items-end justify-between lg:max-w-[1400px] md:w-[100%] mx-auto`}
       >
-        <div className=" flex justify-center items-center w-full">
-          <div className="py-4 px-[40px] rounded-[8px] lg:w-[500px] w-full bg-black mt-[1rem] border border-[#B2B2B27A]">
-            <p className="text-[14px] text-[#ffffff] border-b border-[#CFCFCF] pb-2">
-              yUSDC = $3,000
-            </p>
-            <div className="flex flex-col gap-[8px] mt-5">
-              <div className="flex items-center justify-between text-[14px] text-[#ffffff]">
-                <p>Reference APR</p>
-                <p>3.50%</p>
-              </div>
-              <div className="flex items-center justify-between text-[14px] text-[#ffffff]">
-                <p>Exchange Rate</p>
-                <p>1 USDC = 0.98911 yUSDC</p>
-              </div>
-              <div className="flex items-center justify-between text-[14px] text-[#ffffff]">
-                <p>Transaction Cost</p>
-                <p>~$11.24</p>
-              </div>
-              <div className="flex items-center justify-between text-[14px] text-[#ffffff]">
-                <p>Reward Fee</p>
-                <p>10%</p>
-              </div>
-              <div className="flex items-center justify-between text-[14px] text-[#ffffff]">
-                <p>Referrer</p>
-                <p>-</p>
+        {next && (
+          <div className="flex justify-center items-center w-full">
+            <div className="py-4 px-[40px] rounded-[8px] lg:w-[500px] w-full bg-black mt-[1rem] border border-[#B2B2B27A] animate-fade-in">
+              <p className="text-[14px] text-[#ffffff] border-b border-[#CFCFCF] pb-2">
+                {selectedCurrency.displaySymbol}{" "}
+                {formatNumberWithCommas(currencyAmount)} = XLM{" "}
+                {formatNumberWithCommas(xlmRate)}
+              </p>
+              <div className="flex flex-col gap-[8px] mt-5">
+                <div className="flex items-center justify-between text-[14px] text-[#ffffff]">
+                  <p>Slippage</p>
+                  <p>{slippage}%</p>
+                </div>
+                <div className="flex items-center justify-between text-[14px] text-[#ffffff]">
+                  <p>Exchange Rate</p>
+                  <p>
+                    1 {selectedCurrency.displaySymbol} ={" "}
+                    {Number(formatNumberWithCommas(rateExchangerate)).toFixed(
+                      4
+                    )}{" "}
+                    XLM
+                  </p>
+                </div>
+                <div className="flex items-center justify-between text-[14px] text-[#ffffff]">
+                  <p>Transaction Cost</p>
+                  <p>~XLM 0.0000001</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
+
+        <style>{`
+          @keyframes fade-in {
+            from {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+          .animate-fade-in {
+            animation: fade-in 0.5s ease-out;
+          }
+        `}</style>
         <div className="w-full md:mr-[20rem] md:mt-0 mt-10 ">
-          <p className="text-[#ffffff] uppercase tracking-[8.319px] self-end font-[500]">
+          <p className="text-[#ffffff] mt-2 uppercase tracking-[8.319px] self-end font-[500]">
             Supported by:
           </p>
           <div className="flex items-center gap-10 mt-[2rem]">
