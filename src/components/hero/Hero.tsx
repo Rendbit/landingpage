@@ -6,6 +6,7 @@ import stellar from "../../assets/svg/stellar.svg";
 import stellarFoundation from "../../assets/svg/stellar-foundation.svg";
 import { IoChevronDown } from "react-icons/io5";
 import RendBitWaitlistForm from "../waitlistmodal/modal";
+import { logEvent, analytics } from "../../tools/firebase";
 
 const Hero: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -14,7 +15,7 @@ const Hero: React.FC = () => {
     setIsModalOpen((prev) => !prev);
   };
   return (
-    <div id="home">
+    <div>
       <div className="absolute top-0 left-0 w-full h-full -z-10">
         <video autoPlay loop muted className="w-full h-full object-cover">
           <source src={bg_video} type="video/mp4" />
@@ -38,7 +39,10 @@ const Hero: React.FC = () => {
               bridge. Join now
             </p>
             <button
-              onClick={() => toggleModal()}
+              onClick={() => {
+                toggleModal();
+                logEvent(analytics, "rendbit_waitlist_join_hero");
+              }}
               className="cursor-pointer mt-3 px-[20px] py-[10px] border rounded-[10px] bg-gradient-to-r from-black to-gray-800"
             >
               Join Wait-list
