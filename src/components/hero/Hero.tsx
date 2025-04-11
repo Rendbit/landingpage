@@ -109,19 +109,17 @@ const Hero: React.FC = () => {
       setSwapping(true);
 
       setTimeout(() => {
-        if (swap) {
-          setXlmRate("");
-          setSlippage(2.5);
-          setSwap(false);
-          setNext(false);
-          setSwapping(false);
-          toast.success(
-            `${selectedCurrency.displaySymbol} ${formatNumberWithCommas(
-              currencyAmount
-            )} swapped to XLM successfully.`
-          );
-          setCurrencyAmount("");
-        }
+        setXlmRate("");
+        setSlippage(2.5);
+        setSwap(false);
+        setNext(false);
+        setSwapping(false);
+        toast.success(
+          `${selectedCurrency.displaySymbol} ${formatNumberWithCommas(
+            currencyAmount
+          )} swapped to XLM successfully.`
+        );
+        setCurrencyAmount("");
       }, 3000);
     }
   };
