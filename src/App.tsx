@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const App: React.FC = () => {
   return (
-    <div>
+    <div id="home">
       <ToastContainer
         position="top-right"
         autoClose={5000}

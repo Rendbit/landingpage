@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { toast } from "react-toastify";
 import { CgClose } from "react-icons/cg";
+import { analytics, logEvent } from "../../tools/firebase";
 
 interface FormData {
   firstName: string;
@@ -61,12 +62,13 @@ const RendBitWaitlistForm: React.FC<RendBitWaitlistFormProps> = ({
           setError(null);
         }, 5000);
         setProcessing(false);
+        logEvent(analytics, "rendbit_waitlist_join_fail");
         return;
       }
 
       toast.success("Successfully joined the waitlist!");
       setFormData({ firstName: "", lastName: "", email: "" });
-
+      logEvent(analytics, "rendbit_waitlist_join_success");
       toggleModal();
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -99,6 +101,7 @@ const RendBitWaitlistForm: React.FC<RendBitWaitlistFormProps> = ({
               className="ml-auto  rounded-full bg-white cursor-pointer text-gray-900 p-1 text-[18px]"
               onClick={() => {
                 toggleModal();
+                logEvent(analytics, "rendbit_waitlist_join_modal_close");
               }}
               aria-label="Close modal"
               type="button"
@@ -158,6 +161,9 @@ const RendBitWaitlistForm: React.FC<RendBitWaitlistFormProps> = ({
               <div className="absolute cursor-pointer inset-0 rounded-[13px] bg-cyan-300 blur-md opacity-40 -z-10"></div>
               <button
                 type="submit"
+                onClick={() => {
+                  logEvent(analytics, "rendbit_waitlist_join_register");
+                }}
                 className="relative cursor-pointer w-full text-white font-bold bg-[#0A1F35] py-3 px-6 rounded-[13px] transition-all duration-300"
               >
                 <span className="relative z-10">
