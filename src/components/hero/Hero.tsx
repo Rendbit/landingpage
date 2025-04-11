@@ -1,15 +1,69 @@
-import React, { useState } from "react";
+import React, {  useRef, useState } from "react";
 import bg_video from "../../assets/video.mp4";
 import nigeria from "../../assets/svg/Nigeria.svg";
 import xlm from "../../assets/svg/Stellar_(XLM).svg";
+import usdc from "../../assets/img/usd-coin-usdc-logo.png";
 import stellar from "../../assets/svg/stellar.svg";
 import stellarFoundation from "../../assets/svg/stellar-foundation.svg";
 import { IoChevronDown } from "react-icons/io5";
 import RendBitWaitlistForm from "../waitlistmodal/modal";
 import { logEvent, analytics } from "../../tools/firebase";
+import { getXlmConversionRates } from "../../utils";
 
+const currencies = [
+  {
+    symbol: "NGN",
+    name: "Naira",
+    logo: nigeria,
+  },
+  {
+    symbol: "USDC",
+    name: "Dollar",
+    logo: usdc,
+  },
+];
 const Hero: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
+  const [nairaAmount, setNairaAmount] = useState<number | string>("");
+  const [xlmRate, setXlmRate] = useState<number | string>("");
+  const [selectedCurrency, setSelectedCurrency] = useState(currencies[0]);
+  const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+
+  const handleCurrencyChange = (currencySymbol: string) => {
+    const currency = currencies.find((cur) => cur.symbol === currencySymbol);
+    if (currency) {
+      setSelectedCurrency(currency);
+      setDropdownOpen(false);
+    }
+  };
+
+  const fetchXlmRate = async () => {
+    if (nairaAmount) {
+      try {
+        const rate = await getXlmConversionRates(
+          Number(nairaAmount),
+          selectedCurrency.symbol
+        );
+        console.log({ rate });
+        setXlmRate(rate);
+      } catch (error) {
+        console.error("Error fetching XLM conversion rate:", error);
+      }
+    }
+  };
+
+//   useEffect(() => {
+//     fetchXlmRate();
+//   }, [nairaAmount]);
+
+  const handleNairaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (!isNaN(Number(value))) {
+      setNairaAmount(value);
+    }
+  };
 
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);
@@ -24,7 +78,7 @@ const Hero: React.FC = () => {
         <div className="bg-black opacity-50 md:hidden w-full h-full absolute top-0 left-0"></div>
       </div>
       <div className="flex justify-between">
-        <main className="md:px-[64px]  mt-[50px] px-[16px] flex items-center lg:max-w-[1400px] w-[100%] mx-auto flex-col md:flex-row">
+        <main className="md:px-[64px] mt-[50px] px-[16px] flex items-center lg:max-w-[1400px] w-[100%] mx-auto flex-col md:flex-row">
           <div className="mt-[100px] md:mt-[2rem]">
             <p className="home-text-gradient lg:text-[62px] md:text-[52px] text-[45px] font-[600] md:w-[400px] md:leading-[68px] leading-[45px]">
               Earn, Save, Spend, Create Token
@@ -48,7 +102,7 @@ const Hero: React.FC = () => {
               Join Wait-list
             </button>
           </div>
-          <div className="flex justify-center mt-[300px] md:mt-9 items-center rounded-[11px]  flex-col">
+          <div className="flex justify-center mt-[400px] sm:mt-[100px] md:mt-9 items-center rounded-[11px]  flex-col">
             <div className="flex justify-center items-center w-full">
               <div className="bg-[#000000] border border-[#B2B2B27A] py-6 sm:px-[40px] p-[15px] rounded-[8px]  lg:w-[500px] w-full">
                 <div className="mb-4">
@@ -56,27 +110,71 @@ const Hero: React.FC = () => {
                     <p className={`text-[#ffffff] text-[14px] font-[300] `}>
                       Swap
                     </p>
-                    <div className={`flex text-[14px] text-[#ffffff] `}>
+                    {/* <div className={`flex text-[14px] text-[#ffffff] `}>
                       <p className={`text-[#ffffff]`}>Balance:</p>
                       <span className="text-white">200.00</span>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="flex justify-between mt-2 border border-[#B2B2B27A] rounded-[24px] p-2 items-center">
                     <div className="flex item-center gap-2">
-                      <div className="flex items-center bg-[#76748014] rounded-full p-2">
-                        <img src={nigeria} alt="" />
-                        <p className="mr-2 ml-1 text-[14px]">NGN</p>
+                      <div
+                        className="flex items-center bg-[#76748014] rounded-full p-2 cursor-pointer relative"
+                        onClick={() => setDropdownOpen((prev) => !prev)}
+                      >
+                        <img
+                          src={selectedCurrency.logo}
+                          alt={selectedCurrency.name}
+                          className="w-[20px]"
+                        />
+                        <p className="mr-2 ml-1 text-[14px]">
+                          {selectedCurrency.symbol}
+                        </p>
                         <IoChevronDown className="text-white" />
+                        {dropdownOpen && (
+                          <div className="absolute top-full left-0 bg-[#000000] border border-[#B2B2B27A] rounded-[8px] mt-2 w-full z-10">
+                            {currencies.map((currency) => (
+                              <div
+                                key={currency.symbol}
+                                className="flex items-center gap-2 p-2 cursor-pointer hover:bg-[#1a1a1a]"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleCurrencyChange(currency.symbol);
+                                  setDropdownOpen(false);
+                                }}
+                              >
+                                <img
+                                  src={currency.logo}
+                                  alt={currency.name}
+                                  className="w-[20px]"
+                                />
+                                <p className="text-[14px]">{currency.symbol}</p>
+                              </div>
+                            ))}
+                          </div>
+                        )}
                       </div>
+                      
                       <input
                         type="number"
                         id="input-amount"
-                        disabled
                         className="outline-none lg:w-1/2 w-full bg-transparent text-[#ffffff]"
                         placeholder="300000"
+                        value={nairaAmount}
+                        onChange={(e) => {
+                          handleNairaChange(e);
+                          if (typingTimeoutRef.current) clearTimeout(typingTimeoutRef.current);
+                          typingTimeoutRef.current = setTimeout(() => {
+                            fetchXlmRate();
+                          }, 500);
+                        }}
                       />
                     </div>
-                    <p className="text-whitemr-3 text-[12px]">Max</p>
+                    <p
+                      className="text-whitemr-3 text-[12px] cursor-pointer"
+                      onClick={() => setNairaAmount(300000)}
+                    >
+                      Max
+                    </p>
                   </div>
                 </div>
 
@@ -85,10 +183,6 @@ const Hero: React.FC = () => {
                     <p className={`text-[#ffffff] text-[14px] font-[300] `}>
                       Receive amount
                     </p>
-                    <div className={`flex text-[14px] text-[#ffffff] `}>
-                      <p className="text-[#ffffff]">Balance:</p>
-                      <span className="text-white">200.00</span>
-                    </div>
                   </div>
                   <div className="flex justify-between border border-[#B2B2B27A] rounded-[24px] p-2 items-center">
                     <div className="flex item-center gap-2">
@@ -103,6 +197,7 @@ const Hero: React.FC = () => {
                         disabled
                         className="outline-none w-1/2 bg-transparent text-[#ffffff]"
                         placeholder="0.00345"
+                        value={xlmRate}
                       />
                     </div>
                   </div>
