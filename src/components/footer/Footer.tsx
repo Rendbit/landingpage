@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
             onClick={() => {
               logEvent(analytics, "rendbit_x");
             }}
-            href="https://x.com/Rend_bit"
+            href="https://x.com/rendbit_"
             target="_blank"
             className="text-white p-2 rounded-full hover:bg-[#0A1F35] transition-all"
           >
