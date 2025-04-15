@@ -1,16 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const useModal = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  useEffect(() => {
-    if (!isModalOpen) {
-      setIsModalOpen(false);
-    } else {
-      setIsModalOpen(true);
-    }
-  }, [isModalOpen]);
-
+  // No useEffect needed - it's causing the problem
+  
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 

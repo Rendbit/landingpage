@@ -74,18 +74,7 @@ const RendBitWaitlistForm: React.FC = () => {
         <div className="rounded-3xl w-full max-w-lg border border-gray-700 bg-[#000D2C] p-8 relative">
           <div className="flex items-center mb-12">
             <div className="flex items-center">
-              <div className="text-blue-400 mr-2">
-                <svg
-                  width="48"
-                  height="48"
-                  viewBox="0 0 48 48"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M12 36L4 18L24 4L44 18L36 36H12Z" fill="#4299E1" />
-                  <circle cx="36" cy="12" r="4" fill="#63B3ED" />
-                </svg>
-              </div>
+              <img src="./image/logo.svg" alt="" className="w-[50px]" />
               <h1 className="text-white text-3xl font-bold">RendBit</h1>
             </div>
             <button
