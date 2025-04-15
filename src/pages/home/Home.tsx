@@ -7,10 +7,8 @@ import tag_user from "../../assets/svg/tag-user.svg";
 import mission from "../../assets/svg/mission.svg";
 import success_check from "../../assets/img/success_check.png";
 import stellar from "../../assets/svg/Stellar_(XLM).svg";
-import usdc from "../../assets/img/usd-coin-usdc-logo.png";
 
 const Home: React.FC = () => {
-
   return (
     <div>
       <div className="text-white">
@@ -19,7 +17,7 @@ const Home: React.FC = () => {
           <WhyChooseUs />
         </div>
 
-        <div className="mx-6">
+        <div className="mx-6 pt-5" id="about">
           <div className="w-full max-w-[1300px] mx-auto flex flex-col md:flex-row items-center justify-between border border-gray-600 rounded-[20px] py-10 px-6 md:px-15 mt-[70px] gap-10">
             <div className="flex-1">
               <p className="text-[30px] md:text-[50px] leading-[35px] md:leading-[50px] mb-6 font-semibold">
@@ -52,11 +50,11 @@ const Home: React.FC = () => {
               </p>
               <div className="w-full md:w-[50%]">
                 <p className="text-base md:text-lg leading-relaxed text-gray-300">
-                  RendBit features a built-in token launchpad that leverages the
-                  speed, security, and scalability of the Stellar XLM
-                  blockchain. This allows creators and projects to easily issue,
-                  manage, and distribute their own custom tokens with low fees
-                  and fast transaction times.
+                  Rendbit offers an integrated token launchpad powered by the
+                  Stellar (XLM) blockchain, ensuring fast, secure, and scalable
+                  token creation. With minimal fees and instant transactions,
+                  creators and projects can effortlessly mint, manage, trade,
+                  and distribute their own custom tokens.
                 </p>
               </div>
             </div>
@@ -106,7 +104,7 @@ const Home: React.FC = () => {
               className={`md:mx-auto border border-[#B2B2B27A] lg:p-6 p-3 md:w-[400px] w-full mt-6 md:hidden block`}
             >
               <div className="flex items-center mb-4">
-                <img src={usdc} alt="USD Coin" className="h-6 w-6 mr-2" />
+                <img src={stellar} alt="USD Coin" className="h-6 w-6 mr-2" />
                 <h2 className="text-[#ffffff]">Lumen</h2>
               </div>
               <div className="my-[3rem]">
@@ -128,7 +126,7 @@ const Home: React.FC = () => {
               </div>
               <div className="flex justify-center">
                 <button className="bg-white w-full text-black lg:px-6 px-3 py-2 rounded-lg font-semibold text-[12px] lg:text-[16px]">
-                  Earn with yXLM &rarr;
+                  Earn with yXLM &rarr; (Coming soon)
                 </button>
               </div>
             </div>
@@ -250,7 +248,7 @@ const Home: React.FC = () => {
             </div>
             <div className="md:mx-auto border border-[#B2B2B27A] lg:p-6 p-3 md:w-[400px] w-full mt-6 md:hidden block">
               <div className="flex items-center mb-4">
-                <img src={usdc} alt="USD Coin" className="h-6 w-6 mr-2" />
+                <img src={stellar} alt="USD Coin" className="h-6 w-6 mr-2" />
                 <h2 className="text-[#ffffff]">Lumen</h2>
               </div>
               <div className="my-[3rem]">
@@ -272,7 +270,7 @@ const Home: React.FC = () => {
               </div>
               <div className="flex justify-center">
                 <button className="bg-white w-full text-black lg:px-6 px-3 py-2 rounded-lg font-semibold text-[12px] lg:text-[16px]">
-                  Earn with yXLM &rarr;
+                  Earn with yXLM &rarr; (Coming soon)
                 </button>
               </div>
             </div>

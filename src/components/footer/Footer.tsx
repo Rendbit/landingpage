@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsDashLg, BsTwitterX } from "react-icons/bs";
 import { FaLinkedinIn, FaTelegramPlane } from "react-icons/fa";
 import { RxDividerVertical } from "react-icons/rx";
-import useModal from "../../hooks/useModal";
 import RendBitWaitlistForm from "../waitlistmodal/modal";
+import { analytics, logEvent } from "../../tools/firebase";
 
 const Footer: React.FC = () => {
-  const { openModal, isModalOpen } = useModal();
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const toggleModal = () => {
+    setIsModalOpen((prev) => !prev);
+  };
   return (
     <div className="bg-[#000D2C] text-white py-10 px-4 md:px-20">
       <footer className="lg:max-w-[1240px] mx-auto flex flex-col md:flex-row items-center justify-between text-center md:text-left text-[14px]">
@@ -21,7 +25,8 @@ const Footer: React.FC = () => {
             <a
               className="cursor-pointer"
               onClick={() => {
-                openModal();
+                toggleModal();
+                logEvent(analytics, "rendbit_waitlist_join_footer");
               }}
             >
               Join Waitlist
@@ -40,6 +45,9 @@ const Footer: React.FC = () => {
         {/* Social Media Icons */}
         <div className="flex items-center gap-5 text-[20px]">
           <a
+            onClick={() => {
+              logEvent(analytics, "rendbit_linkedin");
+            }}
             href="https://www.linkedin.com/company/rendbit"
             target="_blank"
             className="text-white p-2 rounded-full hover:bg-[#0A1F35] transition-all"
@@ -47,13 +55,19 @@ const Footer: React.FC = () => {
             <FaLinkedinIn />
           </a>
           <a
-            href="https://x.com/Rend_bit"
+            onClick={() => {
+              logEvent(analytics, "rendbit_x");
+            }}
+            href="https://x.com/rendbit_"
             target="_blank"
             className="text-white p-2 rounded-full hover:bg-[#0A1F35] transition-all"
           >
             <BsTwitterX />
           </a>
           <a
+            onClick={() => {
+              logEvent(analytics, "rendbit_telegram");
+            }}
             href="https://t.me/rendbit"
             target="_blank"
             className="text-white p-2 rounded-full hover:bg-[#0A1F35] transition-all"
@@ -63,7 +77,12 @@ const Footer: React.FC = () => {
         </div>
       </footer>
 
-      {isModalOpen && <RendBitWaitlistForm />}
+      {isModalOpen && (
+        <RendBitWaitlistForm
+          isModalOpen={isModalOpen}
+          toggleModal={toggleModal}
+        />
+      )}
     </div>
   );
 };

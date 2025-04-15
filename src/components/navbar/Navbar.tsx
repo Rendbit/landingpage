@@ -1,15 +1,25 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import useModal from "../../hooks/useModal";
 import RendBitWaitlistForm from "../waitlistmodal/modal";
+import { analytics, logEvent } from "../../tools/firebase";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { openModal, isModalOpen } = useModal();
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const toggleModal = () => {
+    setIsModalOpen((prev) => !prev);
+  };
 
   return (
-    <div className="text-white bg-[transparent] w-full max-w-[1300px] mx-auto flex items-center justify-between mt-[35px] px-4 relative z-30">
-      <a href="/" className="flex items-end gap-2 text-xl font-bold">
+    <div className="text-white bg-[transparent] w-full max-w-[1300px] mx-auto flex items-center justify-between mt-[35px] px-4 relative z-30" >
+      <a
+        href="#home"
+        onClick={() => {
+          logEvent(analytics, "rendbit_logo");
+        }}
+        className="flex items-end gap-2 text-xl font-bold"
+      >
         <img src="./image/logo.svg" alt="logo" />
         RendBit
       </a>
@@ -33,9 +43,10 @@ const Navbar: React.FC = () => {
           <div className="absolute cursor-pointer inset-0 rounded-[13px] bg-cyan-300 blur-md opacity-40 -z-10"></div>
           <button
             onClick={() => {
-              openModal();
+              toggleModal();
+              logEvent(analytics, "rendbit_waitlist_join_desktop_navbar");
             }}
-            className="relative text-white font-bold bg-[#0A1F35] py-3 px-6 rounded-[13px] transition-all duration-300"
+            className="relative cursor-pointer text-white font-bold bg-[#0A1F35] py-3 px-6 rounded-[13px] transition-all duration-300"
           >
             <span className="relative z-10">Get started</span>
             <div className="absolute inset-0 rounded-[13px] bg-[#0A1F35] opacity-30 blur-sm -z-10"></div>
@@ -72,28 +83,51 @@ const Navbar: React.FC = () => {
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <a href="#home" onClick={() => setIsOpen(false)}>
+        <a
+          href="#home"
+          onClick={() => {
+            setIsOpen(false);
+            logEvent(analytics, "rendbit_home");
+          }}
+        >
           Home
         </a>
-        <a href="#about" onClick={() => setIsOpen(false)}>
+        <a
+          href="#about"
+          onClick={() => {
+            setIsOpen(false);
+            logEvent(analytics, "rendbit_about");
+          }}
+        >
           About
         </a>
-        <a href="#features" onClick={() => setIsOpen(false)}>
+        <a
+          href="#features"
+          onClick={() => {
+            setIsOpen(false);
+            logEvent(analytics, "rendbit_features");
+          }}
+        >
           Features
         </a>
         <button
-          className="bg-white text-[#0A1F35] px-6 py-2 rounded-md mt-4 font-bold"
+          className="bg-white cursor-pointer text-[#0A1F35] px-6 py-2 rounded-md mt-4 font-bold"
           onClick={() => {
             setIsOpen(false);
-            openModal();
+            toggleModal();
+            logEvent(analytics, "rendbit_waitlist_join_mobile_navbar");
           }}
         >
           Get Started
         </button>
       </div>
 
-
-      {isModalOpen && <RendBitWaitlistForm />}
+      {isModalOpen && (
+        <RendBitWaitlistForm
+          toggleModal={toggleModal}
+          isModalOpen={isModalOpen}
+        />
+      )}
     </div>
   );
 };
