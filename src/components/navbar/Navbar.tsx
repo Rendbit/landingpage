@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <div className="text-white bg-[transparent] w-full max-w-[1300px] mx-auto flex items-center justify-between mt-[35px] px-4 relative z-30" >
+    <div className="text-white bg-[transparent] w-full max-w-[1300px] mx-auto flex items-center justify-between mt-[35px] px-4 relative z-30">
       <a
         href="#home"
         onClick={() => {
@@ -41,16 +41,22 @@ const Navbar: React.FC = () => {
       <div className="hidden md:flex justify-center items-center">
         <div className="relative rounded-[13px] p-0.5 bg-gradient-to-r from-cyan-300 to-[#0A1F35] shadow-lg">
           <div className="absolute cursor-pointer inset-0 rounded-[13px] bg-cyan-300 blur-md opacity-40 -z-10"></div>
+          <a href="https://finance.rendbit.com/"
+          onClick={() => {
+            // toggleModal();
+            logEvent(analytics, "rendbit_finance");
+          }}>
           <button
-            onClick={() => {
-              toggleModal();
-              logEvent(analytics, "rendbit_waitlist_join_desktop_navbar");
-            }}
+            // onClick={() => {
+            //   toggleModal();
+            //   logEvent(analytics, "rendbit_waitlist_join_desktop_navbar");
+            // }}
             className="relative cursor-pointer text-white font-bold bg-[#0A1F35] py-3 px-6 rounded-[13px] transition-all duration-300"
           >
             <span className="relative z-10">Get started</span>
             <div className="absolute inset-0 rounded-[13px] bg-[#0A1F35] opacity-30 blur-sm -z-10"></div>
           </button>
+          </a>
         </div>
       </div>
 
@@ -110,16 +116,25 @@ const Navbar: React.FC = () => {
         >
           Features
         </a>
-        <button
-          className="bg-white cursor-pointer text-[#0A1F35] px-6 py-2 rounded-md mt-4 font-bold"
+        <a
+          href="https://finance.rendbit.com/"
           onClick={() => {
-            setIsOpen(false);
-            toggleModal();
-            logEvent(analytics, "rendbit_waitlist_join_mobile_navbar");
+            // setIsOpen(false);
+            // toggleModal();
+            logEvent(analytics, "rendbit_finance");
           }}
         >
-          Get Started
-        </button>
+          <button
+            className="bg-white cursor-pointer text-[#0A1F35] px-6 py-2 rounded-md mt-4 font-bold"
+            // onClick={() => {
+            //   // setIsOpen(false);
+            //   // toggleModal();
+            //   logEvent(analytics, "rendbit_waitlist_join_mobile_navbar");
+            // }}
+          >
+            Get Started
+          </button>
+        </a>
       </div>
 
       {isModalOpen && (
