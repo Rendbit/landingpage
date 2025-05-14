@@ -13,7 +13,7 @@ const Home: React.FC = () => {
     <div>
       <div className="text-white">
         <Hero />
-        <div className="mt-[50px] md:mt-[200px]">
+        <div className="mt-[50px] md:mt-[400px]">
           <WhyChooseUs />
         </div>
 
@@ -92,17 +92,17 @@ const Home: React.FC = () => {
           <div className="flex items-start justify-start flex-col md:flex-row">
             <div className="text-white md:w-[300px] w-full md:mx-auto md:mt-[12rem] mt-[6rem] mb-7">
               <p className="font-[500] leading-[42px] text-[25px] md:text-[40px] mb-4">
-                NO MONTHLY CHARGES.
+                NO FOREIGN ACCOUNTS NEEDED.
               </p>
-              <p className="leading-[20px] text-[14px] md:text-[16px] font-[300] text-[#ffffff]">
-              No foreign accounts needed. Move money across borders with minimal charges.
-              </p>
+                <p className="leading-[20px] text-[14px] md:text-[16px] font-[300] text-[#ffffff]">
+                Say goodbye to foreign accounts. Effortlessly transfer money across borders with minimal fees and maximum convenience.
+                </p>
             </div>
             <div
               className={`md:mx-auto border border-[#B2B2B27A] lg:p-6 p-3 md:w-[400px] w-full mt-6 md:hidden block`}
             >
               <div className="flex items-center mb-4">
-                <img src={stellar} alt="USD Coin" className="h-6 w-6 mr-2" />
+                {/* <img src={stellar} alt="USD Coin" className="h-6 w-6 mr-2" /> */}
                 <h2 className="text-[#ffffff]">Lumen</h2>
               </div>
               <div className="my-[3rem]">
@@ -117,14 +117,14 @@ const Home: React.FC = () => {
                   <span className="text-2xl">APY</span>
                 </div>
                 <div className="mb-6">
-                  <p className="text-[#ffffff] text-[12px] lg:text-[16px] font-[300]">
-                    With yXLM asset
-                  </p>
+                    <p className="text-[#ffffff] text-[12px] lg:text-[16px] font-[300]">
+                    Earn more with yXLM assets effortlessly
+                    </p>
                 </div>
               </div>
               <div className="flex justify-center">
-                <button className="bg-white w-full text-black lg:px-6 px-3 py-2 rounded-lg font-semibold text-[12px] lg:text-[16px]">
-                  Earn with yXLM &rarr; (Coming soon)
+                <button className="bg-primary-color w-full text-white lg:px-6 px-3 py-2 rounded-lg font-semibold text-[12px] lg:text-[16px]">
+                  Start earning with yXLM &rarr; (Coming soon)
                 </button>
               </div>
             </div>
@@ -144,10 +144,10 @@ const Home: React.FC = () => {
                   The receiver received:
                 </p>
                 <p className="text-[#ffffff] text-center font-[500] mt-4">
-                  2.00000 XLM (Fee: 0.1500 XLM)
+                  200 XLM (Fee: 0.1500 XLM)
                 </p>
 
-                <div className="mb-6 px-[4.5rem] mt-10 flex flex-col gap-4">
+                {/* <div className="mb-6 px-[4.5rem] mt-10 flex flex-col gap-4">
                   <div className="flex items-center justify-between">
                     <p className="text-[#ffffff] font-[300]">Coin</p>
                     <div className="flex items-center gap-1">
@@ -158,7 +158,7 @@ const Home: React.FC = () => {
                   <div className="flex items-center justify-between">
                     <p className="text-[#ffffff] font-[300]">Address</p>
                     <p className="text-primary-color">
-                      0xe4iJ78ufP9kwH56...k8Ty
+                      0x1234567890abcdef...fedcba0987654321
                     </p>
                   </div>
                   <div className="flex items-center justify-between">
@@ -169,7 +169,7 @@ const Home: React.FC = () => {
                     <p className="text-[#ffffff] font-[300]">Source</p>
                     <p className="text-[#ffffff]">Spot wallet</p>
                   </div>
-                </div>
+                </div> */}
               </div>
               <div className="flex justify-center px-[4rem] pb-10">
                 <button
@@ -199,10 +199,10 @@ const Home: React.FC = () => {
                   Saving successful
                 </p>
                 <p className="text-[#ffffff] text-center font-[500] text-[30px] mt-4">
-                  0.05456788 XLM
+                  100 XLM
                 </p>
 
-                <div className="mb-6 px-[4.5rem] mt-10 flex flex-col gap-4">
+                {/* <div className="mb-6 px-[4.5rem] mt-10 flex flex-col gap-4">
                   <div className="flex items-center gap-1 text-[#ffffff]">
                     <FiTarget />
                     <p>Summary</p>
@@ -233,14 +233,14 @@ const Home: React.FC = () => {
                     </p>
                     <p className="text-[#ffffff]">March 31, 2025</p>
                   </div>
-                </div>
+                </div> */}
               </div>
               <div className="flex justify-center px-[4rem] pb-10 flex-col gap-2">
                 <button className="bg-primary-color w-full text-white lg:px-6 px-3 py-2 rounded-lg text-[12px] lg:text-[16px]">
-                  Go to wallet
+                  Access your wallet
                 </button>
                 <button className="border border-primary-color w-full text-primary-color lg:px-6 px-3 py-2 rounded-lg text-[12px] lg:text-[16px]">
-                  Monitor Savings
+                  Transact Freely
                 </button>
               </div>
             </div>

@@ -422,7 +422,7 @@ const Hero: React.FC = () => {
             animation: fade-in 0.5s ease-out;
           }
         `}</style>
-        <div className="w-full md:mr-[20rem] md:mt-0 mt-10 ">
+        {/* <div className="w-full md:mr-[20rem] md:mt-0 mt-10 ">
           <p
             className={`text-[#ffffff] ${
               !next && "mt-5"
@@ -453,7 +453,7 @@ const Hero: React.FC = () => {
               />
             </div>
           )}
-        </div>
+        </div> */}
       </div>
 
       <div

@@ -27,9 +27,9 @@ const features = [
     contentStyle: "",
   },
   {
-    title: "Withdraw",
+    title: "Transfer",
     description:
-      "Turn your crypto into cash in a flash. Get paid straight to your bank account, card or PayPal account.",
+      "Effortlessly transfer money across Africa without the need to create additional accounts to support different currencies.",
     imagePosition: "left",
     image: withdraw_svg,
     imageStyle: "mt-[0px]",
