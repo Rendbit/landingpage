@@ -123,7 +123,7 @@ const Home: React.FC = () => {
                   alt="Savings Card"
                   className="rounded-md mb-4 w-full object-cover"
                 />
-                <p className="text-teal-300 text-lg">Savings Successful</p>
+                <p className="text-teal-300 text-lg">Savings Completed</p>
                 <p className="text-white text-3xl font-bold mt-2">100 XLM</p>
               </div>
             </div>
