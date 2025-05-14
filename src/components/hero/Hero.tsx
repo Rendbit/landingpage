@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import bg_video from "../../assets/video.mp4";
 import nigeria from "../../assets/svg/Nigeria.svg";
-import xlm from "../../assets/svg/Stellar_(XLM).svg";
+import ghana from "../../assets/img/ghana.png";
 import usdc from "../../assets/img/usd-coin-usdc-logo.png";
-import stellar from "../../assets/svg/stellar.svg";
-import stellarFoundation from "../../assets/svg/stellar-foundation.svg";
 import { IoChevronDown } from "react-icons/io5";
 import RendBitWaitlistForm from "../waitlistmodal/modal";
 import { logEvent, analytics } from "../../tools/firebase";
@@ -137,10 +135,10 @@ const Hero: React.FC = () => {
         <main className="md:px-[64px] mt-[50px] px-[16px] flex items-center lg:max-w-[1400px] w-[100%] mx-auto flex-col md:flex-row">
           <div className="mt-[100px] md:mt-[2rem]">
             <p className="home-text-gradient lg:text-[62px] md:text-[52px] text-[45px] font-[600] md:w-[400px] md:leading-[68px] leading-[45px]">
-              Earn, Save, Spend, Create Token
+              Build for You, Growing with You.
             </p>
             <p className="text-[#ffffff] lg:text-[72px] md:text-[52px] text-[45px] font-[600]">
-              Like A Boss.
+              Take control now
             </p>
             <p className="text-[#ffffff] md:w-[70%] font-[300]">
               Be part of the early Users of <b>RendBit</b>, receive relevant
@@ -158,21 +156,26 @@ const Hero: React.FC = () => {
               Join Wait-list
             </button>
           </div>
-          <div className="flex justify-center mt-[300px] sm:mt-[100px] md:mt-9 items-center rounded-[11px]  flex-col">
+          <div className="flex justify-center mt-[300px] sm:mt-[100px] md:mt-9 items-center rounded-[11px] flex-col">
             <div className="flex justify-center items-center w-full">
-              <div className="bg-[#000000] border border-[#B2B2B27A] py-6 sm:px-[40px] p-[15px] rounded-[8px]  lg:w-[500px] w-full">
+              <div className="bg-[#000000] border border-[#B2B2B27A] py-6 sm:px-[40px] p-[15px] rounded-[8px] lg:w-[500px] w-full">
+                <div className="mb-6 text-center">
+                  <h2 className="text-white text-lg font-semibold">
+                    Borderless Money Transfer
+                  </h2>
+                  <p className="text-[#aaa] text-sm mt-1">
+                    Instantly send money across countries. No bank account
+                    restrictions.
+                  </p>
+                </div>
+
+                {/* Send From */}
                 <div className="mb-4">
-                  <div className="flex justify-between items-center">
-                    <p className={`text-[#ffffff] text-[14px] font-[300] `}>
-                      Swap
-                    </p>
-                    {/* <div className={`flex text-[14px] text-[#ffffff] `}>
-                      <p className={`text-[#ffffff]`}>Balance:</p>
-                      <span className="text-white">200.00</span>
-                    </div> */}
-                  </div>
+                  <label className="text-white text-[14px] font-[300] mb-2 block">
+                    Send From
+                  </label>
                   <div className="flex justify-between mt-2 border border-[#B2B2B27A] rounded-[24px] p-2 items-center">
-                    <div className="flex item-center gap-2">
+                    <div className="flex items-center gap-2">
                       <div
                         className="flex items-center bg-[#76748014] rounded-full p-2 cursor-pointer relative"
                         onClick={() => setDropdownOpen((prev) => !prev)}
@@ -182,10 +185,10 @@ const Hero: React.FC = () => {
                           alt={selectedCurrency.name}
                           className="w-[20px]"
                         />
-                        <p className="mr-2 ml-1 text-[14px]">
+                        <p className="ml-2 text-[14px]">
                           {selectedCurrency.displaySymbol}
                         </p>
-                        <IoChevronDown className="text-white" />
+                        <IoChevronDown className="text-white ml-1" />
                         {dropdownOpen && (
                           <div className="absolute top-full left-0 bg-[#000000] border border-[#B2B2B27A] rounded-[8px] mt-2 w-full z-10">
                             {currencies.map((currency) => (
@@ -213,7 +216,6 @@ const Hero: React.FC = () => {
                           </div>
                         )}
                       </div>
-
                       <input
                         type="number"
                         id="input-amount"
@@ -232,7 +234,7 @@ const Hero: React.FC = () => {
                       />
                     </div>
                     <p
-                      className="text-whitemr-3 text-[12px] cursor-pointer"
+                      className="text-white mr-3 text-[12px] cursor-pointer"
                       onClick={(e) => {
                         e.stopPropagation();
                         if (!swapping) {
@@ -246,22 +248,19 @@ const Hero: React.FC = () => {
                   </div>
                 </div>
 
+                {/* Receive In */}
                 <div className="my-4">
-                  <div className="flex justify-between items-center">
-                    <p className={`text-[#ffffff] text-[14px] font-[300] `}>
-                      Receive amount
-                    </p>
-                  </div>
+                  <label className="text-white text-[14px] font-[300] mb-2 block">
+                    Receive In
+                  </label>
                   <div className="flex justify-between border border-[#B2B2B27A] rounded-[24px] p-2 items-center">
-                    <div className="flex item-center gap-2">
+                    <div className="flex items-center gap-2">
                       <div className="flex items-center bg-[#76748014] rounded-full p-2">
-                        <img src={xlm} className="w-[20px] mx-2" alt="" />
-                        <p className="mr-2 ml-1 text-[14px]">XLM</p>
-                        {/* <IoChevronDown className="text-white" /> */}
+                        <img src={ghana} className="w-[20px] mx-2" alt="XLM" />
+                        <p className="text-[14px] text-white">GHS</p>
                       </div>
                       <input
                         type="number"
-                        id="input-amount"
                         disabled
                         className="outline-none w-1/2 bg-transparent text-[#ffffff]"
                         placeholder="0.00345"
@@ -269,18 +268,18 @@ const Hero: React.FC = () => {
                       />
                     </div>
                     {processing && currencyAmount && (
-                      <p className="text-whitemr-3 text-[12px] cursor-pointer">
-                        Loading...
-                      </p>
+                      <p className="text-white text-[12px]">Loading...</p>
                     )}
                   </div>
                 </div>
-                <div>
+
+                {/* Slippage */}
+                <div className="mb-4">
                   <label
                     htmlFor="small-range"
-                    className={`text-[#ffffff] text-[14px] font-[300] `}
+                    className="text-white text-[14px] font-[300] block"
                   >
-                    Slippage
+                    Slippage Tolerance
                   </label>
                   <input
                     id="small-range"
@@ -293,11 +292,12 @@ const Hero: React.FC = () => {
                     onChange={(e) => setSlippage(Number(e.target.value))}
                     className="w-full h-1 mb-2 bg-gray-200 rounded-lg appearance-none cursor-pointer range-sm dark:bg-gray-700"
                   />
-                  <p className="text-[#ffffff] text-[14px] font-[300] text-center">
+                  <p className="text-white text-[14px] font-[300] text-center">
                     {slippage}%
                   </p>
                 </div>
 
+                {/* Action Button */}
                 {next ? (
                   <button
                     className="bg-gradient-to-r from-cyan-300 to-[#0A1F35] text-white p-3 rounded-lg w-full mt-[1rem] cursor-pointer"
@@ -324,7 +324,7 @@ const Hero: React.FC = () => {
                       }, 3000);
                     }}
                   >
-                    {swapping ? "Processing..." : "Swap"}
+                    {swapping ? "Processing..." : "Transfer Now"}
                   </button>
                 ) : (
                   <button
@@ -337,36 +337,36 @@ const Hero: React.FC = () => {
                 )}
 
                 <style>{`
-                  .star-animation {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    overflow: hidden;
-                    pointer-events: none;
-                  }
+        .star-animation {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          pointer-events: none;
+        }
 
-                  .star {
-                    position: absolute;
-                    width: 10px;
-                    height: 10px;
-                    background: radial-gradient(circle, rgba(0,255,255,1) 0%, rgba(0,255,255,0) 70%);
-                    border-radius: 50%;
-                    animation: star-move 5s ease-out forwards;
-                  }
+        .star {
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          background: radial-gradient(circle, rgba(0,255,255,1) 0%, rgba(0,255,255,0) 70%);
+          border-radius: 50%;
+          animation: star-move 5s ease-out forwards;
+        }
 
-                  @keyframes star-move {
-                    0% {
-                      opacity: 1;
-                      transform: scale(1) translateY(0);
-                    }
-                    100% {
-                      opacity: 0;
-                      transform: scale(1.5) translateY(-50px);
-                    }
-                  }
-                `}</style>
+        @keyframes star-move {
+          0% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+          }
+          100% {
+            opacity: 0;
+            transform: scale(1.5) translateY(-50px);
+          }
+        }
+      `}</style>
               </div>
             </div>
           </div>
@@ -422,7 +422,7 @@ const Hero: React.FC = () => {
             animation: fade-in 0.5s ease-out;
           }
         `}</style>
-        <div className="w-full md:mr-[20rem] md:mt-0 mt-10 ">
+        {/* <div className="w-full md:mr-[20rem] md:mt-0 mt-10 ">
           <p
             className={`text-[#ffffff] ${
               !next && "mt-5"
@@ -453,7 +453,7 @@ const Hero: React.FC = () => {
               />
             </div>
           )}
-        </div>
+        </div> */}
       </div>
 
       <div
@@ -468,7 +468,7 @@ const Hero: React.FC = () => {
           <p className="mr-10">Anchor Integration</p>
           <p className="mr-10">Multi-currency conversion</p>
           <p className="mr-10">Fiat-to-XLM and XLM-to-Fiat swaps</p>
-          <p className="mr-10">Deposit, Withdraw, Save, Lend, Stake</p>
+          <p className="mr-10">Deposit, Transfer, Swap</p>
         </div>
       </div>
 
