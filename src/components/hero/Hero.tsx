@@ -137,7 +137,7 @@ const Hero: React.FC = () => {
         <main className="md:px-[64px] mt-[50px] px-[16px] flex items-center lg:max-w-[1400px] w-[100%] mx-auto flex-col md:flex-row">
           <div className="mt-[100px] md:mt-[2rem]">
             <p className="home-text-gradient lg:text-[62px] md:text-[52px] text-[45px] font-[600] md:w-[400px] md:leading-[68px] leading-[45px]">
-              Build for You, Growing with You
+              Build for You, Growing with You.
             </p>
             <p className="text-[#ffffff] lg:text-[72px] md:text-[52px] text-[45px] font-[600]">
               Take control now
@@ -468,7 +468,7 @@ const Hero: React.FC = () => {
           <p className="mr-10">Anchor Integration</p>
           <p className="mr-10">Multi-currency conversion</p>
           <p className="mr-10">Fiat-to-XLM and XLM-to-Fiat swaps</p>
-          <p className="mr-10">Deposit, Withdraw, Save, Lend, Stake</p>
+          <p className="mr-10">Deposit, Transfer, Swap</p>
         </div>
       </div>
 

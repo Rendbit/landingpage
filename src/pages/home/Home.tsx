@@ -6,6 +6,7 @@ import { FiTarget } from "react-icons/fi";
 import tag_user from "../../assets/svg/tag-user.svg";
 import mission from "../../assets/svg/mission.svg";
 import success_check from "../../assets/img/success_check.png";
+import card from "../../assets/img/card.png";
 import stellar from "../../assets/svg/Stellar_(XLM).svg";
 
 const Home: React.FC = () => {
@@ -189,7 +190,7 @@ const Home: React.FC = () => {
             >
               <div className="flex items-center mb-4">
                 <img
-                  src={success_check}
+                  src={card}
                   alt="USD Coin"
                   className="rounded-t-[8px] w-[150px] mx-auto mt-12"
                 />
