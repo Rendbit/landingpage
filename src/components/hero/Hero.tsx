@@ -3,8 +3,6 @@ import bg_video from "../../assets/video.mp4";
 import nigeria from "../../assets/svg/Nigeria.svg";
 import xlm from "../../assets/svg/Stellar_(XLM).svg";
 import usdc from "../../assets/img/usd-coin-usdc-logo.png";
-import stellar from "../../assets/svg/stellar.svg";
-import stellarFoundation from "../../assets/svg/stellar-foundation.svg";
 import { IoChevronDown } from "react-icons/io5";
 import RendBitWaitlistForm from "../waitlistmodal/modal";
 import { logEvent, analytics } from "../../tools/firebase";
