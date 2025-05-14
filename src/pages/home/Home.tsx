@@ -4,8 +4,7 @@ import WhyChooseUs from "../../components/whychooseus/WhyChooseUs";
 import Hero from "../../components/hero/Hero";
 import { FiTarget } from "react-icons/fi";
 import tag_user from "../../assets/svg/tag-user.svg";
-import mission from "../../assets/svg/mission.svg";
-import success_check from "../../assets/img/success_check.png";
+import mission2 from "../../assets/img/mission2.png";
 import card from "../../assets/img/card.png";
 import stellar from "../../assets/svg/Stellar_(XLM).svg";
 
@@ -132,7 +131,7 @@ const Home: React.FC = () => {
             <div className="mx-auto border border-[#B2B2B27A] md:w-[500px] w-full rounded-[8px] hidden md:block">
               <div className="flex items-center mb-4">
                 <img
-                  src={mission} // Replace with the appropriate URL of the USD Coin logo
+                  src={mission2} // Replace with the appropriate URL of the USD Coin logo
                   alt="USD Coin"
                   className="rounded-t-[8px]"
                 />
