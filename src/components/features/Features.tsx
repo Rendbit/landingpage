@@ -19,7 +19,7 @@ const features = [
   {
     title: "Swap",
     description:
-      "Swap between tokens, even if they’re on different chains, we make bridging seamless too.",
+      "Swap easily on RendBit on the Stellar Blockchain.",
     imagePosition: "right",
     image: swap_svg,
     imageStyle: "mt-[-30px]",
