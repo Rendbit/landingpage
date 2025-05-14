@@ -171,13 +171,13 @@ const Home: React.FC = () => {
                   </div>
                 </div> */}
               </div>
-              <div className="flex justify-center px-[4rem] pb-10">
+              {/* <div className="flex justify-center px-[4rem] pb-10">
                 <button
                   className={` bg-primary-color w-full text-white lg:px-6 px-3 py-2 rounded-lg text-[12px] lg:text-[16px]`}
                 >
                   Go to wallet
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
@@ -235,14 +235,14 @@ const Home: React.FC = () => {
                   </div>
                 </div> */}
               </div>
-              <div className="flex justify-center px-[4rem] pb-10 flex-col gap-2">
+              {/* <div className="flex justify-center px-[4rem] pb-10 flex-col gap-2">
                 <button className="bg-primary-color w-full text-white lg:px-6 px-3 py-2 rounded-lg text-[12px] lg:text-[16px]">
                   Access your wallet
                 </button>
                 <button className="border border-primary-color w-full text-primary-color lg:px-6 px-3 py-2 rounded-lg text-[12px] lg:text-[16px]">
                   Transact Freely
                 </button>
-              </div>
+              </div> */}
             </div>
             <div className="md:mx-auto border border-[#B2B2B27A] lg:p-6 p-3 md:w-[400px] w-full mt-6 md:hidden block">
               <div className="flex items-center mb-4">
