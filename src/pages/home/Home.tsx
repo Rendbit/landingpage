@@ -23,15 +23,12 @@ const Home: React.FC = () => {
               <p className="text-[30px] md:text-[50px] leading-[35px] md:leading-[50px] mb-6 font-semibold">
                 Stellar XLM as a bridge on RendBit
               </p>
-              <p className="text-base md:text-lg leading-relaxed text-gray-300">
-                Stellar XLM is an efficient blockchain network designed for
-                fast, low-cost cross-border transactions. On RendBit, Stellar
-                serves as a powerful bridge currency, enabling seamless value
-                transfers between users, regardless of their local currency or
-                payment method. RendBit offers instant conversions, reduces
-                reliance on traditional banking systems, and facilitates secure,
-                transparent, and scalable transactions across borders.
-              </p>
+                <p className="text-base md:text-lg leading-relaxed text-gray-300">
+                With RendBit, sending money across African countries is seamless and hassle-free. 
+                You no longer need to worry about whether the recipient has an account in your country. 
+                RendBit ensures instant currency conversions, reducing dependency on traditional banking systems. 
+                Experience secure, transparent, and scalable cross-border transactions with ease.
+                </p>
             </div>
 
             <img
