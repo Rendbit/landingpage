@@ -2,10 +2,8 @@ import React from "react";
 import Features from "../../components/features/Features";
 import WhyChooseUs from "../../components/whychooseus/WhyChooseUs";
 import Hero from "../../components/hero/Hero";
-import tag_user from "../../assets/svg/tag-user.svg";
 import mission2 from "../../assets/img/mission2.png";
-import card from "../../assets/img/card.png";
-import stellar from "../../assets/svg/Stellar_(XLM).svg";
+import save from "../../assets/img/save.png";
 
 const Home: React.FC = () => {
   return (
@@ -22,12 +20,14 @@ const Home: React.FC = () => {
               <p className="text-[30px] md:text-[50px] leading-[35px] md:leading-[50px] mb-6 font-semibold">
                 Stellar XLM as a bridge on RendBit
               </p>
-                <p className="text-base md:text-lg leading-relaxed text-gray-300">
-                With RendBit, sending money across African countries is seamless and hassle-free. 
-                You no longer need to worry about whether the recipient has an account in your country. 
-                RendBit ensures instant currency conversions, reducing dependency on traditional banking systems. 
-                Experience secure, transparent, and scalable cross-border transactions with ease.
-                </p>
+              <p className="text-base md:text-lg leading-relaxed text-gray-300">
+                With RendBit, sending money across African countries is seamless
+                and hassle-free. You no longer need to worry about whether the
+                recipient has an account in your country. RendBit ensures
+                instant currency conversions, reducing dependency on traditional
+                banking systems. Experience secure, transparent, and scalable
+                cross-border transactions with ease.
+              </p>
             </div>
 
             <img
@@ -42,7 +42,7 @@ const Home: React.FC = () => {
           <div className="w-full  max-w-[1300px] mx-auto border border-gray-600 rounded-[20px] py-10 px-6 md:px-15 mt-[70px]">
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
               <p className="text-[30px] md:text-[50px] leading-[35px] md:leading-[50px] md:w-[50%] font-semibold">
-                RendBit offers its own token launchpad
+                RendBit offers its own token launchpad (Coming Soon)
               </p>
               <div className="w-full md:w-[50%]">
                 <p className="text-base md:text-lg leading-relaxed text-gray-300">
@@ -84,197 +84,56 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-        <section className="mt-[200px] lg:max-w-[1200px] md:w-[100%] mx-auto px-[16px] md:px-[40px]">
-          <div className="flex items-start justify-start flex-col md:flex-row">
-            <div className="text-white md:w-[300px] w-full md:mx-auto md:mt-[12rem] mt-[6rem] mb-7">
-              <p className="font-[500] leading-[42px] text-[25px] md:text-[40px] mb-4">
-                NO FOREIGN ACCOUNTS NEEDED.
+        <section className="mt-[200px] lg:max-w-[1200px] w-full mx-auto px-4 md:px-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="text-white">
+              <h2 className="text-3xl md:text-5xl font-extrabold mb-4">
+                Move Money Without Borders
+              </h2>
+              <p className="text-sm md:text-base font-light text-[#f1f1f1]">
+                Send and receive funds globally—no foreign accounts, no
+                headaches. Enjoy seamless transfers with little to no fees.
               </p>
-                <p className="leading-[20px] text-[14px] md:text-[16px] font-[300] text-[#ffffff]">
-                Say goodbye to foreign accounts. Effortlessly transfer money across borders with minimal fees and maximum convenience.
-                </p>
             </div>
-            <div
-              className={`md:mx-auto border border-[#B2B2B27A] lg:p-6 p-3 md:w-[400px] w-full mt-6 md:hidden block`}
-            >
-              <div className="flex items-center mb-4">
-                {/* <img src={stellar} alt="USD Coin" className="h-6 w-6 mr-2" /> */}
-                <h2 className="text-[#ffffff]">Lumen</h2>
-              </div>
-              <div className="my-[3rem]">
-                <div className="inline-flex items-center gap-1 py-2 lg:px-4 px-2 bg-[#899EFD1A] rounded-[4px]">
-                  <img src={tag_user} alt="" />
-                  <p className="text-white text-[10px]">x Participants</p>
-                </div>
-                <div className="mb-2 mt-[2.5rem]">
-                  <span className="text-[70px] text-[#ffffff] leading-[26px]">
-                    2%
-                  </span>
-                  <span className="text-2xl">APY</span>
-                </div>
-                <div className="mb-6">
-                    <p className="text-[#ffffff] text-[12px] lg:text-[16px] font-[300]">
-                    Earn more with yXLM assets effortlessly
-                    </p>
-                </div>
-              </div>
-              <div className="flex justify-center">
-                <button className="bg-primary-color w-full text-white lg:px-6 px-3 py-2 rounded-lg font-semibold text-[12px] lg:text-[16px]">
-                  Start earning with yXLM &rarr; (Coming soon)
-                </button>
-              </div>
-            </div>
-            <div className="mx-auto border border-[#B2B2B27A] md:w-[500px] w-full rounded-[8px] hidden md:block">
-              <div className="flex items-center mb-4">
+            <div className="w-full md:w-[480px] border border-[#2e2e2e] rounded-xl p-6 bg-[#121212]">
+              <div className="mb-6 text-center">
                 <img
-                  src={mission2} // Replace with the appropriate URL of the USD Coin logo
-                  alt="USD Coin"
-                  className="rounded-t-[8px]"
+                  src={mission2}
+                  alt="Transaction Image"
+                  className="rounded-md mb-4 w-full object-cover"
                 />
+                <p className="text-teal-300 text-lg">Transfer Successful</p>
+                <p className="text-sm text-gray-400 mt-2">
+                  Amount received:
+                </p>
+                <p className="text-white text-xl font-semibold mt-2">
+                  500 XLM credited to your recipient account
+                </p>
               </div>
-              <div className={`mt-[2rem] mb-[3rem] `}>
-                <p className="text-cyan-300 text-center text-[20px]">
-                  Transaction Successful !
-                </p>
-                <p className="font-[300] text-center text-[#919090] mt-8">
-                  The receiver received:
-                </p>
-                <p className="text-[#ffffff] text-center font-[500] mt-4">
-                  200 XLM (Fee: 0.1500 XLM)
-                </p>
-
-                {/* <div className="mb-6 px-[4.5rem] mt-10 flex flex-col gap-4">
-                  <div className="flex items-center justify-between">
-                    <p className="text-[#ffffff] font-[300]">Coin</p>
-                    <div className="flex items-center gap-1">
-                      <img src={stellar} alt="" />
-                      <p className="text-[#ffffff]">Stellar Lumen</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <p className="text-[#ffffff] font-[300]">Address</p>
-                    <p className="text-primary-color">
-                      0x1234567890abcdef...fedcba0987654321
-                    </p>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <p className="text-[#ffffff] font-[300]">Network</p>
-                    <p className="text-[#ffffff]">Stellar Classic Network</p>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <p className="text-[#ffffff] font-[300]">Source</p>
-                    <p className="text-[#ffffff]">Spot wallet</p>
-                  </div>
-                </div> */}
-              </div>
-              {/* <div className="flex justify-center px-[4rem] pb-10">
-                <button
-                  className={` bg-primary-color w-full text-white lg:px-6 px-3 py-2 rounded-lg text-[12px] lg:text-[16px]`}
-                >
-                  Go to wallet
-                </button>
-              </div> */}
             </div>
           </div>
         </section>
 
-        <section className="mt-5 lg:max-w-[1600px] md:w-[100%] mx-auto px-[16px] md:px-[40px]">
-          <div className="flex items-start justify-center flex-col-reverse md:flex-row">
-            <div
-              className={` mx-auto border border-[#B2B2B27A] w-[500px] rounded-[8px] hidden md:block`}
-            >
-              <div className="flex items-center mb-4">
+        <section className="mt-20 lg:max-w-[1200px] w-full mx-auto px-4 md:px-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="w-full md:w-[480px] border border-[#2e2e2e] rounded-xl p-6 bg-[#121212]">
+              <div className="mb-6 text-center">
                 <img
-                  src={card}
-                  alt="USD Coin"
-                  className="rounded-t-[8px] w-[150px] mx-auto mt-12"
+                  src={save}
+                  alt="Savings Card"
+                  className="rounded-md mb-4 w-full object-cover"
                 />
-              </div>
-              <div className="mt-[2rem] mb-[3rem]">
-                <p className="text-[#ffffff] font-[300] text-center text-[20px]">
-                  Saving successful
-                </p>
-                <p className="text-[#ffffff] text-center font-[500] text-[30px] mt-4">
-                  100 XLM
-                </p>
-
-                {/* <div className="mb-6 px-[4.5rem] mt-10 flex flex-col gap-4">
-                  <div className="flex items-center gap-1 text-[#ffffff]">
-                    <FiTarget />
-                    <p>Summary</p>
-                  </div>
-                  <div className="flex items-center justify-start gap-2">
-                    <p className="text-[#ffffff] font-[300]">Save date:</p>
-                    <p className="text-[#ffffff]">March 31, 2025</p>
-                  </div>
-                  <div className="flex items-center justify-start gap-2">
-                    <p className="text-[#ffffff] font-[300]">Value date:</p>
-                    <p className="text-[#ffffff]">March 31, 2025</p>
-                  </div>
-                  <div className="flex items-center justify-start gap-2">
-                    <p className="text-[#ffffff] font-[300]">
-                      Interest end date:
-                    </p>
-                    <p className="text-[#ffffff]">March 31, 2025</p>
-                  </div>
-                  <div className="flex items-center justify-start gap-2">
-                    <p className="text-[#ffffff] font-[300]">
-                      Redemption period:
-                    </p>
-                    <p className="text-[#ffffff]">March 31, 2025</p>
-                  </div>
-                  <div className="flex items-center justify-start gap-2">
-                    <p className="text-[#ffffff] font-[300]">
-                      Redemption date:
-                    </p>
-                    <p className="text-[#ffffff]">March 31, 2025</p>
-                  </div>
-                </div> */}
-              </div>
-              {/* <div className="flex justify-center px-[4rem] pb-10 flex-col gap-2">
-                <button className="bg-primary-color w-full text-white lg:px-6 px-3 py-2 rounded-lg text-[12px] lg:text-[16px]">
-                  Access your wallet
-                </button>
-                <button className="border border-primary-color w-full text-primary-color lg:px-6 px-3 py-2 rounded-lg text-[12px] lg:text-[16px]">
-                  Transact Freely
-                </button>
-              </div> */}
-            </div>
-            <div className="md:mx-auto border border-[#B2B2B27A] lg:p-6 p-3 md:w-[400px] w-full mt-6 md:hidden block">
-              <div className="flex items-center mb-4">
-                <img src={stellar} alt="USD Coin" className="h-6 w-6 mr-2" />
-                <h2 className="text-[#ffffff]">Lumen</h2>
-              </div>
-              <div className="my-[3rem]">
-                <div className="inline-flex items-center gap-1 py-2 lg:px-4 px-2 bg-[#899EFD1A] rounded-[4px]">
-                  <img src={tag_user} alt="User" />
-                  <p className="text-white text-[10px]">x Participants</p>
-                </div>
-                <div className="mb-2 mt-[2.5rem]">
-                  <span className="text-[70px] text-[#ffffff] leading-[26px]">
-                    %2
-                  </span>
-                  <span className="text-2xl">APY</span>
-                </div>
-                <div className="mb-6">
-                  <p className="text-[#ffffff] text-[12px] lg:text-[16px] font-[300]">
-                    With yXLM asset
-                  </p>
-                </div>
-              </div>
-              <div className="flex justify-center">
-                <button className="bg-white w-full text-black lg:px-6 px-3 py-2 rounded-lg font-semibold text-[12px] lg:text-[16px]">
-                  Earn with yXLM &rarr; (Coming soon)
-                </button>
+                <p className="text-teal-300 text-lg">Savings Successful</p>
+                <p className="text-white text-3xl font-bold mt-2">100 XLM</p>
               </div>
             </div>
-            <div className="text-white md:w-[300px] w-full md:mx-auto md:mt-[12rem] mt-[6rem] mb-7">
-              <p className="font-[500] leading-[42px] text-[25px] md:text-[40px] mb-4">
+            <div className="text-white">
+              <h2 className="text-3xl md:text-5xl font-extrabold mb-4">
                 Smart Saving Starts Here
-              </p>
-              <p className="leading-[20px] text-[14px] md:text-[16px] font-[300]">
-                No banks, no delays—just real-time earnings, daily interest, and
-                full control over your funds.
+              </h2>
+              <p className="text-sm md:text-base font-light text-[#f1f1f1]">
+                Grow your savings in USD with daily interest payouts. Skip the
+                bank queues—manage and track your assets in real time.
               </p>
             </div>
           </div>

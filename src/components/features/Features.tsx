@@ -65,9 +65,12 @@ const Features: React.FC = () => {
     </div>
       <section className="text-white py-20 px-6 md:px-12 lg:px-24">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-            From cash to crypto – and back again.
-          </h2>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-12">
+            Seamless Financial Solutions for Everyone
+            </h2>
+            <p className="text-lg md:text-xl text-center text-gray-300 mb-16">
+            Discover how RendBit simplifies your financial transactions with cutting-edge technology and user-friendly features.
+            </p>
 
           <div className="grid gap-20">
             {features.map((feature, index) => {
