@@ -95,9 +95,7 @@ const Home: React.FC = () => {
                 NO MONTHLY CHARGES.
               </p>
               <p className="leading-[20px] text-[14px] md:text-[16px] font-[300] text-[#ffffff]">
-                Create a savings account in USD and get 3-7% yearly interest,
-                paid daily. You can track your earnings & add or withdraw money
-                anytime.
+              No foreign accounts needed. Move money across borders with minimal charges.
               </p>
             </div>
             <div
@@ -110,11 +108,11 @@ const Home: React.FC = () => {
               <div className="my-[3rem]">
                 <div className="inline-flex items-center gap-1 py-2 lg:px-4 px-2 bg-[#899EFD1A] rounded-[4px]">
                   <img src={tag_user} alt="" />
-                  <p className="text-white text-[10px]">9143 Participants</p>
+                  <p className="text-white text-[10px]">x Participants</p>
                 </div>
                 <div className="mb-2 mt-[2.5rem]">
                   <span className="text-[70px] text-[#ffffff] leading-[26px]">
-                    4%
+                    2%
                   </span>
                   <span className="text-2xl">APY</span>
                 </div>
@@ -139,7 +137,7 @@ const Home: React.FC = () => {
                 />
               </div>
               <div className={`mt-[2rem] mb-[3rem] `}>
-                <p className="text-[#4BAC0D] text-center text-[20px]">
+                <p className="text-cyan-300 text-center text-[20px]">
                   Transaction Successful !
                 </p>
                 <p className="font-[300] text-center text-[#919090] mt-8">
@@ -254,11 +252,11 @@ const Home: React.FC = () => {
               <div className="my-[3rem]">
                 <div className="inline-flex items-center gap-1 py-2 lg:px-4 px-2 bg-[#899EFD1A] rounded-[4px]">
                   <img src={tag_user} alt="User" />
-                  <p className="text-white text-[10px]">9143 Participants</p>
+                  <p className="text-white text-[10px]">x Participants</p>
                 </div>
                 <div className="mb-2 mt-[2.5rem]">
                   <span className="text-[70px] text-[#ffffff] leading-[26px]">
-                    4%
+                    %2
                   </span>
                   <span className="text-2xl">APY</span>
                 </div>
@@ -276,12 +274,11 @@ const Home: React.FC = () => {
             </div>
             <div className="text-white md:w-[300px] w-full md:mx-auto md:mt-[12rem] mt-[6rem] mb-7">
               <p className="font-[500] leading-[42px] text-[25px] md:text-[40px] mb-4">
-                INVEST IN THE FUTURE.
+                Smart Saving Starts Here
               </p>
               <p className="leading-[20px] text-[14px] md:text-[16px] font-[300]">
-                Create a savings account in USD and get 3-7% yearly interest,
-                paid daily. You can track your earnings & add or withdraw money
-                anytime.
+                No banks, no delays—just real-time earnings, daily interest, and
+                full control over your funds.
               </p>
             </div>
           </div>
