@@ -2,7 +2,6 @@ import React from "react";
 import Features from "../../components/features/Features";
 import WhyChooseUs from "../../components/whychooseus/WhyChooseUs";
 import Hero from "../../components/hero/Hero";
-import { FiTarget } from "react-icons/fi";
 import tag_user from "../../assets/svg/tag-user.svg";
 import mission2 from "../../assets/img/mission2.png";
 import card from "../../assets/img/card.png";
