@@ -15,7 +15,7 @@ Built on Stellar, Rendbit provides a seamless experience for remittances, fiat-X
 
 ---
 
-## 🚀 1. Cross-Border Payment System (Powered by Stellar)
+##  1. Cross-Border Payment System (Powered by Stellar)
 
 ### 🎯 Purpose
 To enable fast, secure, and affordable cross-border payments across African countries using Stellar’s blockchain infrastructure.
