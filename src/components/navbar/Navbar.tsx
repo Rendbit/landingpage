@@ -38,7 +38,7 @@ const Navbar: React.FC = () => {
       </ul>
 
       {/* Get Started Button */}
-      <div className="hidden md:flex justify-center items-center">
+      {/* <div className="hidden md:flex justify-center items-center">
         <div className="relative rounded-[13px] p-0.5 bg-gradient-to-r from-cyan-300 to-[#0A1F35] shadow-lg">
           <div className="absolute cursor-pointer inset-0 rounded-[13px] bg-cyan-300 blur-md opacity-40 -z-10"></div>
           <button
@@ -51,6 +51,18 @@ const Navbar: React.FC = () => {
             <span className="relative z-10">Get started</span>
             <div className="absolute inset-0 rounded-[13px] bg-[#0A1F35] opacity-30 blur-sm -z-10"></div>
           </button>
+        </div>
+      </div> */}
+
+      <div className="hidden md:flex justify-center items-center">
+        <div className="relative rounded-[13px] p-0.5 bg-gradient-to-r from-cyan-300 to-[#0A1F35] shadow-lg">
+          <div className="absolute cursor-pointer inset-0 rounded-[13px] bg-cyan-300 blur-md opacity-40 -z-10"></div>
+          <a href='https://finance.rendbit.com/#/login'
+            className="block relative cursor-pointer text-white font-bold bg-[#0A1F35] py-3 px-6 rounded-[13px] transition-all duration-300"
+          >
+            <span className="relative z-10">Login</span>
+            <div className="absolute inset-0 rounded-[13px] bg-[#0A1F35] opacity-30 blur-sm -z-10"></div>
+          </a>
         </div>
       </div>
 
