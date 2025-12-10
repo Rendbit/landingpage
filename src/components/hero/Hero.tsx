@@ -5,9 +5,10 @@ import ghana from "../../assets/img/ghana.png";
 import usdc from "../../assets/img/usd-coin-usdc-logo.png";
 import { IoChevronDown } from "react-icons/io5";
 import RendBitWaitlistForm from "../waitlistmodal/modal";
-import { logEvent, analytics } from "../../tools/firebase";
+// import { logEvent, analytics } from "../../tools/firebase";
 import { getXlmConversionRates } from "../../utils";
 import { toast } from "react-toastify";
+// import { Link } from "react-router-dom";
 
 const currencies = [
   {
@@ -146,7 +147,13 @@ const Hero: React.FC = () => {
               between African countries using stellar XLM as the currency
               bridge. Join now
             </p>
-            <button
+            <a 
+                className="cursor-pointer mt-3 px-[20px] py-[10px] border rounded-[10px] bg-gradient-to-r from-black to-gray-800 inline-block" 
+                href='https://finance.rendbit.com/#/create-account'
+            >
+              Get Started
+            </a>
+            {/* <button
               onClick={() => {
                 toggleModal();
                 logEvent(analytics, "rendbit_waitlist_join_hero");
@@ -154,7 +161,7 @@ const Hero: React.FC = () => {
               className="cursor-pointer mt-3 px-[20px] py-[10px] border rounded-[10px] bg-gradient-to-r from-black to-gray-800"
             >
               Join Wait-list
-            </button>
+            </button> */}
           </div>
           <div className="flex justify-center mt-[300px] sm:mt-[100px] md:mt-9 items-center rounded-[11px] flex-col">
             <div className="flex justify-center items-center w-full">
