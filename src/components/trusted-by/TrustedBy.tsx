@@ -53,10 +53,10 @@ const ratings: Rating[] = [
 
 export default function TrustedBy() {
   return (
-    <section className="w-full px-6 py-20 flex flex-col items-center">
+    <section className="w-full px-4 md:px-6 py-12 md:py-20 flex flex-col items-center">
 
       {/* Badge */}
-      <div className="text-[#5C5C5C] inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-1.5 mb-6 shadow-sm">
+      <div className="text-[#5C5C5C] inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-1.5 mb-5 md:mb-6 shadow-sm">
         <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
         <span className="text-[12px] font-medium tracking-wide">
           Stats &amp; metric
@@ -64,20 +64,20 @@ export default function TrustedBy() {
       </div>
 
       {/* Heading */}
-      <h2 className="text-[35px] font-bold text-[#5C5C5C] text-center leading-tight mb-9 tracking-tight">
+      <h2 className="text-[26px] sm:text-[30px] md:text-[35px] font-bold text-[#5C5C5C] text-center leading-tight mb-7 md:mb-9 tracking-tight px-2">
         Trusted by{" "}
         <span className="text-[#171717]">leading finance</span>{" "}
         teams <span className="text-[#171717]">worldwide</span>
       </h2>
 
       {/* Stat Pills */}
-      <div className="flex flex-wrap justify-center gap-3 mb-8">
+      <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 mb-7 md:mb-8 w-full sm:w-auto">
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-6 py-3.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-default"
+            className="flex items-center justify-center gap-2 bg-white border border-gray-200 rounded-xl px-6 py-3.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-default"
           >
-            <span className="text-[22px] font-bold text-gray-900 tracking-tight">
+            <span className="text-[20px] md:text-[22px] font-bold text-gray-900 tracking-tight">
               {stat.prefix ?? ""}{stat.value}
             </span>
             <span className="text-sm text-gray-400 font-normal">{stat.label}</span>
@@ -86,23 +86,23 @@ export default function TrustedBy() {
       </div>
 
       {/* Ratings Row */}
-      <div className="flex flex-wrap justify-center items-center mb-6">
+      <div className="flex flex-wrap justify-center items-center gap-y-3 mb-5 md:mb-6">
         {ratings.map((r, i) => (
           <React.Fragment key={r.name}>
-            <div className="flex items-center gap-1.5 px-5 text-[13.5px] text-gray-500">
+            <div className="flex items-center gap-1.5 px-4 md:px-5 text-[13px] md:text-[13.5px] text-gray-500">
               {r.icon}
               <span className="font-semibold text-gray-800">{r.score}</span>
               <span>{r.name}</span>
             </div>
             {i < ratings.length - 1 && (
-              <span className="w-px h-4 bg-gray-300" />
+              <span className="hidden sm:block w-px h-4 bg-gray-300" />
             )}
           </React.Fragment>
         ))}
       </div>
 
       {/* Subtext */}
-      <p className="text-sm text-gray-400 text-center leading-relaxed max-w-xs">
+      <p className="text-sm text-gray-400 text-center leading-relaxed max-w-xs px-2">
         Thousands of finance professionals streamline{" "}
         <span className="font-medium text-gray-500 block">their workflows every day.</span>
       </p>

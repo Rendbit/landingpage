@@ -38,12 +38,6 @@ const XIcon = () => (
   </svg>
 );
 
-const AppleIcon = () => (
-  <svg width="16" height="18" viewBox="0 0 814 1000" fill="currentColor">
-    <path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76.5 0-103.7 40.8-165.9 40.8s-105.5-57.8-155.5-127.4C46 376.7 0 248.2 0 126.7c0-69.5 27.3-141.2 77-189.6 49.7-48.4 120.9-77 187.6-77 69.3 0 126.8 46.6 170.6 46.6 43.2 0 110.4-48.1 189.5-48.1z" />
-  </svg>
-);
-
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const footerLinks = [
@@ -88,36 +82,46 @@ const Footer: React.FC = () => {
       style={{ backgroundColor: "#0d1f2d" }}
     >
       {/* Top nav section */}
-      <div className="relative z-10 mx-auto max-w-screen-xl px-8 pt-16 pb-10">
-        <div className="flex flex-wrap gap-x-16 gap-y-10 items-start">
-          {/* Logo */}
-          <div className="flex items-center gap-2 text-white min-w-[120px] pt-0.5">
-            <RendBitLogo />
-            <span
-              className="text-base font-semibold tracking-tight"
-              style={{ letterSpacing: "-0.02em" }}
-            >
-              RendBit™
-            </span>
+      <div className="relative z-10 mx-auto max-w-screen-xl px-5 md:px-8 pt-12 md:pt-16 pb-8 md:pb-10">
+        <div className="flex flex-col md:flex-row md:flex-wrap gap-x-16 gap-y-8 md:gap-y-10 items-start">
+
+          {/* Logo + App Store — side by side on mobile */}
+          <div className="flex items-center justify-between w-full md:w-auto md:flex-col md:items-start md:gap-6">
+            <div className="flex items-center gap-2 text-white pt-0.5">
+              <RendBitLogo />
+              <span
+                className="text-base font-semibold tracking-tight"
+                style={{ letterSpacing: "-0.02em" }}
+              >
+                RendBit™
+              </span>
+            </div>
+
+            {/* App Store badge — visible on mobile inline with logo, hidden on md+ (shown separately below) */}
+            <div className="md:hidden">
+              <a href="#">
+                <img src="/image/apple-store.svg" alt="" className="h-9" />
+              </a>
+            </div>
           </div>
 
           {/* Nav columns */}
-          <div className="flex flex-1 flex-wrap gap-x-12 gap-y-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-1 md:flex-wrap gap-x-8 md:gap-x-12 gap-y-7 md:gap-y-8 w-full md:w-auto">
             {footerLinks.map((col) => (
-              <div key={col.heading} className="min-w-[120px]">
+              <div key={col.heading} className="min-w-0 md:min-w-[120px]">
                 <p
-                  className="mb-4 text-xs font-semibold uppercase tracking-widest"
+                  className="mb-3 md:mb-4 text-xs font-semibold uppercase tracking-widest"
                   style={{ color: "#ffffff", letterSpacing: "0.1em", fontSize: "11px" }}
                 >
                   {col.heading}
                 </p>
-                <ul className="space-y-2.5">
+                <ul className="space-y-2 md:space-y-2.5">
                   {col.links.map((link) => (
                     <li key={link}>
                       <a
                         href="#"
-                        className="text-sm transition-colors duration-200"
-                        style={{ color: "rgba(255,255,255,0.55)"}}
+                        className="text-[13px] md:text-sm transition-colors duration-200"
+                        style={{ color: "rgba(255,255,255,0.55)" }}
                         onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.95)")}
                         onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.55)")}
                       >
@@ -130,19 +134,9 @@ const Footer: React.FC = () => {
             ))}
           </div>
 
-          {/* App Store CTA */}
-          <div className="flex items-start">
-            <a
-              href="#"
-              // onMouseEnter={(e) => {
-              //   (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.35)";
-              //   (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "rgba(255,255,255,0.09)";
-              // }}
-              // onMouseLeave={(e) => {
-              //   (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.15)";
-              //   (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "rgba(255,255,255,0.04)";
-              // }}
-            >
+          {/* App Store CTA — desktop only */}
+          <div className="hidden md:flex items-start">
+            <a href="#">
               <img src="/image/apple-store.svg" alt="" />
             </a>
           </div>
@@ -150,12 +144,20 @@ const Footer: React.FC = () => {
 
         {/* Divider */}
         <div
-          className="my-8 h-px w-full"
+          className="my-6 md:my-8 h-px w-full"
           style={{ backgroundColor: "rgba(255,255,255,0.1)" }}
         />
 
         {/* Bottom bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4">
+        <div className="flex flex-col-reverse sm:flex-row items-center sm:justify-between gap-4">
+          {/* Copyright */}
+          <p
+            className="text-[12px] md:text-sm text-center sm:text-left"
+            style={{ color: "rgba(255,255,255,0.4)" }}
+          >
+            {new Date().getFullYear()} RendBit &copy; All rights reserved.
+          </p>
+
           {/* Socials */}
           <div className="flex items-center gap-3">
             {socialLinks.map(({ icon, label, href }) => (
@@ -165,40 +167,24 @@ const Footer: React.FC = () => {
                 aria-label={label}
                 className="flex h-8 w-8 items-center justify-center rounded-full transition-all duration-200"
                 style={{ color: "rgba(255,255,255,0.55)", backgroundColor: "rgba(255,255,255,0.06)" }}
-                // onMouseEnter={(e) => {
-                //   (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.95)";
-                //   (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "rgba(255,255,255,0.14)";
-                // }}
-                // onMouseLeave={(e) => {
-                //   (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.55)";
-                //   (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "rgba(255,255,255,0.06)";
-                // }}
               >
                 {icon}
               </a>
             ))}
           </div>
-
-          {/* Copyright */}
-          <p
-            className="text-sm"
-            style={{ color: "rgba(255,255,255,0.4)" }}
-          >
-            { new Date().getFullYear() } RendBit &copy; All rights reserved.
-          </p>
         </div>
       </div>
 
       {/* Giant wordmark */}
       <div
         className="relative select-none overflow-hidden"
-        style={{ height: "clamp(80px, 18vw, 200px)" }}
+        style={{ height: "clamp(60px, 18vw, 200px)" }}
         aria-hidden="true"
       >
         <p
           className="absolute bottom-[-30%] left-1/2 w-full -translate-x-1/2 text-center font-black leading-none"
           style={{
-            fontSize: "clamp(80px, 18vw, 220px)",
+            fontSize: "clamp(60px, 18vw, 220px)",
             fontWeight: 900,
             color: "transparent",
             WebkitTextStroke: "1px rgba(255,255,255,0.12)",

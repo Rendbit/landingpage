@@ -97,7 +97,7 @@ const TestimonialCard = ({
   return (
     <div
       className={`
-        group relative flex flex-col gap-5 rounded-2xl border bg-white p-7
+        group relative flex flex-col gap-4 md:gap-5 rounded-2xl border bg-white p-5 md:p-7
         transition-all duration-300 ease-out cursor-default
         ${hovered ? "border-neutral-300 shadow-lg shadow-neutral-100 -translate-y-1" : "border-neutral-200 shadow-sm"}
       `}
@@ -120,12 +120,12 @@ const TestimonialCard = ({
       </div>
 
       {/* Quote icon */}
-      <div className="absolute top-7 right-7 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+      <div className="absolute top-5 right-5 md:top-7 md:right-7 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
         <QuoteIcon />
       </div>
 
       {/* Quote */}
-      <p className="text-[15px] leading-relaxed text-neutral-700 flex-1">
+      <p className="text-[13.5px] md:text-[15px] leading-relaxed text-neutral-700 flex-1">
         {testimonial.quote}
       </p>
 
@@ -154,18 +154,18 @@ const TestimonialCard = ({
 
 export default function Testimonials() {
   return (
-    <section className="w-full py-24 px-6">
+    <section className="w-full py-14 md:py-24 px-4 md:px-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-white border border-neutral-200 rounded-full px-4 py-1.5 mb-6 shadow-sm">
+        <div className="text-center mb-10 md:mb-16">
+          <div className="inline-flex items-center gap-2 bg-white border border-neutral-200 rounded-full px-4 py-1.5 mb-5 md:mb-6 shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
             <span className="text-xs font-medium text-neutral-500 tracking-wide uppercase">
               Trusted by finance leaders
             </span>
           </div>
 
-          <h2 className="text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.1] mb-5">
+          <h2 className="text-[28px] sm:text-[38px] md:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.1] mb-4 md:mb-5 px-2">
             Trusted by teams who{" "}
             <span className="relative inline-block">
               <span className="relative z-10">move money</span>
@@ -176,29 +176,29 @@ export default function Testimonials() {
             </span>
           </h2>
 
-          <p className="text-base text-neutral-500 max-w-md mx-auto leading-relaxed">
+          <p className="text-[13px] md:text-base text-neutral-500 max-w-md mx-auto leading-relaxed px-2">
             Reduce risk, gain visibility, and help your finance team stay
             focused — not buried in approvals.
           </p>
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
           {testimonials.map((t, i) => (
             <TestimonialCard key={t.company} testimonial={t} index={i} />
           ))}
         </div>
 
         {/* Footer CTA */}
-        <div className="mt-14 text-center">
+        <div className="mt-10 md:mt-14 text-center">
           <p className="text-sm text-neutral-400 mb-4">
             Join 2,000+ finance teams already using Rendbit
           </p>
-          <div className="flex items-center justify-center gap-3">
-            <button className="px-5 py-2.5 bg-neutral-900 text-white text-sm font-medium rounded-xl hover:bg-neutral-700 transition-colors">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <button className="w-full sm:w-auto px-5 py-2.5 bg-neutral-900 text-white text-sm font-medium rounded-xl hover:bg-neutral-700 transition-colors">
               Get started free
             </button>
-            <button className="px-5 py-2.5 border border-neutral-200 text-neutral-700 text-sm font-medium rounded-xl hover:bg-white hover:border-neutral-300 transition-colors bg-transparent">
+            <button className="w-full sm:w-auto px-5 py-2.5 border border-neutral-200 text-neutral-700 text-sm font-medium rounded-xl hover:bg-white hover:border-neutral-300 transition-colors bg-transparent">
               See all stories
             </button>
           </div>

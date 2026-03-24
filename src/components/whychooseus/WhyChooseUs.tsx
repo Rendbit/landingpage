@@ -23,7 +23,6 @@ const items: AccordionItem[] = [
     description:
       "No hidden charges. See exactly what you pay upfront with our transparent fee structure. Save up to 90% on transfer costs.",
     preview: <img src="/image/accordion-image.svg" alt="" />
-    // preview: <PaymentPreview />,
   },
   {
     id: 3,
@@ -68,29 +67,24 @@ const AccordionRow = ({
   >
     <button
       onClick={onToggle}
-      className="w-full flex items-center gap-4 px-6 py-5 text-left"
+      className="w-full flex items-center gap-3 md:gap-4 px-4 md:px-6 py-4 md:py-5 text-left"
       aria-expanded={isOpen}
     >
-      {/* <img src="/image/accordion-check.svg" alt="" /> */}
       {/* Step indicator */}
-      {
-        isOpen ? (
-          <img src="/image/accordion-check.svg" alt="" />
-        ) : (
-          <p className="bg-neutral-100 text-neutral-500 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-semibold text-sm transition-all duration-300">
-            {
-              String(item.id).padStart(2, "0")
-            }
-          </p>
-        )
-      }
+      {isOpen ? (
+        <img src="/image/accordion-check.svg" alt="" />
+      ) : (
+        <p className="bg-neutral-100 text-neutral-500 w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center flex-shrink-0 font-semibold text-sm transition-all duration-300">
+          {String(item.id).padStart(2, "0")}
+        </p>
+      )}
 
       <div className="flex-1 min-w-0">
-        <p className={`font-semibold text-base transition-colors ${isOpen ? "text-neutral-900" : "text-neutral-700"}`}>
+        <p className={`font-semibold text-[14px] md:text-base transition-colors ${isOpen ? "text-neutral-900" : "text-neutral-700"}`}>
           {item.title}
         </p>
         {!isOpen && (
-          <p className="text-sm text-neutral-400 truncate mt-0.5 max-w-xs">
+          <p className="text-[12px] md:text-sm text-neutral-400 truncate mt-0.5 max-w-[200px] sm:max-w-xs">
             {item.description.slice(0, 52)}…
           </p>
         )}
@@ -98,11 +92,11 @@ const AccordionRow = ({
 
       {/* Chevron */}
       <div
-        className={`w-8 h-8 rounded-full border border-neutral-200 flex items-center justify-center flex-shrink-0 transition-transform duration-300 ${
+        className={`w-7 h-7 md:w-8 md:h-8 rounded-full border border-neutral-200 flex items-center justify-center flex-shrink-0 transition-transform duration-300 ${
           isOpen ? "rotate-180 bg-neutral-50" : "rotate-0 bg-white"
         }`}
       >
-        <svg className="w-4 h-4 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-3.5 h-3.5 md:w-4 md:h-4 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
       </div>
@@ -114,8 +108,8 @@ const AccordionRow = ({
         isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
       }`}
     >
-      <div className="px-6 pb-6 pl-20">
-        <p className="text-sm text-neutral-500 leading-relaxed">{item.description}</p>
+      <div className="px-4 md:px-6 pb-5 md:pb-6 pl-14 md:pl-20">
+        <p className="text-[12px] md:text-sm text-neutral-500 leading-relaxed">{item.description}</p>
         {item.preview}
       </div>
     </div>
@@ -127,11 +121,11 @@ export default function WhyChooseUs() {
   const [openId, setOpenId] = useState<number>(2);
 
   return (
-    <section className="w-full min-h-screen flex items-center py-20 px-6">
-      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+    <section className="w-full min-h-screen flex items-center py-12 md:py-20 px-4 md:px-6">
+      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-start">
 
         {/* ── Left ── */}
-        <div className="flex flex-col gap-8 lg:sticky lg:top-20">
+        <div className="flex flex-col gap-6 md:gap-8 lg:sticky lg:top-20">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 w-fit bg-white border border-neutral-200 rounded-full px-3.5 py-1.5 shadow-sm">
             <svg className="w-3.5 h-3.5 text-[#0E7BB2]" fill="currentColor" viewBox="0 0 20 20">
@@ -142,12 +136,12 @@ export default function WhyChooseUs() {
 
           {/* Heading */}
           <div>
-            <h2 className="text-5xl font-bold tracking-tight text-neutral-900 leading-[1.1]">
+            <h2 className="text-[36px] sm:text-[44px] md:text-5xl font-bold tracking-tight text-neutral-900 leading-[1.1]">
               Why Choose
               <br />
               <span className="text-[#0E7BB2]">RendBit?</span>
             </h2>
-            <p className="mt-5 text-base text-neutral-500 leading-relaxed max-w-sm">
+            <p className="mt-4 md:mt-5 text-[13px] md:text-base text-neutral-500 leading-relaxed max-w-sm">
               Experience the future of cross-border payment design for speed,
               reliability, and safety for the African money transfers market.
             </p>
@@ -156,7 +150,7 @@ export default function WhyChooseUs() {
           {/* CTA */}
           <a
             href="#"
-            className="inline-flex items-center gap-2 text-[#0E7BB2] font-semibold text-base hover:gap-3 transition-all duration-200 group w-fit"
+            className="inline-flex items-center gap-2 text-[#0E7BB2] font-semibold text-[14px] md:text-base hover:gap-3 transition-all duration-200 group w-fit"
           >
             Get started
             <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -166,7 +160,7 @@ export default function WhyChooseUs() {
 
           {/* Spacer + social proof */}
           <div className="pt-4 border-t border-neutral-200 space-y-3">
-            <p className="text-sm text-neutral-700">
+            <p className="text-[13px] md:text-sm text-neutral-700">
               <span className="font-semibold">All in real time,</span>{" "}
               <span className="text-neutral-500">
                 verify accounts, monitor activity, and ensure compliance standards.
