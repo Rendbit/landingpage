@@ -5,6 +5,7 @@ import Footer from "./components/footer/Footer";
 import Home from "./pages/home/Home";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Nav from "./components/nav/Nav";
 
 const App: React.FC = () => {
   return (
@@ -17,7 +18,8 @@ const App: React.FC = () => {
         closeOnClick
         rtl={false}
       />
-      <Navbar />
+      {/* <Navbar /> */}
+      <Nav />
       <Home />
       <Footer />
       {/* <HashRouter>
