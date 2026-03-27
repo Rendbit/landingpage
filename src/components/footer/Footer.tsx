@@ -28,28 +28,28 @@ const XIcon = () => (
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
-const footerLinks = [
-  {
-    heading: "Solutions",
-    links: ["Spend management", "Approval automation", "Treasury ops", "Team collaboration"],
-  },
-  {
-    heading: "Company",
-    links: ["About", "Blog", "Careers", "Contact"],
-  },
-  {
-    heading: "Legal",
-    links: ["Terms of service", "Privacy policy", "Cookie settings"],
-  },
-  {
-    heading: "Product",
-    links: ["Overview", "Smart workflows", "Real-time insights"],
-  },
-  {
-    heading: "Developers",
-    links: ["API reference", "Webhooks", "Authentication", "System status", "Changelog"],
-  },
-];
+// const footerLinks = [
+//   {
+//     heading: "Solutions",
+//     links: ["Spend management", "Approval automation", "Treasury ops", "Team collaboration"],
+//   },
+//   {
+//     heading: "Company",
+//     links: ["About", "Blog", "Careers", "Contact"],
+//   },
+//   {
+//     heading: "Legal",
+//     links: ["Terms of service", "Privacy policy", "Cookie settings"],
+//   },
+//   {
+//     heading: "Product",
+//     links: ["Overview", "Smart workflows", "Real-time insights"],
+//   },
+//   {
+//     heading: "Developers",
+//     links: ["API reference", "Webhooks", "Authentication", "System status", "Changelog"],
+//   },
+// ];
 
 const socialLinks = [
   { icon: <RiTelegramFill />, label: "Facebook", href: "https://t.me/rendbit" },

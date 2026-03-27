@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useTheme } from "../../context/ThemeContext";
 
 const ArrowUpRightIcon = () => (
@@ -24,6 +25,57 @@ const PartnerLogos = ({ isDark }: { isDark: boolean }) => (
   </div>
 );
 
+const BackToTopButton = ({ isDark }: { isDark: boolean }) => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 300);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+  const btnBg = isDark ? "#1a1a1a" : "#ffffff";
+  const btnBorder = isDark ? "#2a2a2a" : "#e5e7eb";
+  const btnColor = isDark ? "#f5f5f5" : "#374151";
+  const btnShadow = isDark ? "0 4px 16px rgba(0,0,0,0.4)" : "0 4px 16px rgba(0,0,0,0.1)";
+
+  return (
+    <button
+      onClick={scrollToTop}
+      aria-label="Back to top"
+      style={{
+        position: "fixed",
+        bottom: "28px",
+        right: "28px",
+        zIndex: 50,
+        width: "44px",
+        height: "44px",
+        borderRadius: "12px",
+        background: btnBg,
+        border: `1px solid ${btnBorder}`,
+        color: btnColor,
+        boxShadow: btnShadow,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        cursor: "pointer",
+        opacity: visible ? 1 : 0,
+        pointerEvents: visible ? "auto" : "none",
+        transform: visible ? "translateY(0)" : "translateY(10px)",
+        transition: "opacity 0.25s ease, transform 0.25s ease",
+      }}
+      onMouseEnter={e => (e.currentTarget.style.background = isDark ? "#2a2a2a" : "#f3f4f6")}
+      onMouseLeave={e => (e.currentTarget.style.background = btnBg)}
+    >
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="4 10 8 6 12 10" />
+      </svg>
+    </button>
+  );
+};
+
 const Hero = () => {
   const { isDark } = useTheme();
 
@@ -39,7 +91,7 @@ const Hero = () => {
     <section style={{ minHeight: "100vh", position: "relative" }}>
       <div className="max-w-[1200px] mx-auto px-4 md:px-6 pt-8 md:pt-10 pb-4">
 
-        {/* Top row: badge + theme toggle */}
+        {/* Top row: badge */}
         <div className="flex justify-center items-center mb-6 md:mb-8">
           <div
             className="flex items-center gap-2 rounded-full px-4 py-1.5"
@@ -174,6 +226,9 @@ const Hero = () => {
 
         <PartnerLogos isDark={isDark} />
       </div>
+
+      {/* Back to top */}
+      <BackToTopButton isDark={isDark} />
     </section>
   );
 };
