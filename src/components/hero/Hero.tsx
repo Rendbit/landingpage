@@ -165,7 +165,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="absolute inset-0 flex items-start justify-center pointer-events-none top-[-90px] hidden md:flex">
+              <div className="absolute inset-0 items-start justify-center pointer-events-none top-[-90px] hidden md:flex">
                 <img src="/image/hero-phone-img.svg" alt="" className="w-[500px]" />
               </div>
             </div>
