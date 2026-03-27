@@ -1,4 +1,6 @@
+import { LinkedinIcon } from "lucide-react";
 import React, { useState } from "react";
+import { RiTelegramFill } from "react-icons/ri";
 
 // ─── Icon Components ──────────────────────────────────────────────────────────
 
@@ -64,9 +66,9 @@ const footerLinks = [
 ];
 
 const socialLinks = [
-  { icon: <FacebookIcon />, label: "Facebook", href: "#" },
-  { icon: <InstagramIcon />, label: "Instagram", href: "#" },
-  { icon: <XIcon />, label: "X / Twitter", href: "#" },
+  { icon: <RiTelegramFill />, label: "Facebook", href: "https://t.me/rendbit" },
+  { icon: <LinkedinIcon />, label: "Instagram", href: "https://www.linkedin.com/company/rendbit" },
+  { icon: <XIcon />, label: "X / Twitter", href: "https://x.com/rendbit_" },
 ];
 
 const Footer: React.FC = () => {
@@ -78,7 +80,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer
-      className="relative overflow-hidden"
+      className="relative overflow-hidden" id="contact"
       style={{ backgroundColor: "#0d1f2d" }}
     >
       {/* Top nav section */}
@@ -165,6 +167,7 @@ const Footer: React.FC = () => {
                 key={label}
                 href={href}
                 aria-label={label}
+                target="_blank"
                 className="flex h-8 w-8 items-center justify-center rounded-full transition-all duration-200"
                 style={{ color: "rgba(255,255,255,0.55)", backgroundColor: "rgba(255,255,255,0.06)" }}
               >

@@ -1,6 +1,5 @@
 import React from "react";
 import HowItWorks from "../../components/howItWorks/HowItWorks";
-import TrustedBy from "../../components/trusted-by/TrustedBy";
 import SeamlessFinancial from "../../components/seamless-financial/SeamlessFinancial";
 import Hero from "../../components/hero/Hero";
 import Testimonials from "../../components/testimonials/testimonials";
@@ -11,7 +10,7 @@ const RendbitLanding: React.FC = () => (
     <style>{`@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');`}</style>
     <Hero />
     <HowItWorks />
-    <TrustedBy />
+    {/* <TrustedBy /> */}
     <SeamlessFinancial />
     <WhyChooseUs />
     <Testimonials />
