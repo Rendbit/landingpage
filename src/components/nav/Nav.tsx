@@ -1,20 +1,5 @@
-import { useState, useRef, useEffect } from "react";
-
-const ChevronDownIcon = ({ open }: { open: boolean }) => (
-  <svg
-    width="13"
-    height="13"
-    viewBox="0 0 16 16"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={`transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"}`}
-  >
-    <polyline points="4 6 8 10 12 6" />
-  </svg>
-);
+import { useState, useEffect } from "react";
+import { useTheme } from "../../context/ThemeContext";
 
 const HamburgerIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -31,29 +16,49 @@ const CloseIcon = () => (
   </svg>
 );
 
-const solutions = [
-  { label: "For startups", href: "#" },
-  { label: "For enterprises", href: "#" },
-  { label: "For agencies", href: "#" },
+const SunIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="5" />
+    <line x1="12" y1="1" x2="12" y2="3" />
+    <line x1="12" y1="21" x2="12" y2="23" />
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+    <line x1="1" y1="12" x2="3" y2="12" />
+    <line x1="21" y1="12" x2="23" y2="12" />
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+  </svg>
+);
+
+const MoonIcon = () => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" />
+  </svg>
+);
+
+const navLinks = [
+  { label: "Features", href: "#features" },
+  { label: "Why Choose Us", href: "#why-choose-us" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Nav() {
-  const [solutionsOpen, setSolutionsOpen] = useState(false);
+  const { isDark, toggleTheme } = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setSolutionsOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  // Theme tokens
+  const navBg = isDark ? "#1a1a1a" : "#ffffff";
+  const navBorder = isDark ? "#2a2a2a" : "#e5e7eb";
+  const navShadow = isDark ? "0 4px 24px rgba(0,0,0,0.4)" : "0 1px 8px rgba(0,0,0,0.08)";
+  const textPrimary = isDark ? "#f5f5f5" : "#1E1E1E";
+  const hoverBg = isDark ? "#2a2a2a" : "#f3f4f6";
+  const dividerColor = isDark ? "#2a2a2a" : "#f3f4f6";
+  const ctaBorder = isDark ? "#38bdf8" : "#0F7CB3";
+  const ctaText = isDark ? "#38bdf8" : "#0F7CB3";
+  const ctaHoverBg = isDark ? "#0c2a3a" : "#eff6ff";
+  const toggleBg = isDark ? "#2a2a2a" : "#f3f4f6";
+  const toggleHoverBg = isDark ? "#3a3a3a" : "#e5e7eb";
 
-  // Close mobile menu on resize to desktop
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) setMobileOpen(false);
@@ -64,141 +69,125 @@ export default function Nav() {
 
   return (
     <div className="flex items-center justify-center p-4 md:p-6">
-      <nav className="w-full max-w-3xl bg-white border border-gray-200 rounded-2xl shadow-md">
-
+      <nav
+        className="w-full max-w-3xl rounded-2xl"
+        style={{
+          background: navBg,
+          border: `1px solid ${navBorder}`,
+          boxShadow: navShadow,
+          transition: "background 0.2s, border-color 0.2s",
+        }}
+      >
         {/* ── Main bar ── */}
         <div className="flex items-center justify-between px-4 md:px-5 h-[60px] gap-4">
 
           {/* Logo */}
           <a href="/">
-            <img src="/image/logo1.svg" alt="" />
+            <img
+              src="/image/logo1.svg"
+              alt="Logo"
+              style={{ filter: isDark ? "brightness(0) invert(1)" : "none" }}
+            />
           </a>
 
           {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center gap-1 flex-1">
-            <a
-              href="#"
-              className="text-[14px] font-medium text-[#1E1E1E] hover:bg-gray-100 px-3 py-1.5 rounded-lg transition-colors"
-            >
-              Products
-            </a>
-
-            {/* Solutions Dropdown */}
-            <div className="relative" ref={dropdownRef}>
-              <button
-                onClick={() => setSolutionsOpen((prev) => !prev)}
-                className="cursor-pointer flex items-center gap-1.5 text-[14px] font-medium text-[#1E1E1E] hover:bg-gray-100 px-3 py-1.5 rounded-lg transition-colors"
+            {navLinks.map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                className="text-[14px] font-medium px-3 py-1.5 rounded-lg transition-colors"
+                style={{ color: textPrimary }}
+                onMouseEnter={e => (e.currentTarget.style.background = hoverBg)}
+                onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
               >
-                Solutions
-                <ChevronDownIcon open={solutionsOpen} />
-              </button>
-
-              {solutionsOpen && (
-                <div className="absolute top-[calc(100%+8px)] left-0 bg-white border border-gray-200 rounded-xl shadow-sm p-1.5 min-w-[180px] z-50">
-                  {solutions.map((item) => (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      className="block text-[13px] text-gray-700 hover:bg-gray-50 px-3 py-2 rounded-lg transition-colors"
-                    >
-                      {item.label}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <a
-              href="#"
-              className="text-[14px] font-medium text-[#1E1E1E] hover:bg-gray-100 px-3 py-1.5 rounded-lg transition-colors"
-            >
-              Pricing
-            </a>
-
-            <a
-              href="#"
-              className="text-[14px] font-medium text-[#1E1E1E] hover:bg-gray-100 px-3 py-1.5 rounded-lg transition-colors"
-            >
-              Contact
-            </a>
+                {label}
+              </a>
+            ))}
           </div>
 
-          {/* Desktop CTA */}
-          <button className="hidden md:block flex-shrink-0 text-[13px] font-medium text-[#0F7CB3] border border-[#0F7CB3] hover:bg-blue-50 rounded-[10px] cursor-pointer px-5 py-2 transition-colors whitespace-nowrap">
-            Request a demo
-          </button>
+          {/* Desktop right side: theme toggle + CTA */}
+          <div className="hidden md:flex items-center gap-2 flex-shrink-0">
+            <button
+              onClick={toggleTheme}
+              className="flex items-center justify-center w-8 h-8 rounded-lg transition-colors cursor-pointer"
+              style={{ background: toggleBg, color: textPrimary }}
+              onMouseEnter={e => (e.currentTarget.style.background = toggleHoverBg)}
+              onMouseLeave={e => (e.currentTarget.style.background = toggleBg)}
+              aria-label="Toggle theme"
+            >
+              {isDark ? <SunIcon /> : <MoonIcon />}
+            </button>
 
-          {/* Mobile hamburger */}
-          <button
-            className="md:hidden flex items-center justify-center w-9 h-9 rounded-lg hover:bg-gray-100 transition-colors text-gray-700"
-            onClick={() => setMobileOpen((prev) => !prev)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <CloseIcon /> : <HamburgerIcon />}
-          </button>
+            <button
+              className="text-[13px] font-medium border rounded-[10px] cursor-pointer px-5 py-2 transition-colors whitespace-nowrap"
+              style={{ color: ctaText, borderColor: ctaBorder }}
+              onMouseEnter={e => (e.currentTarget.style.background = ctaHoverBg)}
+              onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
+            >
+              Request a demo
+            </button>
+          </div>
+
+          {/* Mobile right side: theme toggle + hamburger */}
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              className="flex items-center justify-center w-9 h-9 rounded-lg transition-colors cursor-pointer"
+              style={{ background: toggleBg, color: textPrimary }}
+              onMouseEnter={e => (e.currentTarget.style.background = toggleHoverBg)}
+              onMouseLeave={e => (e.currentTarget.style.background = toggleBg)}
+              aria-label="Toggle theme"
+            >
+              {isDark ? <SunIcon /> : <MoonIcon />}
+            </button>
+
+            <button
+              className="flex items-center justify-center w-9 h-9 rounded-lg transition-colors cursor-pointer"
+              style={{ color: textPrimary }}
+              onMouseEnter={e => (e.currentTarget.style.background = hoverBg)}
+              onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
+              onClick={() => setMobileOpen((prev) => !prev)}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <CloseIcon /> : <HamburgerIcon />}
+            </button>
+          </div>
         </div>
 
         {/* ── Mobile menu ── */}
         {mobileOpen && (
-          <div className="md:hidden border-t border-gray-100 px-4 pb-4 pt-3 flex flex-col gap-1">
-            <a
-              href="#"
-              className="text-[14px] font-medium text-[#1E1E1E] hover:bg-gray-100 px-3 py-2.5 rounded-lg transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              Products
-            </a>
-
-            {/* Solutions accordion on mobile */}
-            <div>
-              <button
-                onClick={() => setMobileSolutionsOpen((prev) => !prev)}
-                className="w-full flex items-center justify-between text-[14px] font-medium text-[#1E1E1E] hover:bg-gray-100 px-3 py-2.5 rounded-lg transition-colors"
+          <div
+            className="md:hidden px-4 pb-4 pt-3 flex flex-col gap-1"
+            style={{ borderTop: `1px solid ${dividerColor}` }}
+          >
+            {navLinks.map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                className="text-[14px] font-medium px-3 py-2.5 rounded-lg transition-colors"
+                style={{ color: textPrimary }}
+                onMouseEnter={e => (e.currentTarget.style.background = hoverBg)}
+                onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
+                onClick={() => setMobileOpen(false)}
               >
-                Solutions
-                <ChevronDownIcon open={mobileSolutionsOpen} />
-              </button>
-              {mobileSolutionsOpen && (
-                <div className="mt-1 ml-3 flex flex-col gap-0.5">
-                  {solutions.map((item) => (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      className="text-[13px] text-gray-600 hover:bg-gray-50 px-3 py-2 rounded-lg transition-colors"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      {item.label}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
+                {label}
+              </a>
+            ))}
 
-            <a
-              href="#"
-              className="text-[14px] font-medium text-[#1E1E1E] hover:bg-gray-100 px-3 py-2.5 rounded-lg transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              Pricing
-            </a>
-
-            <a
-              href="#"
-              className="text-[14px] font-medium text-[#1E1E1E] hover:bg-gray-100 px-3 py-2.5 rounded-lg transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              Contact
-            </a>
-
-            {/* CTA inside mobile menu */}
-            <div className="pt-2 mt-1 border-t border-gray-100">
-              <button className="w-full text-[13px] font-medium text-[#0F7CB3] border border-[#0F7CB3] hover:bg-blue-50 rounded-[10px] cursor-pointer px-5 py-2.5 transition-colors">
+            {/* CTA */}
+            <div className="pt-2 mt-1" style={{ borderTop: `1px solid ${dividerColor}` }}>
+              <button
+                className="w-full text-[13px] font-medium border rounded-[10px] cursor-pointer px-5 py-2.5 transition-colors"
+                style={{ color: ctaText, borderColor: ctaBorder }}
+                onMouseEnter={e => (e.currentTarget.style.background = ctaHoverBg)}
+                onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
+              >
                 Request a demo
               </button>
             </div>
           </div>
         )}
-
       </nav>
     </div>
   );
