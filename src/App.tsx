@@ -1,38 +1,37 @@
 import React from "react";
-// import { HashRouter, Route, Routes } from "react-router-dom";
-import Navbar from "./components/navbar/Navbar";
-import Footer from "./components/footer/Footer";
+import Nav from "./components/nav/Nav";
 import Home from "./pages/home/Home";
+import Footer from "./components/footer/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Nav from "./components/nav/Nav";
+import { ThemeProvider, useTheme } from "./context/ThemeContext";
 
-const App: React.FC = () => {
+const AppInner: React.FC = () => {
+  const { isDark } = useTheme();
+
   return (
-    <div id="home">
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-      />
-      {/* <Navbar /> */}
+    <div
+      id="home"
+      data-theme={isDark ? "dark" : "light"}
+      style={{
+        backgroundColor: isDark ? "#0f0f0f" : "#ffffff",
+        color: isDark ? "#f5f5f5" : "#171717",
+        minHeight: "100vh",
+        transition: "background-color 0.3s, color 0.3s",
+      }}
+    >
+      <ToastContainer position="top-right" autoClose={5000} />
       <Nav />
       <Home />
       <Footer />
-      {/* <HashRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<div>About</div>} />
-          <Route path="/contact" element={<div>Contact</div>} />
-          <Route path="/:path" element={<div>404 Not Found</div>} />
-        </Routes>
-      </HashRouter> */}
-      
     </div>
   );
 };
+
+const App: React.FC = () => (
+  <ThemeProvider>
+    <AppInner />
+  </ThemeProvider>
+);
 
 export default App;
