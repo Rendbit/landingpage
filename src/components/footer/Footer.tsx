@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import { LinkedinIcon } from "lucide-react";
+import React from "react";
+import { RiTelegramFill } from "react-icons/ri";
 
 // ─── Icon Components ──────────────────────────────────────────────────────────
 
@@ -18,20 +20,6 @@ const RendBitLogo = () => (
   </svg>
 );
 
-const FacebookIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-  </svg>
-);
-
-const InstagramIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-    <circle cx="12" cy="12" r="4" />
-    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-  </svg>
-);
-
 const XIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63Zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -40,50 +28,45 @@ const XIcon = () => (
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
-const footerLinks = [
-  {
-    heading: "Solutions",
-    links: ["Spend management", "Approval automation", "Treasury ops", "Team collaboration"],
-  },
-  {
-    heading: "Company",
-    links: ["About", "Blog", "Careers", "Contact"],
-  },
-  {
-    heading: "Legal",
-    links: ["Terms of service", "Privacy policy", "Cookie settings"],
-  },
-  {
-    heading: "Product",
-    links: ["Overview", "Smart workflows", "Real-time insights"],
-  },
-  {
-    heading: "Developers",
-    links: ["API reference", "Webhooks", "Authentication", "System status", "Changelog"],
-  },
-];
+// const footerLinks = [
+//   {
+//     heading: "Solutions",
+//     links: ["Spend management", "Approval automation", "Treasury ops", "Team collaboration"],
+//   },
+//   {
+//     heading: "Company",
+//     links: ["About", "Blog", "Careers", "Contact"],
+//   },
+//   {
+//     heading: "Legal",
+//     links: ["Terms of service", "Privacy policy", "Cookie settings"],
+//   },
+//   {
+//     heading: "Product",
+//     links: ["Overview", "Smart workflows", "Real-time insights"],
+//   },
+//   {
+//     heading: "Developers",
+//     links: ["API reference", "Webhooks", "Authentication", "System status", "Changelog"],
+//   },
+// ];
 
 const socialLinks = [
-  { icon: <FacebookIcon />, label: "Facebook", href: "#" },
-  { icon: <InstagramIcon />, label: "Instagram", href: "#" },
-  { icon: <XIcon />, label: "X / Twitter", href: "#" },
+  { icon: <RiTelegramFill />, label: "Facebook", href: "https://t.me/rendbit" },
+  { icon: <LinkedinIcon />, label: "Instagram", href: "https://www.linkedin.com/company/rendbit" },
+  { icon: <XIcon />, label: "X / Twitter", href: "https://x.com/rendbit_" },
 ];
 
 const Footer: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-
-  const toggleModal = () => {
-    setIsModalOpen((prev) => !prev);
-  };
 
   return (
     <footer
-      className="relative overflow-hidden"
+      className="relative overflow-hidden" id="contact"
       style={{ backgroundColor: "#0d1f2d" }}
     >
       {/* Top nav section */}
       <div className="relative z-10 mx-auto max-w-screen-xl px-5 md:px-8 pt-12 md:pt-16 pb-8 md:pb-10">
-        <div className="flex flex-col md:flex-row md:flex-wrap gap-x-16 gap-y-8 md:gap-y-10 items-start">
+        <div className="flex justify-between flex-col md:flex-row md:flex-wrap gap-x-16 gap-y-8 md:gap-y-10 items-start">
 
           {/* Logo + App Store — side by side on mobile */}
           <div className="flex items-center justify-between w-full md:w-auto md:flex-col md:items-start md:gap-6">
@@ -106,7 +89,12 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Nav columns */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-1 md:flex-wrap gap-x-8 md:gap-x-12 gap-y-7 md:gap-y-8 w-full md:w-auto">
+          <div className="flex items-center gap-5">
+            <p>Privacy</p>
+            <p>-</p>
+            <p>Terms</p>
+          </div>
+          {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-1 md:flex-wrap gap-x-8 md:gap-x-12 gap-y-7 md:gap-y-8 w-full md:w-auto">
             {footerLinks.map((col) => (
               <div key={col.heading} className="min-w-0 md:min-w-[120px]">
                 <p
@@ -132,7 +120,7 @@ const Footer: React.FC = () => {
                 </ul>
               </div>
             ))}
-          </div>
+          </div> */}
 
           {/* App Store CTA — desktop only */}
           <div className="hidden md:flex items-start">
@@ -165,6 +153,7 @@ const Footer: React.FC = () => {
                 key={label}
                 href={href}
                 aria-label={label}
+                target="_blank"
                 className="flex h-8 w-8 items-center justify-center rounded-full transition-all duration-200"
                 style={{ color: "rgba(255,255,255,0.55)", backgroundColor: "rgba(255,255,255,0.06)" }}
               >
