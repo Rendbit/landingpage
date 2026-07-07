@@ -120,7 +120,7 @@ export default function SeamlessFinancial() {
         </div>
       </section>
 
-      {/* App download banner — always dark, no theme needed */}
+      {/* App download banner, always dark, no theme needed */}
       <section className="relative overflow-hidden px-0 w-[92%] mx-auto rounded-[16px] mb-12 md:mb-16">
         <div className="absolute inset-0 z-0">
           <img src="/image/app-section-bg.svg" alt="" aria-hidden="true" className="h-full w-full object-cover object-center"/>

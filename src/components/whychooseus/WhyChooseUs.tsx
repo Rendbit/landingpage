@@ -7,7 +7,7 @@ const items: AccordionItem[] = [
   { id: 1, title: "Fast Global Transfers", description: "Send money anywhere in the world in minutes, not days. Our real-time rails connect 180+ countries with guaranteed delivery windows." },
   { id: 2, title: "Low & Transparent Fees", description: "No hidden charges. See exactly what you pay upfront with our transparent fee structure. Save up to 90% on transfer costs.", preview: <img src="/image/accordion-image.svg" alt="" /> },
   { id: 3, title: "Secure & Compliant", description: "Bank-level security with AES-256 encryption, KYC verification, and full regulatory compliance across every market we operate in." },
-  { id: 4, title: "Real-Time Monitoring", description: "Verify accounts, monitor activity, and ensure compliance standards — all in real time with instant alerts and audit-ready logs." },
+  { id: 4, title: "Real-Time Monitoring", description: "Verify accounts, monitor activity, and ensure compliance standards, all in real time with instant alerts and audit-ready logs." },
 ];
 
 export default function WhyChooseUs() {
@@ -28,13 +28,17 @@ export default function WhyChooseUs() {
   const divider = isDark ? "#2a2a2a" : "#e5e7eb";
   const accentColor = "#0E7BB2";
 
-  const AvatarStack = () => (
-    <div className="flex items-center gap-3">
-      <img src="/image/avatars.svg" alt="" />
-      <p className="text-sm" style={{ color: textMuted }}>
-        <span className="font-semibold" style={{ color: textPrimary }}>4.8/5</span> out of{" "}
-        <span className="font-semibold" style={{ color: textPrimary }}>254 reviews</span>
-      </p>
+  const TrustBadges = () => (
+    <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+      {["Bank-grade security", "Full KYC verification", "Multi-currency wallet"].map((t) => (
+        <div key={t} className="flex items-center gap-1.5">
+          <svg viewBox="0 0 20 20" className="w-4 h-4 flex-shrink-0" fill="none">
+            <circle cx="10" cy="10" r="8.5" stroke={accentColor} strokeOpacity="0.35" strokeWidth="1.5" />
+            <path d="M6 10.2l2.4 2.4L14 7.2" stroke={accentColor} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <span className="text-[13px] font-medium" style={{ color: textSemi }}>{t}</span>
+        </div>
+      ))}
     </div>
   );
 
@@ -132,7 +136,7 @@ export default function WhyChooseUs() {
               <span className="font-semibold">All in real time,</span>{" "}
               <span style={{ color: textMuted }}>verify accounts, monitor activity, and ensure compliance standards.</span>
             </p>
-            <AvatarStack />
+            <TrustBadges />
           </div>
         </div>
 

@@ -1,24 +1,9 @@
 import { LinkedinIcon } from "lucide-react";
 import React from "react";
 import { RiTelegramFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
-// ─── Icon Components ──────────────────────────────────────────────────────────
-
-const RendBitLogo = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M10 2L17 6V14L10 18L3 14V6L10 2Z"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      fill="none"
-    />
-    <path
-      d="M10 6L14 8.5V13.5L10 16L6 13.5V8.5L10 6Z"
-      fill="currentColor"
-      opacity="0.4"
-    />
-  </svg>
-);
+// Icon Components
 
 const XIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -26,7 +11,7 @@ const XIcon = () => (
   </svg>
 );
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
+// Data 
 
 // const footerLinks = [
 //   {
@@ -52,8 +37,8 @@ const XIcon = () => (
 // ];
 
 const socialLinks = [
-  { icon: <RiTelegramFill />, label: "Facebook", href: "https://t.me/rendbit" },
-  { icon: <LinkedinIcon />, label: "Instagram", href: "https://www.linkedin.com/company/rendbit" },
+  { icon: <RiTelegramFill />, label: "Telegram", href: "https://t.me/rendbit" },
+  { icon: <LinkedinIcon />, label: "LinkedIn", href: "https://www.linkedin.com/company/rendbit/" },
   { icon: <XIcon />, label: "X / Twitter", href: "https://x.com/rendbit_" },
 ];
 
@@ -68,10 +53,10 @@ const Footer: React.FC = () => {
       <div className="relative z-10 mx-auto max-w-screen-xl px-5 md:px-8 pt-12 md:pt-16 pb-8 md:pb-10">
         <div className="flex justify-between flex-col md:flex-row md:flex-wrap gap-x-16 gap-y-8 md:gap-y-10 items-start">
 
-          {/* Logo + App Store — side by side on mobile */}
+          {/* Logo + App Store, side by side on mobile */}
           <div className="flex items-center justify-between w-full md:w-auto md:flex-col md:items-start md:gap-6">
             <div className="flex items-center gap-2 text-white pt-0.5">
-              <RendBitLogo />
+              <img src="/image/logo.svg" alt="RendBit" style={{ height: 22 }} />
               <span
                 className="text-base font-semibold tracking-tight"
                 style={{ letterSpacing: "-0.02em" }}
@@ -80,7 +65,7 @@ const Footer: React.FC = () => {
               </span>
             </div>
 
-            {/* App Store badge — visible on mobile inline with logo, hidden on md+ (shown separately below) */}
+            {/* App Store badge: visible on mobile inline with logo, hidden on md+ (shown separately below) */}
             <div className="md:hidden">
               <a href="#">
                 <img src="/image/apple-store.svg" alt="" className="h-9" />
@@ -88,11 +73,21 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Nav columns */}
-          <div className="flex items-center gap-5">
-            <p>Privacy</p>
-            <p>-</p>
-            <p>Terms</p>
+          {/* Contact + legal */}
+          <div className="flex flex-col gap-3">
+            <a
+              href="mailto:support@rendbit.com"
+              className="text-sm font-medium text-white transition-opacity hover:opacity-70 w-fit"
+            >
+              support@rendbit.com
+            </a>
+            <div className="flex items-center gap-3 text-[13px]" style={{ color: "rgba(255,255,255,0.6)" }}>
+              <Link to="/privacy-policy" className="transition-colors hover:text-white">Privacy</Link>
+              <span aria-hidden>&middot;</span>
+              <Link to="/terms" className="transition-colors hover:text-white">Terms</Link>
+              <span aria-hidden>&middot;</span>
+              <Link to="/safety" className="transition-colors hover:text-white">Data Safety</Link>
+            </div>
           </div>
           {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-1 md:flex-wrap gap-x-8 md:gap-x-12 gap-y-7 md:gap-y-8 w-full md:w-auto">
             {footerLinks.map((col) => (
@@ -122,7 +117,7 @@ const Footer: React.FC = () => {
             ))}
           </div> */}
 
-          {/* App Store CTA — desktop only */}
+          {/* App Store CTA, desktop only */}
           <div className="hidden md:flex items-start">
             <a href="#">
               <img src="/image/apple-store.svg" alt="" />
@@ -154,6 +149,7 @@ const Footer: React.FC = () => {
                 href={href}
                 aria-label={label}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="flex h-8 w-8 items-center justify-center rounded-full transition-all duration-200"
                 style={{ color: "rgba(255,255,255,0.55)", backgroundColor: "rgba(255,255,255,0.06)" }}
               >

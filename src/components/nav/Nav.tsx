@@ -37,9 +37,9 @@ const MoonIcon = () => (
 );
 
 const navLinks = [
-  { label: "Features", href: "#features" },
-  { label: "Why Choose Us", href: "#why-choose-us" },
-  { label: "Contact", href: "#contact" },
+  { label: "Features", href: "/#features" },
+  { label: "Why Choose Us", href: "/#why-choose-us" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Nav() {
@@ -78,16 +78,18 @@ export default function Nav() {
           transition: "background 0.2s, border-color 0.2s",
         }}
       >
-        {/* ── Main bar ── */}
+        {/* Main bar */}
         <div className="flex items-center justify-between px-4 md:px-5 h-[60px] gap-4">
 
           {/* Logo */}
-          <a href="/">
-            <img
-              src="/image/logo1.svg"
-              alt="Logo"
-              style={{ filter: isDark ? "brightness(0) invert(1)" : "none" }}
-            />
+          <a href="/" className="flex items-center gap-2">
+            <img src="/image/logo.svg" alt="RendBit" style={{ height: 26 }} />
+            <span
+              className="text-[18px] font-bold"
+              style={{ color: isDark ? "#ffffff" : "#111111", letterSpacing: "-0.02em" }}
+            >
+              RendBit
+            </span>
           </a>
 
           {/* Desktop Nav Links */}
@@ -119,14 +121,15 @@ export default function Nav() {
               {isDark ? <SunIcon /> : <MoonIcon />}
             </button>
 
-            <button
-              className="text-[13px] font-medium border rounded-[10px] cursor-pointer px-5 py-2 transition-colors whitespace-nowrap"
+            <a
+              href="/#demo"
+              className="text-[13px] font-medium border rounded-[10px] cursor-pointer px-5 py-2 transition-colors whitespace-nowrap inline-block"
               style={{ color: ctaText, borderColor: ctaBorder }}
               onMouseEnter={e => (e.currentTarget.style.background = ctaHoverBg)}
               onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
             >
               Request a demo
-            </button>
+            </a>
           </div>
 
           {/* Mobile right side: theme toggle + hamburger */}
@@ -155,7 +158,7 @@ export default function Nav() {
           </div>
         </div>
 
-        {/* ── Mobile menu ── */}
+        {/* Mobile menu */}
         {mobileOpen && (
           <div
             className="md:hidden px-4 pb-4 pt-3 flex flex-col gap-1"
@@ -177,14 +180,15 @@ export default function Nav() {
 
             {/* CTA */}
             <div className="pt-2 mt-1" style={{ borderTop: `1px solid ${dividerColor}` }}>
-              <button
-                className="w-full text-[13px] font-medium border rounded-[10px] cursor-pointer px-5 py-2.5 transition-colors"
+              <a
+                href="/#demo"
+                className="block text-center w-full text-[13px] font-medium border rounded-[10px] cursor-pointer px-5 py-2.5 transition-colors"
                 style={{ color: ctaText, borderColor: ctaBorder }}
                 onMouseEnter={e => (e.currentTarget.style.background = ctaHoverBg)}
                 onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
               >
                 Request a demo
-              </button>
+              </a>
             </div>
           </div>
         )}

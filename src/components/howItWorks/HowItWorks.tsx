@@ -74,7 +74,7 @@ export default function HowItWorks() {
           <p className="text-[13px] md:text-[15px] leading-relaxed max-w-[480px] px-2" style={{ color: textMuted }}>
             Experience the future of cross border payment design for speed, reliability, and safety
             for african money transfers market<br />
-            No friction, no confusion — just flow.
+            No friction, no confusion. Just flow.
           </p>
         </div>
 
