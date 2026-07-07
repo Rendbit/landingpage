@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import type { CSSProperties, ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
@@ -6,6 +7,11 @@ type Props = { title: string; updated?: string; children: ReactNode };
 
 export default function LegalLayout({ title, updated = "7 July 2026", children }: Props) {
   const { isDark } = useTheme();
+
+  useEffect(() => {
+    document.title = `${title} | RendBit`;
+    return () => { document.title = "RendBit"; };
+  }, [title]);
   const ink = isDark ? "#e7e9ee" : "#1e2230";
   const muted = isDark ? "#9aa3b2" : "#5b6472";
   const line = isDark ? "#262a33" : "#e6e9ef";
