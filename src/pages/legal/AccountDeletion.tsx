@@ -10,8 +10,8 @@ export default function AccountDeletion() {
       <ul>
         <li>Open the RendBit app and sign in.</li>
         <li>Go to your profile / Settings and tap <strong>Delete Account</strong>.</li>
-        <li>Confirm the request. For your security, you may be asked to complete a liveness (face) check to confirm it is you.</li>
-        <li>Once confirmed, your account is scheduled for deletion.</li>
+        <li>Confirm the request when prompted.</li>
+        <li>Once confirmed, your account is closed and deactivated.</li>
       </ul>
 
       <h2>Cannot access the app?</h2>
