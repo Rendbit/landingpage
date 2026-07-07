@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import LegalLayout from "./LegalLayout";
 
 export default function TermsOfService() {
@@ -24,7 +25,7 @@ export default function TermsOfService() {
       <p>Applicable fees are disclosed in the app before you confirm a transaction. Blockchain network fees may also apply.</p>
 
       <h2>7. Suspension and termination</h2>
-      <p>We may suspend or terminate access where required by law, to protect users or the Service, or for breach of these Terms. You may close your account at any time from within the app.</p>
+      <p>We may suspend or terminate access where required by law, to protect users or the Service, or for breach of these Terms. You may close your account at any time from within the app. See <Link to="/account-deletion">Delete Your Account</Link> or <Link to="/data-deletion">Request Data Deletion</Link>.</p>
 
       <h2>8. Disclaimers and limitation of liability</h2>
       <p>The Service is provided "as is". To the maximum extent permitted by law, we are not liable for indirect or consequential losses, or for losses arising from blockchain network conditions or from transactions you authorise.</p>

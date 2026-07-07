@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import LegalLayout from "./LegalLayout";
 
 export default function PrivacyPolicy() {
@@ -63,7 +64,7 @@ export default function PrivacyPolicy() {
       <p>We use technical and organisational measures to protect your information, including encryption in transit, hashed credentials, secure device storage for PINs, biometric-gated app access, and single-active-session controls. No system is perfectly secure, but we work to protect your data.</p>
 
       <h2>9. Your rights</h2>
-      <p>Subject to applicable law, you may request to access, correct, or delete your personal information, object to or restrict certain processing, and withdraw consent. You can delete your account from within the app or by contacting us. Some information may be retained where we are legally required to keep it.</p>
+      <p>Subject to applicable law, you may request to access, correct, or delete your personal information, object to or restrict certain processing, and withdraw consent. You can delete your account from within the app or by contacting us. See <Link to="/account-deletion">Delete Your Account</Link> and <Link to="/data-deletion">Request Data Deletion</Link> for the steps and what data is kept. Some information may be retained where we are legally required to keep it.</p>
 
       <h2>10. Children and minors</h2>
       <p>The Service is not available to anyone under 16. Users aged 16 to 17 may only use the Service with verified guardian consent; without it, the account is restricted. We do not knowingly collect data from children under 16.</p>
