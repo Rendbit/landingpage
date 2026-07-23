@@ -1,0 +1,142 @@
+{
+  "nav": {
+    "home": "Home",
+    "features": "Features",
+    "howItWorks": "How it works",
+    "pricing": "Pricing",
+    "about": "About",
+    "contact": "Contact",
+    "whyChooseUs": "Why Choose Us",
+    "requestDemo": "Request a demo",
+    "login": "Log in",
+    "getStarted": "Get started",
+    "downloadApp": "Download app"
+  },
+  "hero": {
+    "badge": "EARLY ACCESS",
+    "badgeText": "Cross-border payments, reimagined",
+    "title": "Send Money Across Africa Instantly",
+    "subtitle": "Send, receive and convert money across Africa in seconds. A multi-currency wallet with low fees and no banking hassle.",
+    "ctaPrimary": "Get Started Today",
+    "ctaSecondary": "See how it works",
+    "waitlistNote": "Now in early access, join the waitlist",
+    "comingToStores": "Coming to app stores",
+    "bankGrade": "Bank-grade security & compliance",
+    "blurbLeft": "Send, receive and convert across currencies, and track every transfer in real time.",
+    "blurbRight": "One simple, mobile-first wallet built for everyday cross-border payments.",
+    "trust": {
+      "kycVerified": "KYC-verified",
+      "lowFees": "Low fees",
+      "instantTransfers": "Instant transfers",
+      "multiCurrency": "Multi-currency",
+      "bankGrade": "Bank-grade security"
+    }
+  },
+  "why": {
+    "badge": "How it works?",
+    "titleLine1": "Why Choose",
+    "titleBrand": "RendBit?",
+    "subtitle": "Experience the future of cross-border payments — designed for speed, reliability, and safety in the African money transfer market.",
+    "realtimeBold": "All in real time,",
+    "realtimeRest": "verify accounts, monitor activity, and ensure compliance standards.",
+    "badges": {
+      "security": "Bank-grade security",
+      "kyc": "Full KYC verification",
+      "wallet": "Multi-currency wallet"
+    },
+    "items": {
+      "fast": {
+        "title": "Fast Global Transfers",
+        "desc": "Send money anywhere in the world in minutes, not days. Our real-time rails connect 180+ countries with guaranteed delivery windows."
+      },
+      "fees": {
+        "title": "Low & Transparent Fees",
+        "desc": "No hidden charges. See exactly what you pay upfront with our transparent fee structure. Save up to 90% on transfer costs."
+      },
+      "secure": {
+        "title": "Secure & Compliant",
+        "desc": "Bank-level security with AES-256 encryption, KYC verification, and full regulatory compliance across every market we operate in."
+      },
+      "monitoring": {
+        "title": "Real-Time Monitoring",
+        "desc": "Verify accounts, monitor activity, and ensure compliance standards, all in real time with instant alerts and audit-ready logs."
+      }
+    }
+  },
+  "features": {
+    "title": "Everything you need to move money",
+    "crossBorder": "Cross-border transfers",
+    "crossBorderDesc": "Send to bank accounts across borders, settled on Stellar.",
+    "multiCurrency": "Multi-currency wallet",
+    "multiCurrencyDesc": "Hold and convert NGN, GHS, USD and XLM in one place.",
+    "lowFees": "Low fees",
+    "lowFeesDesc": "Transparent rates with no hidden charges.",
+    "secure": "Bank-grade security",
+    "secureDesc": "KYC, liveness checks, and multi-signature protection."
+  },
+  "seamless": {
+    "badge": "Smarter tools for finance ops",
+    "title": "Seamless Financial Solutions for Everyone",
+    "subtitle": "Discover how RendBit simplifies your financial transactions with cutting-edge technology and user-friendly features.",
+    "deposit": "Deposit",
+    "depositDesc": "Use a card, Apple Pay, Google Pay or PayPal to buy crypto fast. We also accept bank transfers and wires in applicable jurisdictions.",
+    "swap": "Swap",
+    "swapDesc": "Swap easily on RendBit on the Stellar Blockchain.",
+    "transfer": "Transfer",
+    "transferDesc": "Effortlessly transfer money across Africa without the need to create additional accounts to support different currencies.",
+    "aiSavings": "AI Savings",
+    "aiSavingsDesc": "Our AI system analyses your spending pattern and suggest a saving structure for you, and help you save."
+  },
+  "appBanner": {
+    "title": "Start Sending Money Today",
+    "subtitle": "Join thousands of users who trust RendBit for fast, secure, and affordable international transfers"
+  },
+  "appInAction": {
+    "eyebrow": "See it in action",
+    "title": "Your money, in a few taps.",
+    "subtitle": "Tap through the steps to see how you send, convert and track money on RendBit.",
+    "steps": {
+      "glance": { "title": "Your money at a glance", "desc": "See your balance and jump into Top Up, Send, Convert or Assets in a single tap." },
+      "fund": { "title": "Fund your wallet", "desc": "Add money via XLM, a local bank transfer, or a payment request. Whatever's easiest." },
+      "convert": { "title": "Convert currencies", "desc": "Swap between NGN, USD, GHS and more in seconds, right from your wallet." },
+      "track": { "title": "Track every transfer", "desc": "A clear, searchable history of everything you send, receive and convert." },
+      "secure": { "title": "Verified & secure", "desc": "Identity-verified accounts with two-factor and biometric protection built in." }
+    }
+  },
+  "partners": {
+    "eyebrow": "Backed by & partners",
+    "title": "In good company",
+    "subtitle": "RendBit is funded by Stellar and works with Linkio, our anchor for moving money between digital assets and local currencies.",
+    "stellar": { "role": "Funder", "blurb": "Backed by Stellar, the open network for fast, low-cost cross-border payments." },
+    "linkio": { "role": "Anchor partner", "blurb": "Our anchor partner, bridging digital assets and local bank rails." }
+  },
+  "howItWorks": {
+    "badge": "How it works?",
+    "title": "Start in 3 simple steps",
+    "subtitle": "Experience the future of cross-border payments — designed for speed, reliability, and safety in the African money transfer market. No friction, no confusion. Just flow.",
+    "step1Title": "Create an Account",
+    "step1Desc": "Download the app and complete our quick KYC verification process in minutes",
+    "step2Title": "Fund Your Wallet",
+    "step2Desc": "Add money to your wallet using bank transfer, card, or mobile money",
+    "step3Title": "Send Money Globally",
+    "step3Desc": "Transfer funds instantly to any supported country with real-time tracking"
+  },
+  "cta": {
+    "title": "Ready to get started?",
+    "subtitle": "Create your RendBit account in minutes.",
+    "button": "Create account"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "dataSafety": "Data Safety"
+  },
+  "common": {
+    "learnMore": "Learn more",
+    "comingSoon": "Coming soon"
+  },
+  "language": {
+    "label": "Language"
+  }
+}

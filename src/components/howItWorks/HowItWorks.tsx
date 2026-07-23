@@ -1,7 +1,9 @@
+import { useTranslation } from "react-i18next";
 import { useTheme } from "../../context/ThemeContext";
 
 export default function HowItWorks() {
   const { isDark } = useTheme();
+  const { t } = useTranslation();
 
   const surface = isDark ? "#1a1a1a" : "#F7F7F7";
   const cardBg = isDark ? "#111111" : "#ffffff";
@@ -17,24 +19,24 @@ export default function HowItWorks() {
       iconBg: iconBgDefault,
       iconColor: iconColorDefault,
       filled: false,
-      title: "Create an Account",
-      description: "Download the app and complete our quick KYC verification process in minutes",
+      title: t("howItWorks.step1Title"),
+      description: t("howItWorks.step1Desc"),
       cardBg: "transparent",
     },
     {
       iconBg: "#3b82f6",
       iconColor: "#ffffff",
       filled: true,
-      title: "Fund Your Wallet",
-      description: "Add money to your wallet using bank transfer, card, or mobile money",
+      title: t("howItWorks.step2Title"),
+      description: t("howItWorks.step2Desc"),
       cardBg: cardBg,
     },
     {
       iconBg: iconBgDefault,
       iconColor: iconColorDefault,
       filled: false,
-      title: "Send Money Globally",
-      description: "Transfer funds instantly to any supported country with real-time tracking",
+      title: t("howItWorks.step3Title"),
+      description: t("howItWorks.step3Desc"),
       cardBg: "transparent",
     },
   ];
@@ -60,7 +62,7 @@ export default function HowItWorks() {
               <path d="M2 8h5M8 3l5 5-5 5" stroke={isDark ? "#9ca3af" : "#5C5C5C"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
             <span className="text-[12px] font-medium" style={{ color: isDark ? "#9ca3af" : "#5C5C5C" }}>
-              How it works?
+              {t("howItWorks.badge")}
             </span>
           </div>
 
@@ -68,13 +70,11 @@ export default function HowItWorks() {
             className="text-[30px] sm:text-[38px] md:text-[44px] font-bold leading-tight tracking-tight mb-3 md:mb-4"
             style={{ color: textPrimary }}
           >
-            Start in 3 simple steps
+            {t("howItWorks.title")}
           </h2>
 
           <p className="text-[13px] md:text-[15px] leading-relaxed max-w-[480px] px-2" style={{ color: textMuted }}>
-            Experience the future of cross border payment design for speed, reliability, and safety
-            for african money transfers market<br />
-            No friction, no confusion. Just flow.
+            {t("howItWorks.subtitle")}
           </p>
         </div>
 

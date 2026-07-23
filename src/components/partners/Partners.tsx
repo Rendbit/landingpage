@@ -1,33 +1,35 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { useTheme } from "../../context/ThemeContext";
 
 type Partner = {
   name: string;
-  role: string;
+  roleKey: string;
   img: string;
   tile: "light" | "dark";
-  blurb: string;
+  blurbKey: string;
 };
 
 const partners: Partner[] = [
   {
     name: "Stellar",
-    role: "Funder",
+    roleKey: "partners.stellar.role",
     img: "/image/partner-stellar.png",
     tile: "light",
-    blurb: "Backed by Stellar, the open network for fast, low-cost cross-border payments.",
+    blurbKey: "partners.stellar.blurb",
   },
   {
     name: "Linkio",
-    role: "Anchor partner",
+    roleKey: "partners.linkio.role",
     img: "/image/partner-link.png",
     tile: "dark",
-    blurb: "Our anchor partner, bridging digital assets and local bank rails.",
+    blurbKey: "partners.linkio.blurb",
   },
 ];
 
 const Partners = () => {
   const { isDark } = useTheme();
+  const { t } = useTranslation();
 
   const surface = isDark ? "#0d0d0d" : "#ffffff";
   const textPrimary = isDark ? "#f5f5f5" : "#171717";
@@ -52,13 +54,13 @@ const Partners = () => {
 
       <div className="relative z-10 max-w-[1000px] mx-auto px-4 md:px-6 text-center">
         <motion.p {...reveal(0)} className="text-[12px] font-bold uppercase tracking-[0.2em] mb-3" style={{ color: "#0F7CB3" }}>
-          Backed by &amp; partners
+          {t("partners.eyebrow")}
         </motion.p>
         <motion.h2 {...reveal(0.05)} className="text-[28px] sm:text-[36px] md:text-[44px] font-semibold mb-3" style={{ color: textPrimary, letterSpacing: "-0.03em", lineHeight: 1.12 }}>
-          In good company
+          {t("partners.title")}
         </motion.h2>
         <motion.p {...reveal(0.1)} className="text-[14px] md:text-[16px] max-w-[560px] mx-auto" style={{ color: textMuted }}>
-          RendBit is funded by Stellar and works with Linkio, our anchor for moving money between digital assets and local currencies.
+          {t("partners.subtitle")}
         </motion.p>
 
         <div className="mt-10 md:mt-12 grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6 max-w-[720px] mx-auto">
@@ -91,9 +93,9 @@ const Partners = () => {
 
               <div>
                 <div className="text-[15px] font-semibold" style={{ color: textPrimary }}>{p.name}</div>
-                <div className="text-[11px] font-bold uppercase tracking-[0.12em] mt-1" style={{ color: "#0F7CB3" }}>{p.role}</div>
+                <div className="text-[11px] font-bold uppercase tracking-[0.12em] mt-1" style={{ color: "#0F7CB3" }}>{t(p.roleKey)}</div>
               </div>
-              <p className="text-[13px] leading-relaxed" style={{ color: textMuted }}>{p.blurb}</p>
+              <p className="text-[13px] leading-relaxed" style={{ color: textMuted }}>{t(p.blurbKey)}</p>
             </motion.div>
           ))}
         </div>

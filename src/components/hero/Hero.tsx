@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { useTheme } from "../../context/ThemeContext";
 
 const ArrowUpRightIcon = () => (
@@ -8,23 +9,27 @@ const ArrowUpRightIcon = () => (
   </svg>
 );
 
-const PartnerLogos = ({ isDark }: { isDark: boolean }) => (
-  <div className="flex items-center justify-center flex-wrap gap-4 md:gap-8">
-    {["KYC-verified", "Low fees", "Instant transfers", "Multi-currency", "Bank-grade security"].map((name) => (
-      <div
-        key={name}
-        className="flex items-center gap-1.5"
-        style={{ color: isDark ? "#6b7280" : "#9ca3af" }}
-      >
-        <svg viewBox="0 0 20 20" className="w-4 h-4" fill="currentColor" opacity="0.4">
-          <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-          <path d="M6 10l2.5 2.5L14 7" strokeWidth="1.5" stroke="currentColor" fill="none"/>
-        </svg>
-        <span className="text-[13px] font-medium tracking-tight">{name}</span>
-      </div>
-    ))}
-  </div>
-);
+const PartnerLogos = ({ isDark }: { isDark: boolean }) => {
+  const { t } = useTranslation();
+  const items = ["kycVerified", "lowFees", "instantTransfers", "multiCurrency", "bankGrade"];
+  return (
+    <div className="flex items-center justify-center flex-wrap gap-4 md:gap-8">
+      {items.map((key) => (
+        <div
+          key={key}
+          className="flex items-center gap-1.5"
+          style={{ color: isDark ? "#6b7280" : "#9ca3af" }}
+        >
+          <svg viewBox="0 0 20 20" className="w-4 h-4" fill="currentColor" opacity="0.4">
+            <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+            <path d="M6 10l2.5 2.5L14 7" strokeWidth="1.5" stroke="currentColor" fill="none"/>
+          </svg>
+          <span className="text-[13px] font-medium tracking-tight">{t(`hero.trust.${key}`)}</span>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 const BackToTopButton = ({ isDark }: { isDark: boolean }) => {
   const [visible, setVisible] = useState(false);
@@ -79,6 +84,7 @@ const BackToTopButton = ({ isDark }: { isDark: boolean }) => {
 
 const Hero = () => {
   const { isDark } = useTheme();
+  const { t } = useTranslation();
 
   const surface = isDark ? "#1a1a1a" : "#F5F5F5";
   const cardBg = isDark ? "#111111" : "#ffffff";
@@ -122,10 +128,10 @@ const Hero = () => {
               className="text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wide uppercase"
               style={{ background: textPrimary, color: isDark ? "#0f0f0f" : "#ffffff" }}
             >
-              EARLY ACCESS
+              {t("hero.badge")}
             </span>
             <span className="text-[12px] md:text-[13px] font-medium" style={{ color: textPrimary }}>
-              Cross-border payments, reimagined
+              {t("hero.badgeText")}
             </span>
             <ArrowUpRightIcon />
           </div>
@@ -142,8 +148,7 @@ const Hero = () => {
             }}
             className="text-[36px] sm:text-[46px] md:text-[58px]"
           >
-            Send Money Across<br />
-            Africa Instantly
+            {t("hero.title")}
           </h1>
         </motion.div>
 
@@ -153,8 +158,7 @@ const Hero = () => {
           className="text-center text-[14px] md:text-[16px] max-w-[500px] mx-auto leading-relaxed mb-6 md:mb-8 px-2"
           style={{ color: textPrimary }}
         >
-          Send, receive and convert money across Africa in seconds. A
-          multi-currency wallet with low fees and no banking hassle.
+          {t("hero.subtitle")}
         </motion.p>
 
         {/* CTA Buttons */}
@@ -163,7 +167,7 @@ const Hero = () => {
             className="flex items-center gap-2 px-6 py-3 rounded-xl text-[14px] font-semibold w-full sm:w-auto justify-center"
             style={{ background: "#0F7CB3", color: "#ffffff" }}
           >
-            Get Started Today
+            {t("hero.ctaPrimary")}
             <ArrowUpRightIcon />
           </a>
           <a href="#see-how-it-works"
@@ -177,7 +181,7 @@ const Hero = () => {
             <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4" style={{ color: textMuted }}>
               <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
             </svg>
-            See how it works
+            {t("hero.ctaSecondary")}
           </a>
         </motion.div>
 
@@ -190,16 +194,16 @@ const Hero = () => {
               <div className="flex flex-col items-center sm:items-end gap-1 sm:ml-[110px]">
                 <img src="/image/avatars.svg" alt="" className="grayscale"/>
                 <p className="text-[12px] md:text-[13px]" style={{ color: textMuted }}>
-                  Now in <span className="font-semibold" style={{ color: textSemi }}>early access</span>, join the waitlist
+                  {t("hero.waitlistNote")}
                 </p>
               </div>
               <div className="sm:mr-[140px] flex flex-col items-center sm:items-start">
                 <div className="flex items-center gap-1.5 mb-0.5">
                   <img src="/image/appstore.svg" alt="" />
-                  <p className="text-[12px] md:text-[13px] font-semibold" style={{ color: textSemi }}>Coming to app stores</p>
+                  <p className="text-[12px] md:text-[13px] font-semibold" style={{ color: textSemi }}>{t("hero.comingToStores")}</p>
                 </div>
                 <p className="text-[12px] md:text-[13px]" style={{ color: textMuted }}>
-                  <span className="font-semibold" style={{ color: textSemi }}>Bank-grade</span> security &amp; compliance
+                  {t("hero.bankGrade")}
                 </p>
               </div>
             </div>
@@ -215,17 +219,14 @@ const Hero = () => {
                     className="text-[12px] md:text-[13px] leading-relaxed md:text-right w-full md:w-[220px] md:border-r md:pr-9 md:ml-[80px]"
                     style={{ color: textMuted, borderColor: border }}
                   >
-                    Send, <span className="font-semibold" style={{ color: textSemi }}>receive</span> and convert across
-                    currencies, and <span className="font-semibold" style={{ color: textSemi }}>track</span> every transfer in real time.
+                    {t("hero.blurbLeft")}
                   </p>
                   <div className="hidden md:block w-[300px]" />
                   <p
                     className="text-[12px] md:text-[13px] leading-relaxed w-full md:w-[220px] md:border-l md:pl-9 md:mr-[80px]"
                     style={{ color: textMuted, borderColor: border }}
                   >
-                    One simple, <span className="font-semibold" style={{ color: textSemi }}>mobile-first</span> wallet{" "}
-                    <span className="font-semibold" style={{ color: textSemi }}>built</span> for everyday{" "}
-                    <span className="font-semibold" style={{ color: textSemi }}>cross-border</span> payments.
+                    {t("hero.blurbRight")}
                   </p>
                 </div>
 

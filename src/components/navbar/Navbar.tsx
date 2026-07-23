@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FaBars, FaTimes } from "react-icons/fa";
 import RendBitWaitlistForm from "../waitlistmodal/modal";
 import { analytics, logEvent } from "../../tools/firebase";
+import LanguageSwitcher from "../LanguageSwitcher";
 
 const Navbar: React.FC = () => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
@@ -27,13 +30,13 @@ const Navbar: React.FC = () => {
       {/* Desktop Menu */}
       <ul className="hidden md:flex items-center gap-12">
         <li>
-          <a href="#home">Home</a>
+          <a href="#home">{t("nav.home")}</a>
         </li>
         <li>
-          <a href="#about">About</a>
+          <a href="#about">{t("nav.about")}</a>
         </li>
         <li>
-          <a href="#features">Features</a>
+          <a href="#features">{t("nav.features")}</a>
         </li>
       </ul>
 
@@ -60,13 +63,14 @@ const Navbar: React.FC = () => {
         </div>
       </div> */}
 
-      <div className="hidden md:flex justify-center items-center">
+      <div className="hidden md:flex justify-center items-center gap-4">
+        <LanguageSwitcher />
         <div className="relative rounded-[13px] p-0.5 bg-gradient-to-r from-cyan-300 to-[#0A1F35] shadow-lg">
           <div className="absolute cursor-pointer inset-0 rounded-[13px] bg-cyan-300 blur-md opacity-40 -z-10"></div>
           <a href='https://finance.rendbit.com/#/login'
             className="block relative cursor-pointer text-white font-bold bg-[#0A1F35] py-3 px-6 rounded-[13px] transition-all duration-300"
           >
-            <span className="relative z-10">Login</span>
+            <span className="relative z-10">{t("nav.login")}</span>
             <div className="absolute inset-0 rounded-[13px] bg-[#0A1F35] opacity-30 blur-sm -z-10"></div>
           </a>
         </div>
@@ -108,7 +112,7 @@ const Navbar: React.FC = () => {
             logEvent(analytics, "rendbit_home");
           }}
         >
-          Home
+          {t("nav.home")}
         </a>
         <a
           href="#about"
@@ -117,7 +121,7 @@ const Navbar: React.FC = () => {
             logEvent(analytics, "rendbit_about");
           }}
         >
-          About
+          {t("nav.about")}
         </a>
         <a
           href="#features"
@@ -126,8 +130,9 @@ const Navbar: React.FC = () => {
             logEvent(analytics, "rendbit_features");
           }}
         >
-          Features
+          {t("nav.features")}
         </a>
+        <LanguageSwitcher className="w-fit text-[#0A1F35]" />
         <a
           href="https://finance.rendbit.com/"
           onClick={() => {
@@ -144,7 +149,7 @@ const Navbar: React.FC = () => {
             //   logEvent(analytics, "rendbit_waitlist_join_mobile_navbar");
             // }}
           >
-            Get Started
+            {t("nav.getStarted")}
           </button>
         </a>
       </div>

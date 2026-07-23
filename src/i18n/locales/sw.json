@@ -1,0 +1,142 @@
+{
+  "nav": {
+    "home": "Nyumbani",
+    "features": "Vipengele",
+    "howItWorks": "Jinsi inavyofanya kazi",
+    "pricing": "Bei",
+    "about": "Kuhusu",
+    "contact": "Wasiliana",
+    "whyChooseUs": "Kwa nini uchague sisi",
+    "requestDemo": "Omba onyesho",
+    "login": "Ingia",
+    "getStarted": "Anza",
+    "downloadApp": "Pakua programu"
+  },
+  "hero": {
+    "badge": "UFIKIAJI WA MAPEMA",
+    "badgeText": "Malipo ya kimataifa, yaliyoboreshwa",
+    "title": "Tuma pesa kote Afrika papo hapo",
+    "subtitle": "Tuma, pokea na ubadilishe pesa kote Afrika kwa sekunde chache. Pochi ya sarafu nyingi yenye ada ndogo, bila usumbufu wa benki.",
+    "ctaPrimary": "Anza sasa",
+    "ctaSecondary": "Ona jinsi inavyofanya kazi",
+    "waitlistNote": "Sasa katika ufikiaji wa mapema, jiunge na orodha ya kusubiri",
+    "comingToStores": "Inakuja kwenye maduka ya programu",
+    "bankGrade": "Usalama na uzingatiaji wa kiwango cha benki",
+    "blurbLeft": "Tuma, pokea na ubadilishe kati ya sarafu, na ufuatilie kila muamala kwa wakati halisi.",
+    "blurbRight": "Pochi moja rahisi, ya kwanza kwa simu, iliyoundwa kwa malipo ya kila siku ya kimataifa.",
+    "trust": {
+      "kycVerified": "Imethibitishwa KYC",
+      "lowFees": "Ada ndogo",
+      "instantTransfers": "Uhamishaji wa papo hapo",
+      "multiCurrency": "Sarafu nyingi",
+      "bankGrade": "Usalama wa kiwango cha benki"
+    }
+  },
+  "why": {
+    "badge": "Inafanyaje kazi?",
+    "titleLine1": "Kwa Nini Uchague",
+    "titleBrand": "RendBit?",
+    "subtitle": "Furahia mustakabali wa malipo ya kimataifa — yaliyoundwa kwa kasi, uaminifu na usalama katika soko la uhamishaji pesa la Afrika.",
+    "realtimeBold": "Yote kwa wakati halisi,",
+    "realtimeRest": "thibitisha akaunti, fuatilia shughuli, na hakikisha viwango vya utii.",
+    "badges": {
+      "security": "Usalama wa kiwango cha benki",
+      "kyc": "Uthibitishaji kamili wa KYC",
+      "wallet": "Pochi ya sarafu nyingi"
+    },
+    "items": {
+      "fast": {
+        "title": "Uhamishaji wa Haraka Duniani",
+        "desc": "Tuma pesa popote duniani kwa dakika chache, si siku. Njia zetu za wakati halisi zinaunganisha nchi zaidi ya 180 kwa nyakati za utoaji zilizohakikishwa."
+      },
+      "fees": {
+        "title": "Ada Ndogo na za Uwazi",
+        "desc": "Hakuna gharama zilizofichwa. Ona hasa unacholipa mapema kwa muundo wetu wa ada wa uwazi. Okoa hadi 90% ya gharama za uhamishaji."
+      },
+      "secure": {
+        "title": "Salama na Inayotii Sheria",
+        "desc": "Usalama wa kiwango cha benki wenye usimbaji fiche wa AES-256, uthibitishaji wa KYC, na utii kamili wa sheria katika kila soko tunalofanya kazi."
+      },
+      "monitoring": {
+        "title": "Ufuatiliaji wa Wakati Halisi",
+        "desc": "Thibitisha akaunti, fuatilia shughuli, na hakikisha viwango vya utii, yote kwa wakati halisi kwa arifa za papo hapo na kumbukumbu tayari kwa ukaguzi."
+      }
+    }
+  },
+  "features": {
+    "title": "Kila unachohitaji kuhamisha pesa",
+    "crossBorder": "Uhamisho wa kimataifa",
+    "crossBorderDesc": "Tuma kwa akaunti za benki nje ya nchi, zikilipwa kupitia Stellar.",
+    "multiCurrency": "Pochi ya sarafu nyingi",
+    "multiCurrencyDesc": "Shikilia na ubadilishe NGN, GHS, USD na XLM mahali pamoja.",
+    "lowFees": "Ada ndogo",
+    "lowFeesDesc": "Viwango vilivyo wazi bila malipo yaliyofichwa.",
+    "secure": "Usalama wa kiwango cha benki",
+    "secureDesc": "KYC, uthibitisho wa uso, na ulinzi wa saini nyingi."
+  },
+  "seamless": {
+    "badge": "Zana bora zaidi kwa shughuli za kifedha",
+    "title": "Suluhu za Kifedha Zisizo na Vikwazo kwa Kila Mtu",
+    "subtitle": "Gundua jinsi RendBit inavyorahisisha miamala yako ya kifedha kwa teknolojia ya kisasa na vipengele rahisi kutumia.",
+    "deposit": "Weka Pesa",
+    "depositDesc": "Tumia kadi, Apple Pay, Google Pay au PayPal kununua sarafu-fiche haraka. Pia tunakubali uhamisho wa benki katika maeneo yanayohusika.",
+    "swap": "Badilisha",
+    "swapDesc": "Badilisha kwa urahisi kwenye RendBit kupitia Blockchain ya Stellar.",
+    "transfer": "Hamisha",
+    "transferDesc": "Hamisha pesa kote Afrika bila usumbufu, bila haja ya kufungua akaunti za ziada kusaidia sarafu tofauti.",
+    "aiSavings": "Akiba ya AI",
+    "aiSavingsDesc": "Mfumo wetu wa AI unachambua mtindo wako wa matumizi na kupendekeza muundo wa kuweka akiba, na kukusaidia kuweka akiba."
+  },
+  "appBanner": {
+    "title": "Anza Kutuma Pesa Leo",
+    "subtitle": "Jiunge na maelfu ya watumiaji wanaomwamini RendBit kwa uhamisho wa kimataifa wa haraka, salama na wa bei nafuu"
+  },
+  "appInAction": {
+    "eyebrow": "Iangalie ikifanya kazi",
+    "title": "Pesa yako, kwa mibonyezo michache.",
+    "subtitle": "Pitia hatua ili uone jinsi unavyotuma, kubadilisha na kufuatilia pesa kwenye RendBit.",
+    "steps": {
+      "glance": { "title": "Pesa yako kwa mtazamo mmoja", "desc": "Ona salio lako na uingie kwenye Ongeza Pesa, Tuma, Badilisha au Rasilimali kwa mbonyezo mmoja." },
+      "fund": { "title": "Weka pesa kwenye pochi yako", "desc": "Ongeza pesa kupitia XLM, uhamisho wa benki wa ndani, au ombi la malipo. Chochote kilicho rahisi." },
+      "convert": { "title": "Badilisha sarafu", "desc": "Badilisha kati ya NGN, USD, GHS na nyingine kwa sekunde chache, moja kwa moja kutoka kwenye pochi yako." },
+      "track": { "title": "Fuatilia kila uhamisho", "desc": "Historia iliyo wazi na inayotafutika ya kila kitu unachotuma, kupokea na kubadilisha." },
+      "secure": { "title": "Imethibitishwa na salama", "desc": "Akaunti zilizothibitishwa utambulisho zenye uthibitishaji wa hatua mbili na ulinzi wa kibayometriki uliojengwa ndani." }
+    }
+  },
+  "partners": {
+    "eyebrow": "Wafadhili na washirika",
+    "title": "Katika kampuni nzuri",
+    "subtitle": "RendBit inafadhiliwa na Stellar na inafanya kazi na Linkio, nanga yetu ya kuhamisha pesa kati ya rasilimali za kidijitali na sarafu za ndani.",
+    "stellar": { "role": "Mfadhili", "blurb": "Inasaidiwa na Stellar, mtandao huria wa malipo ya kimataifa ya haraka na ya gharama nafuu." },
+    "linkio": { "role": "Mshirika wa nanga", "blurb": "Mshirika wetu wa nanga, unaounganisha rasilimali za kidijitali na mifumo ya benki za ndani." }
+  },
+  "howItWorks": {
+    "badge": "Inavyofanya kazi?",
+    "title": "Anza kwa hatua 3 rahisi",
+    "subtitle": "Pata uzoefu wa mustakabali wa malipo ya kimataifa — yaliyoundwa kwa kasi, kutegemewa, na usalama katika soko la uhamishaji pesa la Afrika. Bila vikwazo, bila mkanganyiko. Ni mtiririko tu.",
+    "step1Title": "Fungua Akaunti",
+    "step1Desc": "Pakua programu na ukamilishe uthibitishaji wetu wa haraka wa KYC kwa dakika chache",
+    "step2Title": "Weka Pesa kwenye Pochi",
+    "step2Desc": "Ongeza pesa kwenye pochi yako kwa uhamisho wa benki, kadi, au pesa za simu",
+    "step3Title": "Tuma Pesa Kimataifa",
+    "step3Desc": "Hamisha pesa papo hapo kwa nchi yoyote inayoungwa mkono na ufuatiliaji wa wakati halisi"
+  },
+  "cta": {
+    "title": "Uko tayari kuanza?",
+    "subtitle": "Fungua akaunti yako ya RendBit kwa dakika chache.",
+    "button": "Fungua akaunti"
+  },
+  "footer": {
+    "rights": "Haki zote zimehifadhiwa.",
+    "privacy": "Faragha",
+    "terms": "Masharti",
+    "dataSafety": "Usalama wa Data"
+  },
+  "common": {
+    "learnMore": "Jifunze zaidi",
+    "comingSoon": "Inakuja hivi karibuni"
+  },
+  "language": {
+    "label": "Lugha"
+  }
+}

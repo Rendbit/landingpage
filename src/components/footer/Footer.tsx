@@ -1,5 +1,6 @@
 import { LinkedinIcon } from "lucide-react";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { RiTelegramFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
@@ -43,6 +44,7 @@ const socialLinks = [
 ];
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
 
   return (
     <footer
@@ -82,11 +84,11 @@ const Footer: React.FC = () => {
               support@rendbit.com
             </a>
             <div className="flex items-center gap-3 text-[13px]" style={{ color: "rgba(255,255,255,0.6)" }}>
-              <Link to="/privacy-policy" className="transition-colors hover:text-white">Privacy</Link>
+              <Link to="/privacy-policy" className="transition-colors hover:text-white">{t("footer.privacy")}</Link>
               <span aria-hidden>&middot;</span>
-              <Link to="/terms" className="transition-colors hover:text-white">Terms</Link>
+              <Link to="/terms" className="transition-colors hover:text-white">{t("footer.terms")}</Link>
               <span aria-hidden>&middot;</span>
-              <Link to="/safety" className="transition-colors hover:text-white">Data Safety</Link>
+              <Link to="/safety" className="transition-colors hover:text-white">{t("footer.dataSafety")}</Link>
             </div>
           </div>
           {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-1 md:flex-wrap gap-x-8 md:gap-x-12 gap-y-7 md:gap-y-8 w-full md:w-auto">
@@ -138,7 +140,7 @@ const Footer: React.FC = () => {
             className="text-[12px] md:text-sm text-center sm:text-left"
             style={{ color: "rgba(255,255,255,0.4)" }}
           >
-            {new Date().getFullYear()} RendBit &copy; All rights reserved.
+            {new Date().getFullYear()} RendBit &copy; {t("footer.rights")}
           </p>
 
           {/* Socials */}

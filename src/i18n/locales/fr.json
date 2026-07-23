@@ -1,0 +1,142 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "features": "Fonctionnalités",
+    "howItWorks": "Comment ça marche",
+    "pricing": "Tarifs",
+    "about": "À propos",
+    "contact": "Contact",
+    "whyChooseUs": "Pourquoi nous choisir",
+    "requestDemo": "Demander une démo",
+    "login": "Connexion",
+    "getStarted": "Commencer",
+    "downloadApp": "Télécharger l'app"
+  },
+  "hero": {
+    "badge": "ACCÈS ANTICIPÉ",
+    "badgeText": "Les paiements transfrontaliers réinventés",
+    "title": "Envoyez de l'argent partout en Afrique instantanément",
+    "subtitle": "Envoyez, recevez et convertissez de l'argent à travers l'Afrique en quelques secondes. Un portefeuille multi-devises à faibles frais, sans tracas bancaire.",
+    "ctaPrimary": "Commencer maintenant",
+    "ctaSecondary": "Voir comment ça marche",
+    "waitlistNote": "Désormais en accès anticipé, rejoignez la liste d'attente",
+    "comingToStores": "Bientôt sur les stores",
+    "bankGrade": "Sécurité et conformité de niveau bancaire",
+    "blurbLeft": "Envoyez, recevez et convertissez entre devises, et suivez chaque transfert en temps réel.",
+    "blurbRight": "Un portefeuille simple, pensé pour le mobile, conçu pour les paiements transfrontaliers du quotidien.",
+    "trust": {
+      "kycVerified": "Vérifié KYC",
+      "lowFees": "Frais réduits",
+      "instantTransfers": "Transferts instantanés",
+      "multiCurrency": "Multi-devises",
+      "bankGrade": "Sécurité de niveau bancaire"
+    }
+  },
+  "why": {
+    "badge": "Comment ça marche ?",
+    "titleLine1": "Pourquoi choisir",
+    "titleBrand": "RendBit ?",
+    "subtitle": "Découvrez l'avenir des paiements transfrontaliers — conçus pour la rapidité, la fiabilité et la sécurité sur le marché africain des transferts d'argent.",
+    "realtimeBold": "Tout en temps réel,",
+    "realtimeRest": "vérifiez les comptes, surveillez l'activité et assurez la conformité.",
+    "badges": {
+      "security": "Sécurité de niveau bancaire",
+      "kyc": "Vérification KYC complète",
+      "wallet": "Portefeuille multi-devises"
+    },
+    "items": {
+      "fast": {
+        "title": "Transferts mondiaux rapides",
+        "desc": "Envoyez de l'argent partout dans le monde en quelques minutes, pas en jours. Nos rails en temps réel connectent plus de 180 pays avec des délais de livraison garantis."
+      },
+      "fees": {
+        "title": "Frais faibles et transparents",
+        "desc": "Aucuns frais cachés. Voyez exactement ce que vous payez à l'avance grâce à notre structure de frais transparente. Économisez jusqu'à 90 % sur les coûts de transfert."
+      },
+      "secure": {
+        "title": "Sécurisé et conforme",
+        "desc": "Sécurité de niveau bancaire avec chiffrement AES-256, vérification KYC et conformité réglementaire complète sur chaque marché où nous opérons."
+      },
+      "monitoring": {
+        "title": "Surveillance en temps réel",
+        "desc": "Vérifiez les comptes, surveillez l'activité et assurez les normes de conformité, le tout en temps réel avec des alertes instantanées et des journaux prêts pour l'audit."
+      }
+    }
+  },
+  "features": {
+    "title": "Tout ce qu'il faut pour transférer de l'argent",
+    "crossBorder": "Transferts transfrontaliers",
+    "crossBorderDesc": "Envoyez vers des comptes bancaires à l'étranger, réglés sur Stellar.",
+    "multiCurrency": "Portefeuille multidevises",
+    "multiCurrencyDesc": "Détenez et convertissez NGN, GHS, USD et XLM au même endroit.",
+    "lowFees": "Frais réduits",
+    "lowFeesDesc": "Des taux transparents, sans frais cachés.",
+    "secure": "Sécurité de niveau bancaire",
+    "secureDesc": "KYC, vérification faciale et protection multi-signature."
+  },
+  "seamless": {
+    "badge": "Des outils plus intelligents pour les opérations financières",
+    "title": "Des solutions financières fluides pour tous",
+    "subtitle": "Découvrez comment RendBit simplifie vos transactions financières grâce à une technologie de pointe et des fonctionnalités conviviales.",
+    "deposit": "Dépôt",
+    "depositDesc": "Utilisez une carte, Apple Pay, Google Pay ou PayPal pour acheter des cryptos rapidement. Nous acceptons aussi les virements bancaires dans les juridictions applicables.",
+    "swap": "Échange",
+    "swapDesc": "Échangez facilement sur RendBit via la blockchain Stellar.",
+    "transfer": "Transfert",
+    "transferDesc": "Transférez de l'argent à travers l'Afrique sans effort, sans avoir à créer des comptes supplémentaires pour prendre en charge différentes devises.",
+    "aiSavings": "Épargne IA",
+    "aiSavingsDesc": "Notre système d'IA analyse vos habitudes de dépenses et vous propose une structure d'épargne pour vous aider à épargner."
+  },
+  "appBanner": {
+    "title": "Commencez à envoyer de l'argent dès aujourd'hui",
+    "subtitle": "Rejoignez des milliers d'utilisateurs qui font confiance à RendBit pour des transferts internationaux rapides, sécurisés et abordables"
+  },
+  "appInAction": {
+    "eyebrow": "Voir en action",
+    "title": "Votre argent, en quelques touches.",
+    "subtitle": "Parcourez les étapes pour voir comment envoyer, convertir et suivre votre argent sur RendBit.",
+    "steps": {
+      "glance": { "title": "Votre argent en un coup d'œil", "desc": "Consultez votre solde et accédez à Recharger, Envoyer, Convertir ou Actifs en une seule touche." },
+      "fund": { "title": "Approvisionnez votre portefeuille", "desc": "Ajoutez de l'argent via XLM, un virement bancaire local ou une demande de paiement. Comme il vous convient." },
+      "convert": { "title": "Convertissez les devises", "desc": "Échangez entre NGN, USD, GHS et plus encore en quelques secondes, directement depuis votre portefeuille." },
+      "track": { "title": "Suivez chaque transfert", "desc": "Un historique clair et consultable de tout ce que vous envoyez, recevez et convertissez." },
+      "secure": { "title": "Vérifié et sécurisé", "desc": "Des comptes à identité vérifiée avec authentification à deux facteurs et protection biométrique intégrées." }
+    }
+  },
+  "partners": {
+    "eyebrow": "Soutiens et partenaires",
+    "title": "En bonne compagnie",
+    "subtitle": "RendBit est financé par Stellar et collabore avec Linkio, notre ancre pour déplacer l'argent entre actifs numériques et devises locales.",
+    "stellar": { "role": "Financeur", "blurb": "Soutenu par Stellar, le réseau ouvert pour des paiements transfrontaliers rapides et peu coûteux." },
+    "linkio": { "role": "Partenaire d'ancrage", "blurb": "Notre partenaire d'ancrage, reliant les actifs numériques aux rails bancaires locaux." }
+  },
+  "howItWorks": {
+    "badge": "Comment ça marche ?",
+    "title": "Commencez en 3 étapes simples",
+    "subtitle": "Découvrez l'avenir des paiements transfrontaliers — conçus pour la rapidité, la fiabilité et la sécurité sur le marché africain des transferts d'argent. Aucune friction, aucune confusion. Juste de la fluidité.",
+    "step1Title": "Créez un compte",
+    "step1Desc": "Téléchargez l'application et complétez notre vérification KYC rapide en quelques minutes",
+    "step2Title": "Approvisionnez votre portefeuille",
+    "step2Desc": "Ajoutez de l'argent par virement bancaire, carte ou mobile money",
+    "step3Title": "Envoyez de l'argent partout",
+    "step3Desc": "Transférez des fonds instantanément vers tout pays pris en charge, avec suivi en temps réel"
+  },
+  "cta": {
+    "title": "Prêt à commencer ?",
+    "subtitle": "Créez votre compte RendBit en quelques minutes.",
+    "button": "Créer un compte"
+  },
+  "footer": {
+    "rights": "Tous droits réservés.",
+    "privacy": "Confidentialité",
+    "terms": "Conditions",
+    "dataSafety": "Sécurité des données"
+  },
+  "common": {
+    "learnMore": "En savoir plus",
+    "comingSoon": "Bientôt disponible"
+  },
+  "language": {
+    "label": "Langue"
+  }
+}

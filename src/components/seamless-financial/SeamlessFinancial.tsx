@@ -1,5 +1,6 @@
 import React from "react";
 import { BarChart2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { useTheme } from "../../context/ThemeContext";
 
 const PhoneMockupOne: React.FC = () => (
@@ -16,6 +17,7 @@ const PhoneMockupTwo: React.FC = () => (
 
 export default function SeamlessFinancial() {
   const { isDark } = useTheme();
+  const { t } = useTranslation();
 
   const bg = isDark ? "#0f0f0f" : "#ffffff";
   const cardBg = isDark ? "#1a1a1a" : "#F7F7F7";
@@ -38,7 +40,7 @@ export default function SeamlessFinancial() {
             >
               <BarChart2 className="w-3.5 h-3.5" style={{ color: iconColor }} />
               <span className="text-[12px] font-medium tracking-wide" style={{ color: iconColor }}>
-                Smarter tools for finance ops
+                {t("seamless.badge")}
               </span>
             </div>
 
@@ -46,12 +48,11 @@ export default function SeamlessFinancial() {
               className="text-[28px] sm:text-[38px] md:text-[clamp(32px,5vw,56px)] font-bold leading-tight tracking-tight mb-4 md:mb-5 max-w-2xl px-2"
               style={{ color: textPrimary }}
             >
-              Seamless Financial Solutions for Everyone
+              {t("seamless.title")}
             </h2>
 
             <p className="text-[13px] md:text-[15px] leading-relaxed max-w-[480px] px-2" style={{ color: textMuted }}>
-              Discover how RendBit simplifies your financial transactions with
-              cutting-edge technology and user-friendly features.
+              {t("seamless.subtitle")}
             </p>
           </div>
 
@@ -63,10 +64,9 @@ export default function SeamlessFinancial() {
             >
               <img src="/image/seamless-1.svg" alt="" className="w-12 h-12" />
               <div>
-                <h3 className="text-[18px] md:text-[20px] font-bold mb-2" style={{ color: textPrimary }}>Deposit</h3>
+                <h3 className="text-[18px] md:text-[20px] font-bold mb-2" style={{ color: textPrimary }}>{t("seamless.deposit")}</h3>
                 <p className="text-[12.5px] md:text-[13.5px] leading-relaxed" style={{ color: textMuted }}>
-                  Use a card, Apple Pay, Google Pay or PayPal to buy crypto fast. We also accept
-                  bank transfers and wires in applicable jurisdictions.
+                  {t("seamless.depositDesc")}
                 </p>
               </div>
             </div>
@@ -77,9 +77,9 @@ export default function SeamlessFinancial() {
             >
               <img src="/image/seamless-2.svg" alt="" className="w-12 h-12" />
               <div className="mt-4 md:mt-6 max-w-[200px] md:max-w-[220px]">
-                <h3 className="text-[18px] md:text-[20px] font-bold mb-2" style={{ color: textPrimary }}>Swap</h3>
+                <h3 className="text-[18px] md:text-[20px] font-bold mb-2" style={{ color: textPrimary }}>{t("seamless.swap")}</h3>
                 <p className="text-[12.5px] md:text-[13.5px] leading-relaxed" style={{ color: textMuted }}>
-                  Swap easily on RendBit on the Stellar Blockchain.
+                  {t("seamless.swapDesc")}
                 </p>
               </div>
               <PhoneMockupOne />
@@ -94,10 +94,9 @@ export default function SeamlessFinancial() {
             >
               <img src="/image/seamless-4.svg" alt="" className="w-12 h-12" />
               <div className="mt-4 md:mt-6 max-w-[200px] md:max-w-[220px]">
-                <h3 className="text-[18px] md:text-[20px] font-bold mb-2" style={{ color: textPrimary }}>Transfer</h3>
+                <h3 className="text-[18px] md:text-[20px] font-bold mb-2" style={{ color: textPrimary }}>{t("seamless.transfer")}</h3>
                 <p className="text-[12.5px] md:text-[13.5px] leading-relaxed" style={{ color: textMuted }}>
-                  Effortlessly transfer money across Africa without the need to create additional
-                  accounts to support different currencies.
+                  {t("seamless.transferDesc")}
                 </p>
               </div>
               <PhoneMockupTwo />
@@ -109,10 +108,9 @@ export default function SeamlessFinancial() {
             >
               <img src="/image/seamless-6.svg" alt="" className="w-12 h-12" />
               <div>
-                <h3 className="text-[18px] md:text-[20px] font-bold mb-2" style={{ color: textPrimary }}>AI Savings</h3>
+                <h3 className="text-[18px] md:text-[20px] font-bold mb-2" style={{ color: textPrimary }}>{t("seamless.aiSavings")}</h3>
                 <p className="text-[12.5px] md:text-[13.5px] leading-relaxed" style={{ color: textMuted }}>
-                  Our AI system analyses your spending pattern and suggest a saving structure for
-                  you, and help you save.
+                  {t("seamless.aiSavingsDesc")}
                 </p>
               </div>
             </div>
@@ -129,10 +127,10 @@ export default function SeamlessFinancial() {
         <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center gap-8 md:gap-10 px-5 pt-10 sm:px-10 md:flex-row md:items-center md:justify-between lg:px-20 md:pt-14 lg:pt-20">
           <div className="flex flex-col gap-5 md:gap-6 md:max-w-[52%] items-center md:items-start text-center md:text-left">
             <h1 className="font-extrabold leading-tight tracking-tight text-white" style={{ fontSize: "clamp(1.6rem, 5vw, 3.25rem)" }}>
-              Start Sending Money Today
+              {t("appBanner.title")}
             </h1>
             <p className="text-white/90 leading-relaxed" style={{ fontSize: "clamp(0.875rem, 2vw, 1.1rem)", maxWidth: "480px" }}>
-              Join thousands of users who trust RendBit for fast, secure, and affordable international transfers
+              {t("appBanner.subtitle")}
             </p>
             <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-1">
               <a href="#"><img src="/image/apple-store.svg" alt="" /></a>

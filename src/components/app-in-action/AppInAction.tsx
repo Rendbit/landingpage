@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { CSSProperties } from "react";
+import { useTranslation } from "react-i18next";
 import { useTheme } from "../../context/ThemeContext";
 import shotDashboard from "../../assets/shots/dashboard.png";
 import shotAddMoney from "../../assets/shots/addmoney.png";
@@ -9,11 +10,11 @@ import shotTransactions from "../../assets/shots/transactions.png";
 import shotProfile from "../../assets/shots/profile.png";
 
 const steps = [
-  { img: shotDashboard, title: "Your money at a glance", desc: "See your balance and jump into Top Up, Send, Convert or Assets in a single tap." },
-  { img: shotAddMoney, title: "Fund your wallet", desc: "Add money via XLM, a local bank transfer, or a payment request. Whatever's easiest." },
-  { img: shotConvert, title: "Convert currencies", desc: "Swap between NGN, USD, GHS and more in seconds, right from your wallet." },
-  { img: shotTransactions, title: "Track every transfer", desc: "A clear, searchable history of everything you send, receive and convert." },
-  { img: shotProfile, title: "Verified & secure", desc: "Identity-verified accounts with two-factor and biometric protection built in." },
+  { img: shotDashboard, key: "glance" },
+  { img: shotAddMoney, key: "fund" },
+  { img: shotConvert, key: "convert" },
+  { img: shotTransactions, key: "track" },
+  { img: shotProfile, key: "secure" },
 ];
 
 const coins: { src: string; style: CSSProperties; delay: number }[] = [
@@ -24,6 +25,7 @@ const coins: { src: string; style: CSSProperties; delay: number }[] = [
 
 const AppInAction = () => {
   const { isDark } = useTheme();
+  const { t } = useTranslation();
   const [step, setStep] = useState(0);
 
   const surface = isDark ? "#0d0d0d" : "#F5F5F5";
@@ -49,13 +51,13 @@ const AppInAction = () => {
 
       <div className="relative z-10 max-w-[1100px] mx-auto px-4 md:px-6 text-center">
         <motion.p {...reveal(0)} className="text-[12px] font-bold uppercase tracking-[0.2em] mb-3" style={{ color: "#0F7CB3" }}>
-          See it in action
+          {t("appInAction.eyebrow")}
         </motion.p>
         <motion.h2 {...reveal(0.05)} className="text-[28px] sm:text-[36px] md:text-[44px] font-semibold mb-3" style={{ color: textPrimary, letterSpacing: "-0.03em", lineHeight: 1.12 }}>
-          Your money, in a few taps.
+          {t("appInAction.title")}
         </motion.h2>
         <motion.p {...reveal(0.1)} className="text-[14px] md:text-[16px] max-w-[470px] mx-auto mb-12" style={{ color: textMuted }}>
-          Tap through the steps to see how you send, convert and track money on RendBit.
+          {t("appInAction.subtitle")}
         </motion.p>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16">
@@ -96,7 +98,7 @@ const AppInAction = () => {
                   <motion.img
                     key={step}
                     src={steps[step].img}
-                    alt={steps[step].title}
+                    alt={t(`appInAction.steps.${steps[step].key}.title`)}
                     initial={{ opacity: 0, x: 26 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -26 }}
@@ -131,7 +133,7 @@ const AppInAction = () => {
                       {i + 1}
                     </span>
                     <span className="text-[15px] font-semibold" style={{ color: active ? textPrimary : textMuted }}>
-                      {s.title}
+                      {t(`appInAction.steps.${s.key}.title`)}
                     </span>
                   </div>
                   <AnimatePresence initial={false}>
@@ -144,7 +146,7 @@ const AppInAction = () => {
                         className="text-[13px] leading-relaxed mt-1.5 ml-9 overflow-hidden"
                         style={{ color: textMuted }}
                       >
-                        {s.desc}
+                        {t(`appInAction.steps.${s.key}.desc`)}
                       </motion.p>
                     )}
                   </AnimatePresence>
