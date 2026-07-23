@@ -125,7 +125,7 @@ const Hero = () => {
             style={{ background: badgeBg, border: `1px solid ${border}`, boxShadow: "0 1px 2px rgba(0,0,0,0.05)" }}
           >
             <span
-              className="text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wide uppercase"
+              className="text-[10px] md:block hidden font-bold px-2 py-0.5 rounded-full tracking-wide uppercase"
               style={{ background: textPrimary, color: isDark ? "#0f0f0f" : "#ffffff" }}
             >
               {t("hero.badge")}
@@ -163,7 +163,7 @@ const Hero = () => {
 
         {/* CTA Buttons */}
         <motion.div {...up(0.32)} className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10 md:mb-12">
-          <a href="https://finance.rendbit.com/#/create-account"
+          <a href="#download"
             className="flex items-center gap-2 px-6 py-3 rounded-xl text-[14px] font-semibold w-full sm:w-auto justify-center"
             style={{ background: "#0F7CB3", color: "#ffffff" }}
           >
@@ -235,8 +235,8 @@ const Hero = () => {
                 </div>
 
                 <div className="flex items-center justify-between mt-2 md:mt-0">
-                  <a href="#"><img src="/image/apple-store.svg" alt="" /></a>
-                  <a href="#"><img src="/image/google-play.svg" alt="" /></a>
+                  <a href="#" aria-label="Download on the App Store"><img src="/image/apple-store.svg" alt="Download on the App Store" /></a>
+                  <a href="https://play.google.com/store/apps/details?id=com.app.rendbit" target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play"><img src="/image/google-play.svg" alt="Get it on Google Play" /></a>
                 </div>
               </div>
 

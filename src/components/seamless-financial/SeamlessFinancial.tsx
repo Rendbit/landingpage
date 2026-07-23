@@ -119,7 +119,7 @@ export default function SeamlessFinancial() {
       </section>
 
       {/* App download banner, always dark, no theme needed */}
-      <section className="relative overflow-hidden px-0 w-[92%] mx-auto rounded-[16px] mb-12 md:mb-16">
+      <section id="download" className="relative overflow-hidden px-0 w-[92%] mx-auto rounded-[16px] mb-12 md:mb-16 scroll-mt-24">
         <div className="absolute inset-0 z-0">
           <img src="/image/app-section-bg.svg" alt="" aria-hidden="true" className="h-full w-full object-cover object-center"/>
           <div className="absolute inset-0 bg-[#0F7CB3] -z-10" />
@@ -133,8 +133,9 @@ export default function SeamlessFinancial() {
               {t("appBanner.subtitle")}
             </p>
             <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-1">
-              <a href="#"><img src="/image/apple-store.svg" alt="" /></a>
-              <a href="#"><img src="/image/google-play.svg" alt="" /></a>
+              {/* App Store link is a placeholder until the iOS app is live */}
+              <a href="#" aria-label="Download on the App Store"><img src="/image/apple-store.svg" alt="Download on the App Store" /></a>
+              <a href="https://play.google.com/store/apps/details?id=com.app.rendbit" target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play"><img src="/image/google-play.svg" alt="Get it on Google Play" /></a>
             </div>
           </div>
           <div className="relative flex justify-center md:justify-end md:max-w-[44%] w-full">

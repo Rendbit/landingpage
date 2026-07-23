@@ -67,10 +67,13 @@ const Footer: React.FC = () => {
               </span>
             </div>
 
-            {/* App Store badge: visible on mobile inline with logo, hidden on md+ (shown separately below) */}
-            <div className="md:hidden">
-              <a href="#">
-                <img src="/image/apple-store.svg" alt="" className="h-9" />
+            {/* Store badges: visible on mobile inline with logo, hidden on md+ (shown separately below) */}
+            <div className="md:hidden flex items-center gap-2">
+              <a href="https://play.google.com/store/apps/details?id=com.app.rendbit" target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play">
+                <img src="/image/google-play.svg" alt="Get it on Google Play" className="h-9" />
+              </a>
+              <a href="#" aria-label="Download on the App Store">
+                <img src="/image/apple-store.svg" alt="Download on the App Store" className="h-9" />
               </a>
             </div>
           </div>
@@ -119,10 +122,13 @@ const Footer: React.FC = () => {
             ))}
           </div> */}
 
-          {/* App Store CTA, desktop only */}
-          <div className="hidden md:flex items-start">
-            <a href="#">
-              <img src="/image/apple-store.svg" alt="" />
+          {/* Store CTAs, desktop only */}
+          <div className="hidden md:flex items-start gap-3">
+            <a href="https://play.google.com/store/apps/details?id=com.app.rendbit" target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play">
+              <img src="/image/google-play.svg" alt="Get it on Google Play" />
+            </a>
+            <a href="#" aria-label="Download on the App Store">
+              <img src="/image/apple-store.svg" alt="Download on the App Store" />
             </a>
           </div>
         </div>

@@ -189,6 +189,8 @@ export default function Nav() {
 
           {/* Mobile right side: theme toggle + hamburger */}
           <div className="md:hidden flex items-center gap-2">
+            <LanguageSwitcher />
+
             <button
               onClick={toggleTheme}
               className="flex items-center justify-center w-9 h-9 rounded-lg transition-colors cursor-pointer"

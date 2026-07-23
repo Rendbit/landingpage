@@ -125,7 +125,7 @@ export default function WhyChooseUs() {
             </p>
           </div>
 
-          <a href="https://finance.rendbit.com/#/create-account" className="inline-flex items-center gap-2 font-semibold text-[14px] md:text-base hover:gap-3 transition-all duration-200 group w-fit" style={{ color: accentColor }}>
+          <a href="#download" className="inline-flex items-center gap-2 font-semibold text-[14px] md:text-base hover:gap-3 transition-all duration-200 group w-fit" style={{ color: accentColor }}>
             {t("nav.getStarted")}
             <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10"/>
