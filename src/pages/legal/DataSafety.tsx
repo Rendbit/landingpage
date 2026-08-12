@@ -43,7 +43,7 @@ export default function DataSafety() {
       <p>The liveness check captures facial imagery used <strong>solely</strong> to confirm you are a real, present person and to match your face to your government ID photo. It is not used for advertising and is not sold. It is kept only as long as needed for verification and regulatory record-keeping, then deleted or de-identified.</p>
 
       <h2>Data sharing</h2>
-      <p>We share data only with licensed identity-verification providers and national identity databases (to confirm your NIN/BVN), with infrastructure providers that host our systems and deliver notifications under confidentiality obligations, and with regulators or law enforcement where required by law. Transactions are recorded on the public Stellar blockchain, where wallet addresses and amounts are public and permanent.</p>
+      <p>We share data only with licensed identity-verification providers and national identity databases (to confirm your NIN/BVN), with infrastructure providers that host our systems and deliver notifications under confidentiality obligations, and with regulators or law enforcement where required by law. Transactions are recorded on a public settlement network, where wallet addresses and amounts are public and permanent.</p>
 
       <h2>Your choices</h2>
       <ul>

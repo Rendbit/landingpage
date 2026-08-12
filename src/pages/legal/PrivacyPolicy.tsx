@@ -3,7 +3,7 @@ import LegalLayout from "./LegalLayout";
 
 export default function PrivacyPolicy() {
   return (
-    <LegalLayout title="Privacy Policy">
+    <LegalLayout title="Privacy Policy" updated="12 August 2026">
       <p>This Privacy Policy explains how RendBit ("we", "us", "our") collects, uses, shares and protects your personal information when you use the RendBit mobile application and related services (the "Service"). By using the Service you agree to this Policy.</p>
 
       <h2>1. Information we collect</h2>
@@ -20,7 +20,7 @@ export default function PrivacyPolicy() {
       </ul>
       <h3>Financial and transaction information</h3>
       <ul>
-        <li>Your wallet address(es), balances and transaction history. Transactions are settled on a public blockchain network (see the Blockchain notice below).</li>
+        <li>Your wallet address(es), balances and transaction history. Transactions are settled on a public settlement network (see the notice below).</li>
       </ul>
       <h3>Device and technical information</h3>
       <ul>
@@ -29,6 +29,16 @@ export default function PrivacyPolicy() {
       </ul>
       <h3>Communications</h3>
       <ul><li>Messages you send us through in-app support or email.</li></ul>
+
+      <h3>Permissions we ask for on your device</h3>
+      <p>The app requests only the permissions a feature needs, and only when that feature uses them. You can decline or later change them in your device settings; some features will not work without the related permission.</p>
+      <ul>
+        <li><strong>Camera</strong> — to take the live selfie used to verify your identity (KYC liveness). No audio is recorded.</li>
+        <li><strong>Photos / photo library</strong> — to let you choose an image for identity or address verification and for support requests, and to save or share transaction receipts.</li>
+        <li><strong>Notifications</strong> — to alert you about transactions, identity-verification results and account security.</li>
+        <li><strong>Face ID / fingerprint (biometrics)</strong> — to lock the app and let you sign in without typing your PIN. Your biometrics stay on your device and are never sent to us.</li>
+        <li><strong>Network / internet access</strong> — to connect securely to RendBit's servers.</li>
+      </ul>
 
       <h2>2. How we use your information</h2>
       <ul>
@@ -54,8 +64,8 @@ export default function PrivacyPolicy() {
         <li><strong>Business transfers:</strong> in connection with a merger, acquisition or sale of assets, subject to this Policy.</li>
       </ul>
 
-      <h2>6. Blockchain notice</h2>
-      <p>Transactions you make are recorded on a public blockchain (the Stellar network). Information written to the blockchain, such as wallet addresses and transaction amounts, is <strong>public, permanent and outside our control</strong>, and cannot be changed or deleted.</p>
+      <h2>6. Public settlement network</h2>
+      <p>Transactions you make are recorded on a public settlement network. Information recorded there, such as wallet addresses and transaction amounts, is <strong>public, permanent and outside our control</strong>, and cannot be changed or deleted.</p>
 
       <h2>7. Data retention</h2>
       <p>We keep your information for as long as your account is active and for any additional period required to meet legal, regulatory (including AML record-keeping) and dispute-resolution obligations, after which it is deleted or anonymised.</p>
@@ -64,7 +74,7 @@ export default function PrivacyPolicy() {
       <p>We use technical and organisational measures to protect your information, including encryption in transit, hashed credentials, secure device storage for PINs, biometric-gated app access, and single-active-session controls. No system is perfectly secure, but we work to protect your data.</p>
 
       <h2>9. Your rights</h2>
-      <p>Subject to applicable law, you may request to access, correct, or delete your personal information, object to or restrict certain processing, and withdraw consent. You can delete your account from within the app or by contacting us. See <Link to="/account-deletion">Delete Your Account</Link> and <Link to="/data-deletion">Request Data Deletion</Link> for the steps and what data is kept. Some information may be retained where we are legally required to keep it.</p>
+      <p>Subject to applicable law, you may request to access, correct, or delete your personal information, object to or restrict certain processing, and withdraw consent. You can delete your account from within the app or by contacting us. See <Link to="/account-deletion">Account Deletion</Link> and <Link to="/data-deletion">Data Deletion</Link> in Settings for the steps and what data is kept. Some information may be retained where we are legally required to keep it.</p>
 
       <h2>10. Children and minors</h2>
       <p>The Service is not available to anyone under 16. Users aged 16 to 17 may only use the Service with verified guardian consent; without it, the account is restricted. We do not knowingly collect data from children under 16.</p>

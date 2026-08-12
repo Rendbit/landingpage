@@ -28,7 +28,7 @@ export default function AccountDeletion() {
       </ul>
 
       <h2>Kept while the law requires it</h2>
-      <p>Transaction and anti-money-laundering (AML) records are retained for the period required by applicable regulations, then deleted or anonymised. Transactions already recorded on the public Stellar blockchain are permanent and cannot be changed or deleted, as explained in our <Link to="/privacy-policy">Privacy Policy</Link>.</p>
+      <p>Transaction and anti-money-laundering (AML) records are retained for the period required by applicable regulations, then deleted or anonymised. Transactions already recorded on the public settlement network are permanent and cannot be changed or deleted, as explained in our <Link to="/privacy-policy">Privacy Policy</Link>.</p>
 
       <h2>Contact</h2>
       <p>Questions about account or data deletion: <a href="mailto:privacy@rendbit.com">privacy@rendbit.com</a> or <a href="mailto:support@rendbit.com">support@rendbit.com</a>.</p>
