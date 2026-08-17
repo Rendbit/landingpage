@@ -92,6 +92,8 @@ const Footer: React.FC = () => {
               <Link to="/terms" className="transition-colors hover:text-white">{t("footer.terms")}</Link>
               <span aria-hidden>&middot;</span>
               <Link to="/safety" className="transition-colors hover:text-white">{t("footer.dataSafety")}</Link>
+              <span aria-hidden>&middot;</span>
+              <Link to="/support" className="transition-colors hover:text-white">{t("footer.support")}</Link>
             </div>
           </div>
           {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-1 md:flex-wrap gap-x-8 md:gap-x-12 gap-y-7 md:gap-y-8 w-full md:w-auto">

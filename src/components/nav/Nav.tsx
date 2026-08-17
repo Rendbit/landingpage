@@ -75,7 +75,7 @@ const MoonIcon = () => (
 const navLinks = [
   { key: "nav.features", href: "/#features" },
   { key: "nav.whyChooseUs", href: "/#why-choose-us" },
-  { key: "nav.contact", href: "/#contact" },
+  { key: "nav.contact", href: "/support" },
 ];
 
 export default function Nav() {
