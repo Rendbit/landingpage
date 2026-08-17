@@ -8,6 +8,7 @@ import TermsOfService from "./pages/legal/TermsOfService";
 import DataSafety from "./pages/legal/DataSafety";
 import AccountDeletion from "./pages/legal/AccountDeletion";
 import DataDeletion from "./pages/legal/DataDeletion";
+import Support from "./pages/legal/Support";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ThemeProvider, useTheme } from "./context/ThemeContext";
@@ -46,6 +47,7 @@ const AppInner: React.FC = () => {
         <Route path="/safety" element={<DataSafety />} />
         <Route path="/account-deletion" element={<AccountDeletion />} />
         <Route path="/data-deletion" element={<DataDeletion />} />
+        <Route path="/support" element={<Support />} />
         <Route path="*" element={<Home />} />
       </Routes>
       <Footer />
