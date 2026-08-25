@@ -1,0 +1,13 @@
+{
+  "webcredentials": {
+    "apps": ["KRGZBUN982.com.app.rendbit"]
+  },
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["KRGZBUN982.com.app.rendbit"],
+        "components": []
+      }
+    ]
+  }
+}

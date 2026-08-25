@@ -1,1 +1,6 @@
+# Must come first: these are read by iOS and Android to bind saved
+# passwords to this domain, and the SPA catch-all below would
+# otherwise serve index.html for them, which both reject.
+/.well-known/*  /.well-known/:splat  200
+
 /*    /index.html   200
