@@ -3,7 +3,11 @@ import LegalLayout from "./LegalLayout";
 
 export default function PrivacyPolicy() {
   return (
-    <LegalLayout title="Privacy Policy" updated="12 August 2026">
+    <LegalLayout
+      title="Privacy Policy"
+      updated="12 August 2026"
+      owner="RendBit app is owned and operated by Hireskill Global Services"
+    >
       <p>This Privacy Policy explains how RendBit ("we", "us", "our") collects, uses, shares and protects your personal information when you use the RendBit mobile application and related services (the "Service"). By using the Service you agree to this Policy.</p>
 
       <h2>1. Information we collect</h2>

@@ -148,7 +148,7 @@ const Footer: React.FC = () => {
             className="text-[12px] md:text-sm text-center sm:text-left"
             style={{ color: "rgba(255,255,255,0.4)" }}
           >
-            {new Date().getFullYear()} RendBit &copy; {t("footer.rights")}
+            &copy; {new Date().getFullYear()} HIRESKILL GLOBAL SERVICES &middot; RendBit&trade; — {t("footer.rights")}
           </p>
 
           {/* Socials */}

@@ -3,7 +3,10 @@ import LegalLayout from "./LegalLayout";
 
 export default function Support() {
   return (
-    <LegalLayout title="Support">
+    <LegalLayout
+      title="Support"
+      owner="RendBit app is owned and operated by Hireskill Global Services"
+    >
       <p>Need help with RendBit? Our team is here for you. Whether you have a question about your account, a payment, or verifying your identity, use any of the options below and we’ll get back to you.</p>
 
       <h2>Contact us</h2>

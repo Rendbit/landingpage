@@ -3,9 +3,9 @@ import type { CSSProperties, ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
 
-type Props = { title: string; updated?: string; children: ReactNode };
+type Props = { title: string; updated?: string; owner?: string; children: ReactNode };
 
-export default function LegalLayout({ title, updated = "7 July 2026", children }: Props) {
+export default function LegalLayout({ title, updated = "7 July 2026", owner, children }: Props) {
   const { isDark } = useTheme();
 
   useEffect(() => {
@@ -44,6 +44,11 @@ export default function LegalLayout({ title, updated = "7 July 2026", children }
         <h1 className="text-[26px] md:text-[34px] font-bold mt-1.5" style={{ color: ink, letterSpacing: "-0.02em" }}>
           {title}
         </h1>
+        {owner && (
+          <p className="text-[13px] md:text-sm mt-2.5 font-semibold" style={{ color: brand }}>
+            {owner}
+          </p>
+        )}
         <p className="text-[13px] mt-1.5" style={{ color: muted }}>
           Last updated: {updated}
         </p>
