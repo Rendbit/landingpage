@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../../context/ThemeContext";
 
 type Partner = {
   name: string;
   roleKey: string;
-  img?: string; // optional — a text tile is shown when no logo asset exists yet
+  img?: string; // optional — a text tile is shown until the logo asset exists
+  href: string; // clicking the card opens this site in a new tab
   tile: "light" | "dark";
   blurbKey: string;
 };
@@ -15,21 +17,16 @@ const partners: Partner[] = [
     name: "Stellar",
     roleKey: "partners.stellar.role",
     img: "/image/partner-stellar.png",
+    href: "https://stellar.org/",
     tile: "light",
     blurbKey: "partners.stellar.blurb",
   },
   {
-    name: "Linkio",
-    roleKey: "partners.linkio.role",
-    img: "/image/partner-link.png",
-    tile: "dark",
-    blurbKey: "partners.linkio.blurb",
-  },
-  {
-    name: "Centiive",
+    name: "Centiiv",
     roleKey: "partners.centiive.role",
-    // No logo asset yet — drop a /image/partner-centiive.png in to use it.
-    tile: "dark",
+    img: "/image/partner-centiiv.png",
+    href: "https://www.centiiv.io/",
+    tile: "light",
     blurbKey: "partners.centiive.blurb",
   },
 ];
@@ -70,57 +67,90 @@ const Partners = () => {
           {t("partners.subtitle")}
         </motion.p>
 
-        <div className="mt-10 md:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-6 max-w-[960px] mx-auto">
+        <div className="mt-10 md:mt-12 grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6 max-w-[720px] mx-auto">
           {partners.map((p, i) => (
-            <motion.div
+            <PartnerCard
               key={p.name}
-              {...reveal(0.12 + i * 0.08)}
-              className="rounded-2xl p-5 md:p-6 flex flex-col items-center text-center gap-4"
-              style={{ background: cardBg, border: `1px solid ${cardBorder}` }}
-            >
-              {/* logo tile */}
-              <div
-                className="w-full rounded-xl overflow-hidden flex items-center justify-center"
-                style={{
-                  height: 96,
-                  background: p.tile === "light" ? "#ffffff" : "#05060a",
-                  border: `1px solid ${cardBorder}`,
-                }}
-              >
-                {p.img ? (
-                  <img
-                    src={p.img}
-                    alt={`${p.name} logo`}
-                    style={
-                      p.tile === "light"
-                        ? { maxHeight: 46, maxWidth: "72%", objectFit: "contain" }
-                        : { width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }
-                    }
-                  />
-                ) : (
-                  <span
-                    style={{
-                      fontSize: 28,
-                      fontWeight: 700,
-                      letterSpacing: "-0.02em",
-                      color: p.tile === "light" ? "#111111" : "#ffffff",
-                    }}
-                  >
-                    {p.name}
-                  </span>
-                )}
-              </div>
-
-              <div>
-                <div className="text-[15px] font-semibold" style={{ color: textPrimary }}>{p.name}</div>
-                <div className="text-[11px] font-bold uppercase tracking-[0.12em] mt-1" style={{ color: "#0F7CB3" }}>{t(p.roleKey)}</div>
-              </div>
-              <p className="text-[13px] leading-relaxed" style={{ color: textMuted }}>{t(p.blurbKey)}</p>
-            </motion.div>
+              p={p}
+              reveal={reveal(0.12 + i * 0.08)}
+              cardBg={cardBg}
+              cardBorder={cardBorder}
+              textPrimary={textPrimary}
+              textMuted={textMuted}
+              t={t}
+            />
           ))}
         </div>
       </div>
     </section>
+  );
+};
+
+type CardProps = {
+  p: Partner;
+  reveal: object;
+  cardBg: string;
+  cardBorder: string;
+  textPrimary: string;
+  textMuted: string;
+  t: (k: string) => string;
+};
+
+const PartnerCard = ({ p, reveal, cardBg, cardBorder, textPrimary, textMuted, t }: CardProps) => {
+  const [imgError, setImgError] = useState(false);
+  const showImg = !!p.img && !imgError;
+
+  return (
+    <motion.a
+      href={p.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Visit ${p.name}`}
+      {...reveal}
+      whileHover={{ y: -4 }}
+      className="rounded-2xl p-5 md:p-6 flex flex-col items-center text-center gap-4 transition-shadow hover:shadow-lg no-underline"
+      style={{ background: cardBg, border: `1px solid ${cardBorder}`, cursor: "pointer" }}
+    >
+      {/* logo tile */}
+      <div
+        className="w-full rounded-xl overflow-hidden flex items-center justify-center"
+        style={{
+          height: 96,
+          background: p.tile === "light" ? "#ffffff" : "#05060a",
+          border: `1px solid ${cardBorder}`,
+        }}
+      >
+        {showImg ? (
+          <img
+            src={p.img}
+            alt={`${p.name} logo`}
+            onError={() => setImgError(true)}
+            style={
+              p.tile === "light"
+                ? { maxHeight: 46, maxWidth: "72%", objectFit: "contain" }
+                : { width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }
+            }
+          />
+        ) : (
+          <span
+            style={{
+              fontSize: 28,
+              fontWeight: 700,
+              letterSpacing: "-0.02em",
+              color: p.tile === "light" ? "#111111" : "#ffffff",
+            }}
+          >
+            {p.name}
+          </span>
+        )}
+      </div>
+
+      <div>
+        <div className="text-[15px] font-semibold" style={{ color: textPrimary }}>{p.name}</div>
+        <div className="text-[11px] font-bold uppercase tracking-[0.12em] mt-1" style={{ color: "#0F7CB3" }}>{t(p.roleKey)}</div>
+      </div>
+      <p className="text-[13px] leading-relaxed" style={{ color: textMuted }}>{t(p.blurbKey)}</p>
+    </motion.a>
   );
 };
 

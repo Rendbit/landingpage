@@ -106,7 +106,7 @@
   "partners": {
     "eyebrow": "Soutiens et partenaires",
     "title": "En bonne compagnie",
-    "subtitle": "RendBit est financé par Stellar et collabore avec Linkio, notre ancre pour déplacer l'argent entre actifs numériques et devises locales, et Centiive, notre partenaire de paiement.",
+    "subtitle": "RendBit est financé par Stellar et collabore avec Centiiv, notre partenaire de paiement pour des paiements locaux rapides et fiables.",
     "stellar": { "role": "Financeur", "blurb": "Soutenu par Stellar, le réseau ouvert pour des paiements transfrontaliers rapides et peu coûteux." },
     "linkio": { "role": "Partenaire d'ancrage", "blurb": "Notre partenaire d'ancrage, reliant les actifs numériques aux rails bancaires locaux." },
     "centiive": { "role": "Partenaire de paiement", "blurb": "Notre partenaire de paiement, assurant des encaissements et versements locaux rapides et fiables." }
