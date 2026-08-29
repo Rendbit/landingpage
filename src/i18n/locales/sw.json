@@ -106,7 +106,7 @@
   "partners": {
     "eyebrow": "Wafadhili na washirika",
     "title": "Katika kampuni nzuri",
-    "subtitle": "RendBit inafadhiliwa na Stellar na inafanya kazi na Centiiv, mshirika wetu wa malipo kwa malipo ya ndani ya haraka na ya kuaminika.",
+    "subtitle": "RendBit inafadhiliwa na Stellar, na Linkio kama nanga yetu ya malipo na Centiiv kama mshirika wetu wa malipo.",
     "stellar": { "role": "Mfadhili", "blurb": "Inasaidiwa na Stellar, mtandao huria wa malipo ya kimataifa ya haraka na ya gharama nafuu." },
     "linkio": { "role": "Mshirika wa nanga", "blurb": "Mshirika wetu wa nanga, unaounganisha rasilimali za kidijitali na mifumo ya benki za ndani." },
     "centiive": { "role": "Mshirika wa malipo", "blurb": "Mshirika wetu wa malipo, unaowezesha ukusanyaji na malipo ya ndani ya haraka na ya kuaminika." }

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../../context/ThemeContext";
+import centiivLogo from "../../assets/centiiv-logo.webp";
 
 type Partner = {
   name: string;
@@ -22,9 +23,17 @@ const partners: Partner[] = [
     blurbKey: "partners.stellar.blurb",
   },
   {
+    name: "Linkio",
+    roleKey: "partners.linkio.role",
+    img: "/image/partner-link.png",
+    href: "https://linkio.world/",
+    tile: "dark",
+    blurbKey: "partners.linkio.blurb",
+  },
+  {
     name: "Centiiv",
     roleKey: "partners.centiive.role",
-    img: "/image/partner-centiiv.png",
+    img: centiivLogo,
     href: "https://www.centiiv.io/",
     tile: "light",
     blurbKey: "partners.centiive.blurb",
@@ -67,7 +76,7 @@ const Partners = () => {
           {t("partners.subtitle")}
         </motion.p>
 
-        <div className="mt-10 md:mt-12 grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6 max-w-[720px] mx-auto">
+        <div className="mt-10 md:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-6 max-w-[960px] mx-auto">
           {partners.map((p, i) => (
             <PartnerCard
               key={p.name}
