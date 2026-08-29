@@ -5,7 +5,7 @@ import { useTheme } from "../../context/ThemeContext";
 type Partner = {
   name: string;
   roleKey: string;
-  img: string;
+  img?: string; // optional — a text tile is shown when no logo asset exists yet
   tile: "light" | "dark";
   blurbKey: string;
 };
@@ -24,6 +24,13 @@ const partners: Partner[] = [
     img: "/image/partner-link.png",
     tile: "dark",
     blurbKey: "partners.linkio.blurb",
+  },
+  {
+    name: "Centiive",
+    roleKey: "partners.centiive.role",
+    // No logo asset yet — drop a /image/partner-centiive.png in to use it.
+    tile: "dark",
+    blurbKey: "partners.centiive.blurb",
   },
 ];
 
@@ -63,7 +70,7 @@ const Partners = () => {
           {t("partners.subtitle")}
         </motion.p>
 
-        <div className="mt-10 md:mt-12 grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6 max-w-[720px] mx-auto">
+        <div className="mt-10 md:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-6 max-w-[960px] mx-auto">
           {partners.map((p, i) => (
             <motion.div
               key={p.name}
@@ -80,15 +87,28 @@ const Partners = () => {
                   border: `1px solid ${cardBorder}`,
                 }}
               >
-                <img
-                  src={p.img}
-                  alt={`${p.name} logo`}
-                  style={
-                    p.tile === "light"
-                      ? { maxHeight: 46, maxWidth: "72%", objectFit: "contain" }
-                      : { width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }
-                  }
-                />
+                {p.img ? (
+                  <img
+                    src={p.img}
+                    alt={`${p.name} logo`}
+                    style={
+                      p.tile === "light"
+                        ? { maxHeight: 46, maxWidth: "72%", objectFit: "contain" }
+                        : { width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }
+                    }
+                  />
+                ) : (
+                  <span
+                    style={{
+                      fontSize: 28,
+                      fontWeight: 700,
+                      letterSpacing: "-0.02em",
+                      color: p.tile === "light" ? "#111111" : "#ffffff",
+                    }}
+                  >
+                    {p.name}
+                  </span>
+                )}
               </div>
 
               <div>

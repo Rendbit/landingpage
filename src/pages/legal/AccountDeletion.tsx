@@ -3,7 +3,10 @@ import LegalLayout from "./LegalLayout";
 
 export default function AccountDeletion() {
   return (
-    <LegalLayout title="Delete Your Account">
+    <LegalLayout
+      title="Delete Your Account"
+      owner="RendBit app is owned and operated by Hireskill Global Services"
+    >
       <p>This page explains how to delete your RendBit account and what happens to your data.</p>
 
       <h2>Delete your account in the app</h2>

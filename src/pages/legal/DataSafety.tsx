@@ -3,7 +3,10 @@ import LegalLayout from "./LegalLayout";
 
 export default function DataSafety() {
   return (
-    <LegalLayout title="Data Safety">
+    <LegalLayout
+      title="Data Safety"
+      owner="RendBit app is owned and operated by Hireskill Global Services"
+    >
       <p>This page summarises what data RendBit collects, why we collect it, how it is protected, and the choices you have. It reflects the same practices described in our <Link to="/privacy-policy">Privacy Policy</Link>.</p>
 
       <h2>Our commitments</h2>

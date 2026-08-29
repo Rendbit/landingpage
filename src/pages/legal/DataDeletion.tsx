@@ -3,7 +3,10 @@ import LegalLayout from "./LegalLayout";
 
 export default function DataDeletion() {
   return (
-    <LegalLayout title="Request Data Deletion">
+    <LegalLayout
+      title="Request Data Deletion"
+      owner="RendBit app is owned and operated by Hireskill Global Services"
+    >
       <p>You can ask us to delete your data or to disable your RendBit account at any time by contacting our support team. This page explains how to make the request and what happens to your data.</p>
 
       <h2>How to request</h2>

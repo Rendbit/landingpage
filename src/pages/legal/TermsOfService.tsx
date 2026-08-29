@@ -3,7 +3,11 @@ import LegalLayout from "./LegalLayout";
 
 export default function TermsOfService() {
   return (
-    <LegalLayout title="Terms of Service" updated="12 August 2026">
+    <LegalLayout
+      title="Terms of Service"
+      updated="12 August 2026"
+      owner="RendBit app is owned and operated by Hireskill Global Services"
+    >
       <p>These Terms of Service ("Terms") govern your use of the RendBit application and services (the "Service"). By creating an account or using the Service you agree to these Terms.</p>
 
       <h2>1. Eligibility</h2>
