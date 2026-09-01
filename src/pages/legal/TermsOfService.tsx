@@ -20,7 +20,7 @@ export default function TermsOfService() {
       <p>Access to features requires completing identity verification (KYC). You agree to provide accurate, current and complete information. We may restrict, suspend or close accounts that fail verification, that belong to ineligible minors, or where we suspect fraud or unlawful activity.</p>
 
       <h2>4. Wallet and transfers</h2>
-      <p>The Service lets you send, receive and hold balances that settle on a public settlement network. Transfers may incur network fees and are generally <strong>irreversible</strong> once confirmed. You are responsible for the details of any transaction you authorise.</p>
+      <p>The Service lets you send, receive and hold balances, and convert between currencies. Transfers may incur fees, and you are responsible for the details of any transaction you authorise.</p>
 
       <h2>5. Acceptable use</h2>
       <p>You must not use the Service for fraud, money laundering, financing of illegal activity, or any unlawful purpose, or attempt to circumvent our security or verification controls.</p>
@@ -32,7 +32,7 @@ export default function TermsOfService() {
       <p>We may suspend or terminate access where required by law, to protect users or the Service, or for breach of these Terms. You may close your account at any time from within the app. See <Link to="/account-deletion">Account Deletion</Link> and <Link to="/data-deletion">Data Deletion</Link> in Settings for the steps.</p>
 
       <h2>8. Disclaimers and limitation of liability</h2>
-      <p>The Service is provided "as is". To the maximum extent permitted by law, we are not liable for indirect or consequential losses, or for losses arising from network or settlement conditions outside our control, or from transactions you authorise.</p>
+      <p>The Service is provided "as is". To the maximum extent permitted by law, we are not liable for indirect or consequential losses, or for losses arising from network conditions outside our control, or from transactions you authorise.</p>
 
       <h2>9. Governing law</h2>
       <p>These Terms are governed by the laws of the Federal Republic of Nigeria, without regard to conflict-of-laws rules.</p>

@@ -24,7 +24,7 @@ export default function PrivacyPolicy() {
       </ul>
       <h3>Financial and transaction information</h3>
       <ul>
-        <li>Your wallet address(es), balances and transaction history. Transactions are settled on a public settlement network (see the notice below).</li>
+        <li>Your wallet balances and transaction history.</li>
       </ul>
       <h3>Device and technical information</h3>
       <ul>
@@ -57,7 +57,7 @@ export default function PrivacyPolicy() {
       <p>We process your information to perform our contract with you, to comply with legal obligations (including KYC/AML), with your consent (for example, biometric liveness), and for our legitimate interests in securing and improving the Service.</p>
 
       <h2>4. Biometric information</h2>
-      <p>The liveness check captures facial imagery that is used <strong>solely</strong> to confirm liveness and to match your face against your government ID photo for identity verification. We do not use it for advertising or sell it. It is retained only as long as needed for verification and to meet our regulatory record-keeping obligations, after which it is deleted or de-identified.</p>
+      <p>The liveness check captures facial imagery that is used <strong>solely</strong> to confirm liveness and to match your face against your government ID photo for identity verification. We do not use it for advertising or sell it, and it is deleted once verification is complete.</p>
 
       <h2>5. How we share information</h2>
       <p>We do <strong>not</strong> sell your personal information. We share it only:</p>
@@ -68,28 +68,25 @@ export default function PrivacyPolicy() {
         <li><strong>Business transfers:</strong> in connection with a merger, acquisition or sale of assets, subject to this Policy.</li>
       </ul>
 
-      <h2>6. Public settlement network</h2>
-      <p>Transactions you make are recorded on a public settlement network. Information recorded there, such as wallet addresses and transaction amounts, is <strong>public, permanent and outside our control</strong>, and cannot be changed or deleted.</p>
+      <h2>6. Deleting your data</h2>
+      <p>You can delete your account at any time. When you do, your personal information is deleted.</p>
 
-      <h2>7. Data retention</h2>
-      <p>We keep your information for as long as your account is active and for any additional period required to meet legal, regulatory (including AML record-keeping) and dispute-resolution obligations, after which it is deleted or anonymised.</p>
-
-      <h2>8. Security</h2>
+      <h2>7. Security</h2>
       <p>We use technical and organisational measures to protect your information, including encryption in transit, hashed credentials, secure device storage for PINs, biometric-gated app access, and single-active-session controls. No system is perfectly secure, but we work to protect your data.</p>
 
-      <h2>9. Your rights</h2>
-      <p>Subject to applicable law, you may request to access, correct, or delete your personal information, object to or restrict certain processing, and withdraw consent. You can delete your account from within the app or by contacting us. See <Link to="/account-deletion">Account Deletion</Link> and <Link to="/data-deletion">Data Deletion</Link> in Settings for the steps and what data is kept. Some information may be retained where we are legally required to keep it.</p>
+      <h2>8. Your rights</h2>
+      <p>Subject to applicable law, you may request to access, correct, or delete your personal information, object to or restrict certain processing, and withdraw consent. You can delete your account from within the app or by contacting us. See <Link to="/account-deletion">Account Deletion</Link> and <Link to="/data-deletion">Data Deletion</Link> in Settings for the steps.</p>
 
-      <h2>10. Children and minors</h2>
+      <h2>9. Children and minors</h2>
       <p>The Service is not available to anyone under 16. Users aged 16 to 17 may only use the Service with verified guardian consent; without it, the account is restricted. We do not knowingly collect data from children under 16.</p>
 
-      <h2>11. International transfers</h2>
+      <h2>10. International transfers</h2>
       <p>Your information may be processed in countries other than your own. Where it is, we take steps to ensure it remains protected in line with this Policy.</p>
 
-      <h2>12. Changes to this Policy</h2>
+      <h2>11. Changes to this Policy</h2>
       <p>We may update this Policy from time to time. Material changes will be notified in the app or by email, and the "Last updated" date above will change.</p>
 
-      <h2>13. Contact us</h2>
+      <h2>12. Contact us</h2>
       <p>Questions or requests: <a href="mailto:privacy@rendbit.com">privacy@rendbit.com</a> (privacy) or <a href="mailto:support@rendbit.com">support@rendbit.com</a> (support).</p>
     </LegalLayout>
   );

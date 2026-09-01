@@ -66,7 +66,7 @@
   "features": {
     "title": "Kila unachohitaji kuhamisha pesa",
     "crossBorder": "Uhamisho wa kimataifa",
-    "crossBorderDesc": "Tuma kwa akaunti za benki nje ya nchi, zikilipwa kupitia Stellar.",
+    "crossBorderDesc": "Tuma kwa akaunti za benki nje ya nchi kwa sekunde chache.",
     "multiCurrency": "Pochi ya sarafu nyingi",
     "multiCurrencyDesc": "Shikilia na ubadilishe NGN, GHS, USD na XLM mahali pamoja.",
     "lowFees": "Ada ndogo",
@@ -81,7 +81,7 @@
     "deposit": "Weka Pesa",
     "depositDesc": "Tumia kadi, Apple Pay, Google Pay au PayPal kununua sarafu-fiche haraka. Pia tunakubali uhamisho wa benki katika maeneo yanayohusika.",
     "swap": "Badilisha",
-    "swapDesc": "Badilisha kwa urahisi kwenye RendBit kupitia Blockchain ya Stellar.",
+    "swapDesc": "Badilisha sarafu kwa urahisi kwenye RendBit.",
     "transfer": "Hamisha",
     "transferDesc": "Hamisha pesa kote Afrika bila usumbufu, bila haja ya kufungua akaunti za ziada kusaidia sarafu tofauti.",
     "aiSavings": "Akiba ya AI",
@@ -106,7 +106,7 @@
   "partners": {
     "eyebrow": "Wafadhili na washirika",
     "title": "Katika kampuni nzuri",
-    "subtitle": "RendBit inafadhiliwa na Stellar, na Linkio kama nanga yetu ya malipo na Centiiv kama mshirika wetu wa malipo.",
+    "subtitle": "RendBit inafadhiliwa na Stellar, na Linkio kama mshirika wa nanga na Centiiv kama mshirika wetu wa malipo.",
     "stellar": { "role": "Mfadhili", "blurb": "Inasaidiwa na Stellar, mtandao huria wa malipo ya kimataifa ya haraka na ya gharama nafuu." },
     "linkio": { "role": "Mshirika wa nanga", "blurb": "Mshirika wetu wa nanga, unaounganisha rasilimali za kidijitali na mifumo ya benki za ndani." },
     "centiive": { "role": "Mshirika wa malipo", "blurb": "Mshirika wetu wa malipo, unaowezesha ukusanyaji na malipo ya ndani ya haraka na ya kuaminika." }

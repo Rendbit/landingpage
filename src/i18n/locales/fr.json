@@ -66,7 +66,7 @@
   "features": {
     "title": "Tout ce qu'il faut pour transférer de l'argent",
     "crossBorder": "Transferts transfrontaliers",
-    "crossBorderDesc": "Envoyez vers des comptes bancaires à l'étranger, réglés sur Stellar.",
+    "crossBorderDesc": "Envoyez vers des comptes bancaires à l'étranger en quelques secondes.",
     "multiCurrency": "Portefeuille multidevises",
     "multiCurrencyDesc": "Détenez et convertissez NGN, GHS, USD et XLM au même endroit.",
     "lowFees": "Frais réduits",
@@ -81,7 +81,7 @@
     "deposit": "Dépôt",
     "depositDesc": "Utilisez une carte, Apple Pay, Google Pay ou PayPal pour acheter des cryptos rapidement. Nous acceptons aussi les virements bancaires dans les juridictions applicables.",
     "swap": "Échange",
-    "swapDesc": "Échangez facilement sur RendBit via la blockchain Stellar.",
+    "swapDesc": "Échangez facilement des devises sur RendBit.",
     "transfer": "Transfert",
     "transferDesc": "Transférez de l'argent à travers l'Afrique sans effort, sans avoir à créer des comptes supplémentaires pour prendre en charge différentes devises.",
     "aiSavings": "Épargne IA",
@@ -106,7 +106,7 @@
   "partners": {
     "eyebrow": "Soutiens et partenaires",
     "title": "En bonne compagnie",
-    "subtitle": "RendBit est financé par Stellar, avec Linkio comme ancre de règlement et Centiiv comme partenaire de paiement.",
+    "subtitle": "RendBit est financé par Stellar, avec Linkio comme partenaire d'ancrage et Centiiv comme partenaire de paiement.",
     "stellar": { "role": "Financeur", "blurb": "Soutenu par Stellar, le réseau ouvert pour des paiements transfrontaliers rapides et peu coûteux." },
     "linkio": { "role": "Partenaire d'ancrage", "blurb": "Notre partenaire d'ancrage, reliant les actifs numériques aux rails bancaires locaux." },
     "centiive": { "role": "Partenaire de paiement", "blurb": "Notre partenaire de paiement, assurant des encaissements et versements locaux rapides et fiables." }
