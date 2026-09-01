@@ -185,7 +185,7 @@ export default function AccountDeletion() {
     <LegalLayout title="Delete Your Account" owner={owner}>
       <p>
         Fill in the form below to delete your RendBit account. We’ll email a
-        confirmation code to your account email — once you enter it, your account
+        confirmation code to your account email once you enter it, your account
         and your data are permanently deleted.
       </p>
 
