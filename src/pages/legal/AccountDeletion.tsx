@@ -6,7 +6,7 @@ import LegalLayout from "./LegalLayout";
 // Public, OTP-gated deletion endpoints on the main backend (no API key needed).
 const API =
   (import.meta.env.VITE_BACKEND_URL || "https://finance.rendbit.com") +
-  "/public/account-deletion";
+  "/api/public/account-deletion";
 
 export default function AccountDeletion() {
   const { isDark } = useTheme();
