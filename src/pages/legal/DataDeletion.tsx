@@ -12,7 +12,7 @@ export default function DataDeletion() {
       <h2>How to request</h2>
       <ul>
         <li>Email <a href="mailto:support@rendbit.com">support@rendbit.com</a> from the email address registered on your account.</li>
-        <li>Tell us you want to <strong>delete</strong> your data and close your account, or use our delete-account page: <Link to="/delete-account">https://rendbit.com/#delete-account</Link>.</li>
+        <li>Tell us you want to <strong>delete</strong> your data and close your account, or use our delete-account page: <Link to="/account-deletion">https://rendbit.com/account-deletion</Link>.</li>
         <li>You can also delete your data and close your account directly from the RendBit app in Account &gt; Settings &gt; Delete Account.</li>
         <li>We may ask you to verify your identity before we act on the request, to protect your account.</li>
       </ul>
