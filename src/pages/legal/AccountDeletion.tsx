@@ -77,7 +77,10 @@ export default function AccountDeletion() {
     try {
       const res = await fetch(`${API}/request`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify({
           firstName: firstName.trim(),
           lastName: lastName.trim(),
@@ -112,12 +115,17 @@ export default function AccountDeletion() {
     try {
       const res = await fetch(`${API}/confirm`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify({ email: email.trim(), otp: otp.trim() }),
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok && data?.success) {
-        setDoneMsg(data.message || "Your account has been permanently deleted.");
+        setDoneMsg(
+          data.message || "Your account has been permanently deleted.",
+        );
         setStep("done");
       } else {
         setError(data?.message || "Invalid or expired code.");
@@ -129,7 +137,8 @@ export default function AccountDeletion() {
     }
   };
 
-  const owner = "RendBit app is owned and operated by Hireskill Global Services";
+  const owner =
+    "RendBit app is owned and operated by Hireskill Global Services";
 
   if (step === "done") {
     return (
@@ -138,8 +147,8 @@ export default function AccountDeletion() {
         <p>{doneMsg}</p>
         <p>
           If you have funds you did not withdraw, contact{" "}
-          <a href="mailto:support@rendbit.com">support@rendbit.com</a> to retrieve
-          them.
+          <a href="mailto:support@rendbit.com">support@rendbit.com</a> to
+          retrieve them.
         </p>
       </LegalLayout>
     );
@@ -152,27 +161,52 @@ export default function AccountDeletion() {
           We emailed a 6-digit code to <strong>{email.trim()}</strong>. Enter it
           below to permanently delete your account and data.
         </p>
-        <form onSubmit={submitCode} style={{ marginTop: 20, display: "grid", gap: 16, maxWidth: 320 }}>
+        <form
+          onSubmit={submitCode}
+          style={{ marginTop: 20, display: "grid", gap: 16, maxWidth: 320 }}
+        >
           <div>
-            <label style={labelStyle} htmlFor="otp">Confirmation code</label>
+            <label style={labelStyle} htmlFor="otp">
+              Confirmation code
+            </label>
             <input
               id="otp"
               style={{ ...inputStyle, letterSpacing: 4, fontSize: 18 }}
               value={otp}
-              onChange={(e) => setOtp(e.target.value.replace(/\D/g, "").slice(0, 6))}
+              onChange={(e) =>
+                setOtp(e.target.value.replace(/\D/g, "").slice(0, 6))
+              }
               inputMode="numeric"
               autoComplete="one-time-code"
               placeholder="000000"
             />
           </div>
-          {error && <p style={{ color: "#e5484d", fontSize: 13, margin: 0 }}>{error}</p>}
-          <button type="submit" disabled={busy} style={{ ...buttonStyle, background: "#e5484d" }}>
+          {error && (
+            <p style={{ color: "#e5484d", fontSize: 13, margin: 0 }}>{error}</p>
+          )}
+          <button
+            type="submit"
+            disabled={busy}
+            style={{ ...buttonStyle, background: "#e5484d" }}
+          >
             {busy ? "Deleting…" : "Delete My Account"}
           </button>
           <button
             type="button"
-            onClick={() => { setStep("form"); setOtp(""); setError(null); }}
-            style={{ background: "none", border: "none", color: muted, cursor: "pointer", fontSize: 13, width: "fit-content", padding: 0 }}
+            onClick={() => {
+              setStep("form");
+              setOtp("");
+              setError(null);
+            }}
+            style={{
+              background: "none",
+              border: "none",
+              color: muted,
+              cursor: "pointer",
+              fontSize: 13,
+              width: "fit-content",
+              padding: 0,
+            }}
           >
             ← Use a different email
           </button>
@@ -181,51 +215,86 @@ export default function AccountDeletion() {
     );
   }
 
-  return (
+  return 
     <LegalLayout title="Delete Your Account" owner={owner}>
       <p>
-        Fill in the form below to delete your RendBit account. We’ll email a
-        confirmation code to your account email once you enter it, your account
-        and your data are permanently deleted.
+        By submitting this form, your RendBit account and all data will be
+        permanently deleted.
       </p>
 
-      <form onSubmit={submitDetails} style={{ marginTop: 20, display: "grid", gap: 16 }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 16 }}>
+      <form
+        onSubmit={submitDetails}
+        style={{ marginTop: 20, display: "grid", gap: 16 }}
+      >
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+            gap: 16,
+          }}
+        >
           <div>
-            <label style={labelStyle} htmlFor="firstName">First name</label>
-            <input id="firstName" style={inputStyle} value={firstName}
-              onChange={(e) => setFirstName(e.target.value)} autoComplete="given-name" />
+            <label style={labelStyle} htmlFor="firstName">
+              First name
+            </label>
+            <input
+              id="firstName"
+              style={inputStyle}
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              autoComplete="given-name"
+            />
           </div>
           <div>
-            <label style={labelStyle} htmlFor="lastName">Last name</label>
-            <input id="lastName" style={inputStyle} value={lastName}
-              onChange={(e) => setLastName(e.target.value)} autoComplete="family-name" />
+            <label style={labelStyle} htmlFor="lastName">
+              Last name
+            </label>
+            <input
+              id="lastName"
+              style={inputStyle}
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              autoComplete="family-name"
+            />
           </div>
         </div>
 
         <div>
-          <label style={labelStyle} htmlFor="email">Account email</label>
-          <input id="email" type="email" style={inputStyle} value={email}
-            onChange={(e) => setEmail(e.target.value)} autoComplete="email"
-            placeholder="you@example.com" />
+          <label style={labelStyle} htmlFor="email">
+            Account email
+          </label>
+          <input
+            id="email"
+            type="email"
+            style={inputStyle}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            autoComplete="email"
+            placeholder="you@example.com"
+          />
         </div>
 
         <div>
-          <label style={labelStyle} htmlFor="reason">Reason to delete account (optional)</label>
-          <textarea id="reason" rows={3} style={{ ...inputStyle, resize: "vertical" }}
-            value={reason} onChange={(e) => setReason(e.target.value)} />
+          <label style={labelStyle} htmlFor="reason">
+            Reason to delete account (optional)
+          </label>
+          <textarea
+            id="reason"
+            rows={3}
+            style={{ ...inputStyle, resize: "vertical" }}
+            value={reason}
+            onChange={(e) => setReason(e.target.value)}
+          />
         </div>
 
-        {error && <p style={{ color: "#e5484d", fontSize: 13, margin: 0 }}>{error}</p>}
+        {error && (
+          <p style={{ color: "#e5484d", fontSize: 13, margin: 0 }}>{error}</p>
+        )}
 
         <button type="submit" disabled={busy} style={buttonStyle}>
           {busy ? "Sending code…" : "Continue"}
         </button>
       </form>
-
-      <p style={{ marginTop: 22 }}>
-        Prefer email? Write to <a href="mailto:support@rendbit.com">support@rendbit.com</a> from your account email.
-      </p>
     </LegalLayout>
-  );
+  ;
 }
