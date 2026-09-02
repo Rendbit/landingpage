@@ -215,7 +215,7 @@ export default function AccountDeletion() {
     );
   }
 
-  return 
+  return (
     <LegalLayout title="Delete Your Account" owner={owner}>
       <p>
         By submitting this form, your RendBit account and all data will be
@@ -295,6 +295,12 @@ export default function AccountDeletion() {
           {busy ? "Sending code…" : "Continue"}
         </button>
       </form>
+
+      {/* <p style={{ marginTop: 22 }}>
+        Prefer email? Write to{" "}
+        <a href="mailto:support@rendbit.com">support@rendbit.com</a> from your
+        account email.
+      </p> */}
     </LegalLayout>
-  ;
+  );
 }
