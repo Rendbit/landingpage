@@ -1,6 +1,7 @@
 import { LinkedinIcon } from "lucide-react";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { useSiteFlag } from "../../hooks/useSiteFlags";
 import { RiTelegramFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
@@ -45,6 +46,7 @@ const socialLinks = [
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
+  const showHireskill = useSiteFlag("hireskillAttribution");
 
   return (
     <footer
@@ -148,7 +150,7 @@ const Footer: React.FC = () => {
             className="text-[12px] md:text-sm text-center sm:text-left"
             style={{ color: "rgba(255,255,255,0.4)" }}
           >
-            &copy; {new Date().getFullYear()} HIRESKILL GLOBAL SERVICES &middot; RendBit&trade; — {t("footer.rights")}
+            &copy; {new Date().getFullYear()} {showHireskill && <>HIRESKILL GLOBAL SERVICES &middot; </>}RendBit&trade; — {t("footer.rights")}
           </p>
 
           {/* Socials */}

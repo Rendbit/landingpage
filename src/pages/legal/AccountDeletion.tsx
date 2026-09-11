@@ -3,10 +3,10 @@ import type { CSSProperties, FormEvent } from "react";
 import { useTheme } from "../../context/ThemeContext";
 import LegalLayout from "./LegalLayout";
 
-// Public, OTP-gated deletion endpoints on the main backend (no API key needed).
-const API =
-  (import.meta.env.VITE_API_URL || "https://finance.rendbit.com") +
-  "/api/public/account-deletion";
+// Public, OTP-gated deletion endpoints on the crossborderpayment backend, which
+// nginx serves at finance.rendbit.com/api (→ the Node backend on :8005).
+// NOTE: this is NOT VITE_API_URL — that points at the separate waitlist service.
+const API = "https://finance.rendbit.com/api/public/account-deletion";
 
 export default function AccountDeletion() {
   const { isDark } = useTheme();
